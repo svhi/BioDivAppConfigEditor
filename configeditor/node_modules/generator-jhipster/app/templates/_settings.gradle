@@ -1,1 +1,0 @@
-rootProject.name = '<%= _.slugify(baseName) %>'
