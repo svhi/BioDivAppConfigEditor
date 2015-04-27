@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="configeditor:war">
-    <output-path>$PROJECT_DIR$/configeditor/target</output-path>
-    <root id="archive" name="configeditor-0.0.1-SNAPSHOT.war">
-      <element id="artifact" artifact-name="configeditor:war exploded" />
-    </root>
-  </artifact>
-</component>
