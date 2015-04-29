@@ -1,0 +1,5 @@
+This file provides information about where images came from.
+
+image           source
+------------------------------------------------------------------------------------------------------------------------
+tree1.png       https://openclipart.org/detail/217197/a-simple-tree

@@ -1,6 +1,7 @@
 {
   "name": "configeditor",
   "version": "0.0.0",
+  "main": "assets/styles/main.css",
   "appPath": "src/main/webapp",
   "testPath": "src/test/javascript/spec",
   "dependencies": {
@@ -19,7 +20,6 @@
     "angular-translate-loader-partial": "2.6.0",
     "angular-dynamic-locale": "0.1.24",
     "angular-local-storage": "0.1.5",
-    "swagger-ui": "2.0.24",
     "angular-cache-buster": "0.4.3",
     "ngInfiniteScroll": "1.2.0"
   },

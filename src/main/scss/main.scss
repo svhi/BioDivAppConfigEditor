@@ -1,13 +1,27 @@
 $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
+$background-color: rgba(170, 223, 58, 0.44);
+$navi-color: rgba(170, 223, 58, 0.76);
+$color_1: rgb(128, 255, 0);
+$color_2: rgb(160, 213, 54);
+$color_3: rgb(255, 255, 0);
+$color_4: rgb(170, 170, 85);
+$color_5: rgb(10, 15, 5);
 
 // bower:scss
 @import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
 body {
-  background: #fafafa;
+  background: $background-color;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
+  color: $color_5;
+
+  > .container, > .development{
+    padding-top: 60px;
+  }
+}
+.content{
+  background: #FFFFFF;
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -21,7 +35,7 @@ body {
   top: 0;
   left: 0;
   border: 0;
-  z-index: 1000;
+  z-index: 1040;
   background-image: url("../images/development_ribbon.png");
   background-position: center center;
   background-repeat: no-repeat;
@@ -61,11 +75,11 @@ body {
   background-color: red;
 }
 
-.hipster {
+.biodiv {
   display: inline-block;
   width: 347px;
   height: 497px;
-  background: url("../images/hipster.png") no-repeat center top;
+  background: url("../images/tree1.png") no-repeat center top;
   background-size: contain;
 }
 
@@ -111,3 +125,22 @@ ul#strength {
   width:20px;
 }
 /* end Password strength bar style */
+
+/*start Sticky footer styles */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+/*end Sticky footer styles */

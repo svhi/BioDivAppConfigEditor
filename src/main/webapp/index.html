@@ -1,8 +1,39 @@
 <!doctype html>
 <html class="no-js">
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <base href="/">
+
     <title>BioDivApp Confieditor</title>
+
+    <!-- bower:css -->
+    <!-- endbower -->
     <link rel="stylesheet" href="assets/styles/main.css">
+
+</head>
+
+<body ng-app="configeditorApp">
+
+    <!--[if lt IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak=""></div>
+
+    <div ui-view="navbar" ng-cloak=""></div>
+
+    <div class="container">
+        <div class="well content" ui-view="content"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">Place sticky footer content here.</p>
+        </div>
+    </footer>
+    <!-- bower:js -->
     <script src="bower_components/modernizr/modernizr.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
@@ -19,35 +50,28 @@
     <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
     <script src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
     <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+    <!-- endbower -->
 
+    <!--custom javascript files -->
     <script src="scripts/app/app.js"></script>
     <script src="scripts/app/app.constants.js"></script>
-    <script src="scripts/hello.js"></script>
-</head>
 
-<body ng-app="configeditorApp">
 
-    <!--[if lt IE 9]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-    <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak=""></div>
-    <div ui-view="navbar" ng-cloak=""></div>
-    <div class="container">
-        <div class="well" ui-view="content">
+    <script src="scripts/components/navbar/navbar.directive.js"></script>
+    <script src="scripts/components/navbar/navbar.controller.js"></script>
 
-            <div ng-controller="HelloController">
-                <h1>Hello</h1>
-                <p>The ID is {{greeting.id}}</p>
-                <p>The content is {{greeting.content}}</p>
-            </div>
+    <script src="scripts/app/main/main.js"></script>
+    <script src="scripts/app/main/main.controller.js"></script>
 
-        </div>
+    <script src="scripts/app/greeting/greeting.js"></script>
+    <script src="scripts/app/greeting/greeting.controller.js"></script>
 
-        <div class="footer">
-            <p translate="footer">This is your footer</p>
-        </div>
-    </div>
-
+    <script src="scripts/app/account/account.js"></script>
+    <script src="scripts/app/account/login/login.js"></script>
+    <script src="scripts/app/account/login/login.controller.js"></script>
+    <script src="scripts/app/account/logout/logout.js"></script>
+    <script src="scripts/app/account/logout/logout.controller.js"></script>
+    <!-- end custom javascript files -->
 
 </body>
 </html>

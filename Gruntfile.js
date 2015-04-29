@@ -60,7 +60,10 @@ module.exports = function (grunt) {
         },
         wiredep: {
             app: {
-                src: ['src/main/webapp/index.html', 'src/main/scss/main.scss'],
+                src: [
+                    'src/main/webapp/*.html',
+                    'src/main/scss/main.scss'
+                ],
                 exclude: [
                     /angular-i18n/, // localizations are loaded dynamically
                     /swagger-ui/,
