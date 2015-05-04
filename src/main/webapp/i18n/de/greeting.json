@@ -1,0 +1,7 @@
+{
+  "greeting": {
+    "headline": "Hallo",
+    "theIdIs": "Die ID ist ",
+    "theContentIs": "Der Inhalt ist "
+  }
+}

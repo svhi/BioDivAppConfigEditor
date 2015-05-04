@@ -1,5 +1,6 @@
 This file provides information about where images came from.
 
-image           source
+image                               source
 ------------------------------------------------------------------------------------------------------------------------
-tree1.png       https://openclipart.org/detail/217197/a-simple-tree
+tree1.png                           https://openclipart.org/detail/217197/a-simple-tree
+gras-in-nebel-und-morgentau.jpg     http://www.fotocommunity.de/pc/pc/display/28907166

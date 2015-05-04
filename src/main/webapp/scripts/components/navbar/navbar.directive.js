@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('configeditorApp')
-    .directive('activeMenu', function($locale) {
+    .directive('activeMenu', function($translate, $locale, tmhDynamicLocale) {
         return {
             restrict: 'A',
             link: function (scope, element, attrs) {
@@ -19,7 +19,7 @@ angular.module('configeditorApp')
             }
         };
     })
-    .directive('activeLink', function(location) {
+    .directive('activeLink', function($location) {
         return {
             restrict: 'A',
             link: function (scope, element, attrs) {
@@ -27,7 +27,7 @@ angular.module('configeditorApp')
                 var path = attrs.href;
                 path = path.substring(1); //hack because path does bot return including hashbang
                 debugger;
-                scope.location = location;
+                scope.location = $location;
                 scope.$watch('location.path()', function(newPath) {
                     if (path === newPath) {
                         element.addClass(clazz);

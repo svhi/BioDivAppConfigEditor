@@ -1,14 +1,20 @@
 'use strict';
 
-angular.module('configeditorApp',['LocalStorageModule','ui.router'])
+angular.module('configeditorApp',['LocalStorageModule', 'tmh.dynamicLocale',
+    'ngResource', 'ui.router', 'ngCookies', 'pascalprecht.translate', 'ngCacheBuster', 'infinite-scroll'])
 
-    .run(function ($rootScope, $location, $window, $http, ENV, VERSION) {
+    .run(function ($rootScope, $location, $window, $http, $state, $translate, Language, ENV, VERSION) {
         $rootScope.ENV = ENV;
         $rootScope.VERSION = VERSION;
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
             $rootScope.toState = toState;
             $rootScope.toStateParams = toStateParams;
+
+            // Update the language
+            Language.getCurrent().then(function (language) {
+                $translate.use(language);
+            });
         });
 
         $rootScope.$on('$stateChangeSuccess',  function(event, toState, toParams, fromState, fromParams) {
@@ -21,7 +27,10 @@ angular.module('configeditorApp',['LocalStorageModule','ui.router'])
             if (toState.data.pageTitle) {
                 titleKey = toState.data.pageTitle;
             }
-
+            $translate(titleKey).then(function (title) {
+                // Change window title with translated one
+                $window.document.title = title;
+            });
         });
 
         $rootScope.back = function() {
@@ -34,3 +43,16 @@ angular.module('configeditorApp',['LocalStorageModule','ui.router'])
         };
     })
 
+    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $translateProvider, tmhDynamicLocaleProvider) {
+
+        // Initialize angular-translate
+        $translateProvider.useLoader('$translatePartialLoader', {
+            urlTemplate: 'i18n/{lang}/{part}.json'
+        });
+
+        $translateProvider.preferredLanguage('en');
+        $translateProvider.useCookieStorage();
+
+        tmhDynamicLocaleProvider.localeLocationPattern('bower_components/angular-i18n/angular-locale_{{locale}}.js');
+        tmhDynamicLocaleProvider.useCookieStorage('NG_TRANSLATE_LANG_KEY');
+    });

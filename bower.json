@@ -1,6 +1,6 @@
 {
   "name": "configeditor",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "assets/styles/main.css",
   "appPath": "src/main/webapp",
   "testPath": "src/test/javascript/spec",

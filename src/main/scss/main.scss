@@ -1,11 +1,15 @@
 $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
-$background-color: rgba(170, 223, 58, 0.44);
-$navi-color: rgba(170, 223, 58, 0.76);
-$color_1: rgb(128, 255, 0);
-$color_2: rgb(160, 213, 54);
-$color_3: rgb(255, 255, 0);
-$color_4: rgb(170, 170, 85);
-$color_5: rgb(10, 15, 5);
+
+$color_1: rgb(255, 255, 255); // white
+$color_2: rgb(234, 245, 237);
+$color_3: rgb(193, 215, 170);
+$color_4: rgb(163, 189, 105); // basecolor
+$color_5: rgb(111, 138, 9); // selected
+$color_6: rgb(0, 0, 0); // black
+
+$background-color: rgb(241, 252, 244);
+$navi-background: rgb(117, 133, 113);
+$navi-color: rgb(110, 125, 97);
 
 // bower:scss
 @import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
@@ -14,33 +18,47 @@ $color_5: rgb(10, 15, 5);
 body {
   background: $background-color;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: $color_5;
+  color: $color_6;
 
-  > .container, > .development{
+  background: url("../images/gras-in-nebel-und-morgentau.jpg") no-repeat center bottom;
+  background-size: 100%;
+  background-color: $background-color;
+
+  > .container,{
     padding-top: 60px;
   }
 }
 .content{
   background: #FFFFFF;
+  min-height: 100%;
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
 
+
 .development {
   position: absolute;
-  width: 149px;
-  height: 149px;
   top: 0;
   left: 0;
   border: 0;
+  > .container {
+    background-image: url("../images/development_ribbon.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 149px;
+    height: 149px;
+    padding-top: 0px;
+  }
   z-index: 1040;
-  background-image: url("../images/development_ribbon.png");
-  background-position: center center;
-  background-repeat: no-repeat;
 }
 
+/*
+.navbar{
+  background: $navi-background;
+  color: $navi-color;
+}*/
 .navbar-version {
   font-size: 10px;
   color: #ccc
@@ -75,13 +93,7 @@ body {
   background-color: red;
 }
 
-.biodiv {
-  display: inline-block;
-  width: 347px;
-  height: 390px;
-  background: url("../images/tree1.png") no-repeat center top;
-  background-size: contain;
-}
+
 
 /* wait autoprefixer update to allow simple generation of high pixel density media query */
 @media
@@ -91,10 +103,13 @@ only screen and (     -o-min-device-pixel-ratio: 2/1),
 only screen and (        min-device-pixel-ratio: 2),
 only screen and (                min-resolution: 192dpi),
 only screen and (                min-resolution: 2dppx) {
-  .hipster {
-    background: url("../images/hipster2x.png") no-repeat center top;
-    background-size: contain;
-  }
+  .biodiv {
+  display: inline-block;
+  width: 347px;
+  height: 390px;
+  background: url("../images/tree1.png") no-repeat center top;
+  background-size: contain;
+}
 }
 
 /* make sure browsers use the pointer cursor for anchors, even with no href */
