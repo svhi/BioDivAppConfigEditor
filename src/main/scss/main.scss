@@ -1,5 +1,9 @@
 $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
+// bower:scss
+@import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
 $color_1: rgb(255, 255, 255); // white
 $color_2: rgb(234, 245, 237);
 $color_3: rgb(193, 215, 170);
@@ -11,9 +15,6 @@ $background-color: rgb(241, 252, 244);
 $navi-background: rgb(117, 133, 113);
 $navi-color: rgb(110, 125, 97);
 
-// bower:scss
-@import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-// endbower
 
 body {
   background: $background-color;
@@ -37,7 +38,6 @@ body {
   display: none !important;
 }
 
-
 .development {
   position: absolute;
   top: 0;
@@ -59,109 +59,132 @@ body {
   background: $navi-background;
   color: $navi-color;
 }*/
-.navbar-version {
-  font-size: 10px;
-  color: #ccc
+  .navbar-version {
+    font-size: 10px;
+    color: #ccc
+  }
+  .navbar-default .navbar-nav > .active > a,
+  .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus,
+  #navbar-collapse > ul > li > ul > .active > a{
+    color: rgb(164, 192, 107);
+    background-color: rgba(0, 0, 0, 0);
+  }
+  #navbar-collapse > ul > li {
+    > a,
+    > ul > li > a {
+        text-align: right;
+    }
+    > ul {
+      padding-right: 15px;
+    }
+  }
+
+#navbar-collapse > ul > li.dropdown > ul > li > a > span.check{
+  display: none;
 }
-
-.browserupgrade {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 300px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  background-color: #eee;
-  border-radius: 6px;
-  padding: 60px;
-}
-
-.hero-unit h1 {
-  font-size: 60px;
-  line-height: 1;
-  letter-spacing: -1px;
-}
-
-.error {
-  color: white;
-  background-color: red;
-}
-
-
-
-/* wait autoprefixer update to allow simple generation of high pixel density media query */
-@media
-only screen and (-webkit-min-device-pixel-ratio: 2),
-only screen and (   min--moz-device-pixel-ratio: 2),
-only screen and (     -o-min-device-pixel-ratio: 2/1),
-only screen and (        min-device-pixel-ratio: 2),
-only screen and (                min-resolution: 192dpi),
-only screen and (                min-resolution: 2dppx) {
-  .biodiv {
+#navbar-collapse > ul > li.dropdown > ul > li.active > a > span.check{
   display: inline-block;
-  width: 347px;
-  height: 390px;
-  background: url("../images/tree1.png") no-repeat center top;
-  background-size: contain;
-}
 }
 
-/* make sure browsers use the pointer cursor for anchors, even with no href */
-a:hover {
-  cursor: pointer;
-}
+  .browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+  }
+
+  .hero-unit {
+    margin: 50px auto 0 auto;
+    width: 300px;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+    background-color: #eee;
+    border-radius: 6px;
+    padding: 60px;
+  }
+
+  .hero-unit h1 {
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .error {
+    color: white;
+    background-color: red;
+  }
 
 
-/* start Password strength bar style */
-ul#strength {
-  display:inline;
-  list-style:none;
-  margin:0;
-  margin-left:15px;
-  padding:0;
-  vertical-align:2px;
-}
 
-.point:last {
-  margin:0 !important;
-}
-.point {
-  background:#DDD;
-  border-radius:2px;
-  display:inline-block;
-  height:5px;
-  margin-right:1px;
-  width:20px;
-}
-/* end Password strength bar style */
+  /* wait autoprefixer update to allow simple generation of high pixel density media query */
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+    .biodiv {
+      display: inline-block;
+      width: 347px;
+      height: 390px;
+      background: url("../images/tree1.png") no-repeat center top;
+      background-size: contain;
+    }
+  }
 
-/*start Sticky footer styles */
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #f5f5f5;
-}
+  /* make sure browsers use the pointer cursor for anchors, even with no href */
+  a:hover {
+    cursor: pointer;
+  }
 
-/* Custom page CSS -  Not required for template or sticky footer method. */
-.container .text-muted {
-  margin: 20px 0;
-}
+
+  /* start Password strength bar style */
+  ul#strength {
+    display:inline;
+    list-style:none;
+    margin:0;
+    margin-left:15px;
+    padding:0;
+    vertical-align:2px;
+  }
+
+  .point:last {
+    margin:0 !important;
+  }
+  .point {
+    background:#DDD;
+    border-radius:2px;
+    display:inline-block;
+    height:5px;
+    margin-right:1px;
+    width:20px;
+  }
+  /* end Password strength bar style */
+
+  /*start Sticky footer styles */
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+  }
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+  }
+
+  /* Custom page CSS -  Not required for template or sticky footer method. */
+  .container .text-muted {
+    margin: 20px 0;
+  }
 
 /*end Sticky footer styles */
+

@@ -7,10 +7,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#/"><span translate="global.title">BioDivApp Configurator</span> <span class="navbar-version"> {{VERSION}} </span></a>
+            <a class="navbar-brand" href="#/"><span translate="global.title">BioDivApp Configurator</span> <span class="navbar-version hidden-xs"> {{VERSION}} </span></a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse" ng-switch="isAuthenticated()">
-            <ul class="nav navbar-nav nav-pills navbar-right">
+            <ul class="nav navbar-nav navbar-right">
                 <li ui-sref-active="active">
                     <a ui-sref="home">
                         <span class="glyphicon glyphicon-home"></span>
@@ -36,12 +36,18 @@
                                 </span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li ui-sref-active="active" ng-switch-when="true"><a href="" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>
-                            &#xA0;<span translate="global.menu.account.logout">Log out</span></a></li>
+                        <li ui-sref-active="active" ng-switch-when="true">
+                            <a href="" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>
+                            &#xA0;<span translate="global.menu.account.logout">Log out</span>
+                        </a>
+                        </li>
                         <!---<li ui-sref-active="active" ng-switch-when="false"><a ui-sref="login"><span class="glyphicon glyphicon-log-in"></span>
                             &#xA0;<span translate="global.menu.account.login">Log in</span></a></li>-->
-                        <li ui-sref-active="active" ng-switch-when="false"><a ng-click="login()"><span class="glyphicon glyphicon-log-in"></span>
-                            &#xA0;<span translate="global.menu.account.login">Log in</span></a></li>
+                        <li ui-sref-active="active" ng-switch-when="false">
+                            <a ng-click="login()"><span class="glyphicon glyphicon-log-in"></span>
+                            &#xA0;<span translate="global.menu.account.login">Log in</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
@@ -55,7 +61,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li active-menu="{{language}}" ng-repeat="language in languages">
-                            <a href="" ng-click="changeLanguage(language)">{{'language.' + language| translate}}</a>
+                            <a href="" ng-click="changeLanguage(language)"><span class="check glyphicon glyphicon-ok"></span> {{'language.' + language| translate}}</a>
                         </li>
                     </ul>
                 </li>
