@@ -79,11 +79,9 @@ body {
     }
   }
 
-#navbar-collapse > ul > li.dropdown > ul > li > a > span.check{
-  display: none;
-}
 #navbar-collapse > ul > li.dropdown > ul > li.active > a > span.check{
-  display: inline-block;
+  @extend .glyphicon;
+  @extend .glyphicon-ok;
 }
 
   .browserupgrade {

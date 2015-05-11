@@ -18,7 +18,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<prerequisites>
+	<prerequisites><!-- -->
 		<maven>3.0.0</maven>
 	</prerequisites>
 
@@ -34,7 +34,7 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<dependency>
+		<dependency> <!-- https://spring.io/guides/gs/rest-service-cors/ -->
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>2.3.1</version>
@@ -72,6 +72,15 @@
 		</plugins>
 	</build>
 
+	<!--
+	Profile configuration from JHipster
+	 - dev
+	 - prod
+
+	 yeoman-maven-plugin is used to triger frontend build
+	 requirements: grunt has to be installed
+
+	-->
 	<profiles>
 		<profile>
 			<id>dev</id>
@@ -86,6 +95,7 @@
 			<build>
 				<plugins>
 					<plugin>
+						<!-- https://github.com/trecloux/yeoman-maven-plugin -->
 						<groupId>com.github.trecloux</groupId>
 						<artifactId>yeoman-maven-plugin</artifactId>
 						<version>0.4</version>
@@ -122,6 +132,7 @@
 			<build>
 				<plugins>
 					<plugin>
+						<!-- https://github.com/trecloux/yeoman-maven-plugin -->
 						<groupId>com.github.trecloux</groupId>
 						<artifactId>yeoman-maven-plugin</artifactId>
 						<version>0.4</version>

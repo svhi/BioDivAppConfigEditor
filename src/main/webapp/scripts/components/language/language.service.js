@@ -28,7 +28,6 @@ angular.module('configeditorApp')
  */
     .constant('LANGUAGES', [
         'en', 'de'
-        //JHipster will add new languages here
     ]
 );
 
