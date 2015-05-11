@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<configuration
+        xmlns="edu.hsb.biodivapp"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="edu.hsb.biodivapp http://atlas.winkler-biologie.de/rest/schemes/configuration.xsd">
+    <!--xsi:schemaLocation="edu.hsb.biodivapp /edu/hsb/biodivapp/configuration/configuration.xsd">-->
+
+    <defaultLanguage>de</defaultLanguage>
+    <!--
+    <map>
+         <option1>...</option1>
+        <option2>...</option2>
+    </map>  -->
+
+    <singleSubmit>
+        <entryGroup>
+            <labels>
+                <label lang="de">Allgemein</label>
+                <label lang="en">General</label>
+            </labels>
+
+            <entry restid="sampling.sourcetypeid">
+                <labels>
+                    <label lang="de">Art der Quelle</label>
+                    <label lang="en">Sourcetype</label>
+                </labels>
+                <viewport>
+                    <spinner>
+                        <datasource type="rest">
+                            <orderby>asc</orderby>
+                            <options>
+                                <uri>/rest/sourcetypes</uri>
+                            </options>
+                        </datasource>
+                    </spinner>
+                </viewport>
+            </entry>
+
+            <entry restid="sampling.recordqualityid">
+                <labels>
+                    <label lang="de">Qualität des Fundes</label>
+                    <label lang="en">Recordquality</label>
+                </labels>
+                <viewport>
+                    <spinner>
+                        <datasource type="rest">
+                            <orderby>asc</orderby>
+                            <options>
+                                <uri>/rest/recordqualities</uri>
+                            </options>
+                        </datasource>
+                    </spinner>
+                </viewport>
+            </entry>
+
+            <entry restid="sampling.location.countryid">
+                <labels>
+                    <label lang="de">Land</label>
+                    <label lang="en">Country</label>
+                </labels>
+                <viewport>
+                    <spinner>
+                        <datasource type="rest">
+                            <orderby>asc</orderby>
+                            <options>
+                                <uri>/rest/countries</uri>
+                            </options>
+                            <defaults>
+                                <default>DE</default>
+                            </defaults>
+                        </datasource>
+                    </spinner>
+                </viewport>
+            </entry>
+
+            <entry restid="sampling.comment">
+                <mandatory>false</mandatory>
+                <labels>
+                    <label lang="de">Kommentar</label>
+                    <label lang="en">Comment</label>
+                </labels>
+                <viewport>
+                    <textfield/>
+                </viewport>
+            </entry>
+
+            <entry restid="sampling.reference">
+                <labels>
+                    <label lang="de">Referenz</label>
+                    <label lang="en">Reference</label>
+                </labels>
+                <viewport>
+                    <textfield/>
+                </viewport>
+            </entry>
+        </entryGroup>
+
+        <entryGroup>
+            <labels>
+                <label lang="de">Fund-Informationen</label>
+                <label lang="en">Record Information</label>
+            </labels>
+
+            <entry restid="sampling.record.speciesid">
+                <labels>
+                    <label lang="de">Spezies</label>
+                    <label lang="en">Species</label>
+                </labels>
+                <viewport>
+                    <buttonmatrix>
+                        <numberOfButtons>10</numberOfButtons>
+                        <datasource type="rest">
+                            <orderby>asc</orderby>
+                            <options>
+                                <uri>/rest/species</uri>
+                            </options>
+                        </datasource>
+                    </buttonmatrix>
+                </viewport>
+            </entry>
+
+            <entry restid="sampling.record.additionalproperties.length">
+                <mandatory>false</mandatory>
+                <labels>
+                    <label lang="de">Totallänge in cm</label>
+                    <label lang="en">Total Length in cm</label>
+                </labels>
+                <viewport>
+                    <numerictextfield>
+                        <decimalplaces>2</decimalplaces>
+                        <min>0</min>
+                        <max>1000</max>
+                    </numerictextfield>
+                </viewport>
+            </entry>
+
+
+
+            <!--<entry restid="sampling.record.additionalproperties.sex">
+                <labels>
+                    <label lang="de">Geschlecht</label>
+                    <label lang="en">Sex</label>
+                </labels>
+                <viewport>
+                    <spinner>
+                        <datasource type="local">
+                            <orderby>none</orderby>
+                            <options>
+                                <option>
+                                    <key>unknown</key>
+                                    <labels>
+                                        <label lang="de">unbekannt</label>
+                                        <label lang="en">unkown</label>
+                                    </labels>
+                                </option>
+                                <option>
+                                    <key>male</key>
+                                    <labels>
+                                        <label lang="de">männlich</label>
+                                        <label lang="en">male</label>
+                                    </labels>
+                                </option>
+                                <option>
+                                    <key>female</key>
+                                    <labels>
+                                        <label lang="de">weiblich</label>
+                                        <label lang="en">female</label>
+                                    </labels>
+                                </option>
+                            </options>
+                            <defaults>
+                                <default>unknown</default>
+                            </defaults>
+                        </datasource>
+                    </spinner>
+                </viewport>
+            </entry>
+            -->
+
+            <entry restid="sampling.record.comment">
+                <mandatory>false</mandatory>
+                <labels>
+                    <label lang="de">Kommentar zum Fund</label>
+                    <label lang="en">Comment for Record</label>
+                </labels>
+                <viewport>
+                    <textfield/>
+                </viewport>
+            </entry>
+
+        </entryGroup>
+    </singleSubmit>
+</configuration>

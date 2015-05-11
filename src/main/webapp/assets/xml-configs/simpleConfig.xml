@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<configuration
+        xmlns="edu.hsb.biodivapp"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="edu.hsb.biodivapp /edu/hsb/biodivapp/configuration/configuration.xsd">
+    <defaultLanguage>de</defaultLanguage>
+    <!--
+    <location>
+         <option1></option1>
+        <option2>...</option2>
+    </location>
+    -->
+    <singleSubmit>
+        <entryGroup>
+            <labels>
+                <label lang="de">Allgemein I</label>
+                <label lang="en">General I</label>
+            </labels>
+            <entry restid="species">
+                <labels>
+                    <label lang="de">Spezies</label>
+                    <label lang="en">Species</label>
+                </labels>
+                <viewport>
+                    <spinner>
+                        <datasource type="rest">
+                            <orderby>asc</orderby>
+                            <options>
+                                <uri>/rest/species</uri>
+                            </options>
+                        </datasource>
+                    </spinner>
+                </viewport>
+            </entry>
+            <entry restid="color">
+                <labels>
+                    <label lang="de">Farbe</label>
+                    <label lang="en">Color</label>
+                </labels>
+                <viewport>
+                    <spinner>
+                        <datasource type="local">
+                            <orderby>none</orderby>
+                            <options>
+                                <option>
+                                    <key>blue</key>
+                                    <labels>
+                                        <label lang="de">blau</label>
+                                        <label lang="en_GB">blue</label>
+                                    </labels>
+                                </option>
+                                <option>
+                                    <key>red</key>
+                                    <labels>
+                                        <label lang="de">rot</label>
+                                        <label lang="en_GB">red</label>
+                                    </labels>
+                                </option>
+                                <option>
+                                    <key>yellow</key>
+                                    <labels>
+                                        <label lang="de">gelb</label>
+                                        <label lang="en_GB">yellow</label>
+                                    </labels>
+                                </option>
+                            </options>
+                            <defaults>
+                                  <default>blue</default>
+                            </defaults>
+                        </datasource>
+                    </spinner>
+                </viewport>
+            </entry>
+            <entry restid="length">
+                <labels>
+                    <label lang="de">Länge</label>
+                    <label lang="en">Length</label>
+                </labels>
+                <viewport>
+                    <textfield/>
+                </viewport>
+            </entry>
+        </entryGroup>
+        <entryGroup>
+            <labels>
+                <label lang="de">Allgemein II</label>
+                <label lang="en">General II</label>
+            </labels>
+            <entry restid="comment">
+                <mandatory>false</mandatory>
+                <labels>
+                    <label lang="de">Kommentar</label>
+                    <label lang="en">Comment</label>
+                </labels>
+                <viewport>
+                    <textfield/>
+                </viewport>
+            </entry>
+        </entryGroup>
+    </singleSubmit>
+
+    <multiSubmit>
+        <log>
+            <show>true</show>
+        </log>
+        <summerizeDataBy>sampling.record.speciesid</summerizeDataBy>
+        <entryGroup>
+            <labels>
+                <label lang="de">Mehrfach Daten</label>
+                <label lang="en">Multi Data</label>
+            </labels>
+            <entry restid="sampling.record.speciesid">
+                <labels>
+                    <label lang="de">Spezies</label>
+                    <label lang="en">Species</label>
+                </labels>
+                <viewport>
+                    <buttonmatrix>
+                        <numberOfButtons>9</numberOfButtons>
+                        <datasource type="rest">
+                            <orderby>asc</orderby>
+                            <options>
+                                <uri>/rest/species</uri>
+                            </options>
+                        </datasource>
+                    </buttonmatrix>
+                </viewport>
+            </entry>
+        </entryGroup>
+    </multiSubmit>
+
+</configuration>
