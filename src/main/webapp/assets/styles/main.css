@@ -8718,3 +8718,24 @@ body {
 }
 
 /*end Sticky footer styles */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/main\.scss}line{font-family:\00003189}}
+ul.atlas-list {
+  width: 100%;
+  max-width: 300px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/main\.scss}line{font-family:\00003192}}
+ul.atlas-list li {
+  width: 100%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/main\.scss}line{font-family:\00003194}}
+ul.atlas-list li div {
+  width: 100%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/main\.scss}line{font-family:\00003196}}
+ul.atlas-list li div button {
+  width: 80%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/main\.scss}line{font-family:\00003200}}
+ul.atlas-list li div a {
+  width: 20%;
+}

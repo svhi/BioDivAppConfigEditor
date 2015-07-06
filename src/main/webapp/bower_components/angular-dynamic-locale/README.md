@@ -40,7 +40,7 @@ If the locales are at another URL, this can be changed at
 
 
 It is possible to specify a storage location for the locale using
-`tmhDynamicLocaleProvider.useStorage(storageName)`, the name of the
+`tmhDynamicLocaleProvider.useStorage(storageName)`, the qName of the
 storage must follow the same signature as `$cookieStore`. The default
 storage location is to use a `$cache`, this default storage is not persistent.
 

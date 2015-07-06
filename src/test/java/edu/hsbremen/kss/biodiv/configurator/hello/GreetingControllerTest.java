@@ -22,6 +22,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
  * full application context using the Application class and @Autowired the HelloController into the test.
  * The MockMvc comes from Spring Test and allows you, via a set of convenient builder classes, to send HTTP requests
  * into the DispatcherServlet and make assertions about the result.
+ * http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = MockServletContext.class)

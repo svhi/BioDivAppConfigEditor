@@ -186,3 +186,20 @@ body {
 
 /*end Sticky footer styles */
 
+ul.atlas-list{
+  width: 100%;
+  max-width: 300px;
+  li {
+    width: 100%;
+    div {
+      width: 100%;
+      button {
+         width: 80%
+
+       }
+      a {
+        width: 20%
+      }
+    }
+  }
+}

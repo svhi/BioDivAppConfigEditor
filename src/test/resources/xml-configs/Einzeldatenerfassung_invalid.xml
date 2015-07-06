@@ -2,8 +2,7 @@
 
 <configuration
         xmlns="edu.hsb.biodivapp"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="edu.hsb.biodivapp http://atlas.winkler-biologie.de/rest/schemes/configuration.xsd">
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <!--xsi:schemaLocation="edu.hsb.biodivapp /edu/hsb/biodivapp/configuration/configuration.xsd">-->
 
     <defaultLanguage>de</defaultLanguage>
@@ -44,12 +43,7 @@
                 </labels>
                 <viewport>
                     <spinner>
-                        <datasource type="rest">
-                            <orderby>asc</orderby>
-                            <options>
-                                <uri>/rest/recordqualities</uri>
-                            </options>
-                        </datasource>
+
                     </spinner>
                 </viewport>
             </entry>
@@ -75,7 +69,7 @@
             </entry>
 
             <entry restid="sampling.comment">
-                <mandatory>false</mandatory>
+                <notMandatory>true</notMandatory>
                 <labels>
                     <label lang="de">Kommentar</label>
                     <label lang="en">Comment</label>
@@ -121,10 +115,9 @@
             </entry>
 
             <entry restid="sampling.record.additionalproperties.length">
-                <mandatory>false</mandatory>
                 <labels>
-                    <label lang="de">Totallänge in cm</label>
-                    <label lang="en">Total Length in cm</label>
+                    <label lang="de">Länge in cm</label>
+                    <label lang="en">Length in cm</label>
                 </labels>
                 <viewport>
                     <numerictextfield>
@@ -135,9 +128,22 @@
                 </viewport>
             </entry>
 
+            <entry restid="sampling.record.additionalproperties.standardlength">
+                <notMandatory>true</notMandatory>
+                <labels>
+                    <label lang="de">Standardlänge in cm</label>
+                    <label lang="en">Standard length in cm</label>
+                </labels>
+                <viewport>
+                    <numerictextfield>
+                        <decimalplaces>2</decimalplaces>
+                        <min>0</min>
+                        <max>1000</max>
+                    </numerictextfield>
+                </viewport>
+            </entry>
 
-
-            <!--<entry restid="sampling.record.additionalproperties.sex">
+            <entry restid="sampling.record.additionalproperties.sex">
                 <labels>
                     <label lang="de">Geschlecht</label>
                     <label lang="en">Sex</label>
@@ -176,10 +182,9 @@
                     </spinner>
                 </viewport>
             </entry>
-            -->
 
             <entry restid="sampling.record.comment">
-                <mandatory>false</mandatory>
+                <notMandatory>true</notMandatory>
                 <labels>
                     <label lang="de">Kommentar zum Fund</label>
                     <label lang="en">Comment for Record</label>

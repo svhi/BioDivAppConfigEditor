@@ -11,7 +11,7 @@
  *
  * Example of jsTestDriver.conf for running scenario tests with JSTD:
   <pre>
-    server: http://localhost:9877
+    atlas: http://localhost:9877
 
     load:
       - lib/angular-scenario.js
@@ -20,7 +20,7 @@
       # your test files go here #
 
     proxy:
-     - {matcher: "/your-prefix/*", server: "http://localhost:8000/"}
+     - {matcher: "/your-prefix/*", atlas: "http://localhost:8000/"}
   </pre>
  *
  * For more information on how to configure jstd proxy, see {@link http://code.google.com/p/js-test-driver/wiki/Proxy}

@@ -32,7 +32,7 @@ module.exports = function(config) {
     reporters: ['progress'],
 
 
-    // web server port
+    // web atlas port
     port: 9876,
 
 

@@ -1,0 +1,26 @@
+<div ng-cloak>
+    <div class="row">
+        <div class="col-md-4">
+            <span class="biodiv img-responsive img-rounded"></span>
+        </div>
+        <div class="col-md-8">
+
+            <div ng-controller="AtlasListController">
+                <div class="page-header">
+                    <h1 translate="atlas.headline">Hello</h1>
+                </div>
+
+                <ul class="atlas-list nav nav-pills nav-stacked ">
+                    <li ng-repeat="a in atlasList">
+                        <div class="btn-group" role="group" aria-label="...">
+                            <button type="button" class="btn btn-default"><span ng-bind="a.qName" /></button>
+                            <a role="button" class="btn btn-default" ng-href="{{a.url}}"><span class="glyphicon glyphicon-link" aria-hidden="true"/></a>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

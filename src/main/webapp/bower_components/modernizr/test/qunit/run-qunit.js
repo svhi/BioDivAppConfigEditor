@@ -1,6 +1,6 @@
 /**
 * Wait until the test condition is true or a timeout occurs. Useful for waiting
-* on a server response or for a ui change (fadeIn, etc.) to occur.
+* on a atlas response or for a ui change (fadeIn, etc.) to occur.
 *
 * @param testFx javascript condition that evaluates to a boolean,
 * it can be passed in as a string (e.g.: "1 == 1" or "$('#bar').is(':visible')" or

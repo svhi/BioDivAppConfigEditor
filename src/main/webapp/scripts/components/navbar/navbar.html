@@ -25,7 +25,33 @@
                     </a>
                 </li>
 
-                <li ng-class="{active: $state.includes('account')}" class="dropdown pointer">
+                <li ui-sref-active="active" ng-switch-when="true">
+                    <a ui-sref="xmlfile">
+                        <span class="glyphicon glyphicon-leaf"></span>
+                        <span translate="global.menu.xmlfile">XML</span>
+                    </a>
+                </li>
+
+                <li class="dropdown pointer">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                                <span>
+                                    <span class="glyphicon glyphicon-globe"></span>
+                                    <span class="hidden-tablet" translate="global.menu.atlas">
+                                        Atlas
+                                    </span>
+                                    <b class="caret"></b>
+                                </span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="a in atlasList" ng-class="{active: selectedAtlas!=null && selectedAtlas.id === a.id}">
+                            <a href="" ng-click="setSelectedAtlas(a)">
+                                <span ng-bind="a.qName" />
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li ng-class="{active: $state.includes('account')}" class="dropdown pointer" ng-show="selectedAtlas!=null && selectedAtlas.id !== 0">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="">
                                 <span>
                                     <span class="glyphicon glyphicon-user"></span>

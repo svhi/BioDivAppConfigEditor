@@ -225,7 +225,7 @@ You can check dependencies in the [Bootstrap JS documentation][jsdocs].
 The fonts are referenced as:
 
 ```scss
-"#{$icon-font-path}#{$icon-font-name}.eot"
+"#{$icon-font-path}#{$icon-font-qName}.eot"
 ```
 
 `$icon-font-path` defaults to `bootstrap/` if asset path helpers are used, and `../fonts/bootstrap/` otherwise.
@@ -288,7 +288,7 @@ Here's an example run that would pull down the master branch from the main [twbs
     rake convert
 
 This will convert the latest LESS to Sass and update to the latest JS.
-To convert a specific branch or version, pass the branch name or the commit hash as the first task argument:
+To convert a specific branch or version, pass the branch qName or the commit hash as the first task argument:
 
     rake convert[e8a1df5f060bf7e6631554648e0abde150aedbe4]
 

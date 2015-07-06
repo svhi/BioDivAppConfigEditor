@@ -1,4 +1,4 @@
-<a name="0.2.13"></a>
+<a qName="0.2.13"></a>
 ### 0.2.13 (2014-11-20)
 
 This release primarily fixes issues reported against 0.2.12
@@ -27,18 +27,18 @@ This release primarily fixes issues reported against 0.2.12
 * add json parameter Type ([027f1fcf](https://github.com/angular-ui/ui-router/commit/027f1fcf9c0916cea651e88981345da6f9ff214a))
 
 
-<a name="0.2.12"></a>
+<a qName="0.2.12"></a>
 ### 0.2.12 (2014-11-13)
 
 #### Bug Fixes
 
-* **$resolve:** use resolve fn result, not parent resolved value of same name ([67f5e00c](https://github.com/angular-ui/ui-router/commit/67f5e00cc9aa006ce3fe6cde9dff261c28eab70a), closes [#1317], [#1353])
+* **$resolve:** use resolve fn result, not parent resolved value of same qName ([67f5e00c](https://github.com/angular-ui/ui-router/commit/67f5e00cc9aa006ce3fe6cde9dff261c28eab70a), closes [#1317], [#1353])
 * **$state:**
   * populate default params in .transitionTo. ([3f60fbe6](https://github.com/angular-ui/ui-router/commit/3f60fbe6d65ebeca8d97952c05aa1d269f1b7ba1), closes [#1396])
   * reload() now reinvokes controllers ([73443420](https://github.com/angular-ui/ui-router/commit/7344342018847902594dc1fc62d30a5c30f01763), closes [#582])
   * do not emit $viewContentLoading if notify: false ([74255feb](https://github.com/angular-ui/ui-router/commit/74255febdf48ae082a02ca1e735165f2c369a463), closes [#1387](https://github.com/angular-ui/ui-router/issues/1387))
   * register states at config-time ([4533fe36](https://github.com/angular-ui/ui-router/commit/4533fe36e0ab2f0143edd854a4145deaa013915a))
-  * handle parent.name when parent is obj ([4533fe36](https://github.com/angular-ui/ui-router/commit/4533fe36e0ab2f0143edd854a4145deaa013915a))
+  * handle parent.qName when parent is obj ([4533fe36](https://github.com/angular-ui/ui-router/commit/4533fe36e0ab2f0143edd854a4145deaa013915a))
 * **$urlMatcherFactory:**
   * register types at config ([4533fe36](https://github.com/angular-ui/ui-router/commit/4533fe36e0ab2f0143edd854a4145deaa013915a), closes [#1476])
   * made path params default value "" for backwards compat ([8f998e71](https://github.com/angular-ui/ui-router/commit/8f998e71e43a0b31293331c981f5db0f0097b8ba))
@@ -82,7 +82,7 @@ This release includes a lot of bug fixes around default/optional and typed param
 
 
 
-<a name="0.2.11"></a>
+<a qName="0.2.11"></a>
 ### 0.2.11 (2014-08-26)
 
 
@@ -142,7 +142,7 @@ This release includes a lot of bug fixes around default/optional and typed param
   * validates whole interface ([32b27db1](https://github.com/angular-ui/ui-router/commit/32b27db173722e9194ef1d5c0ea7d93f25a98d11))
   * implement non-strict matching ([a3e21366](https://github.com/angular-ui/ui-router/commit/a3e21366bee0475c9795a1ec76f70eec41c5b4e3))
   * add per-param config support ([07b3029f](https://github.com/angular-ui/ui-router/commit/07b3029f4d409cf955780113df92e36401b47580))
-    * **BREAKING CHANGE**: the `params` option in state configurations must now be an object keyed by parameter name.
+    * **BREAKING CHANGE**: the `params` option in state configurations must now be an object keyed by parameter qName.
 
 ### 0.2.10 (2014-03-12)
 

@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.TestRestTemplate;
+import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -22,8 +23,9 @@ import org.springframework.web.client.RestTemplate;
  * As well as mocking the HTTP request cycle we can also use Spring Boot to write a very simple full-stack integration
  * test.
  *
- * The embedded server is started up on a random port by virtue of the @IntegrationTest("${server.port=0}") and the
- * actual port is discovered at runtime with the @Value("${local.server.port}").
+ * The embedded atlas is started up on a random port by virtue of the @IntegrationTest("${atlas.port=0}") and the
+ * actual port is discovered at runtime with the @Value("${local.atlas.port}").
+ * http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = BioDivAppConfigurationEditorApplication.class)

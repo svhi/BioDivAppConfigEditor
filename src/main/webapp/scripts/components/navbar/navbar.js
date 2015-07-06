@@ -70,6 +70,45 @@ angular.module('configeditorApp')
                     }]
                 }
             })
+            // xmlfile
+            .state('xmlfile', {
+                parent: 'site',
+                url: '/xmlfile',
+                data: {
+                    roles: []
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'scripts/app/xmlfile/xmlfile.html',
+                        controller: 'XmlFileController'
+                    }
+                },
+                resolve: {
+                    mainTranslatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
+                        $translatePartialLoader.addPart('greeting');//TODO:Translate
+                        return $translate.refresh();
+                    }]
+                }
+            })
+            .state('atlas', {
+                parent: 'site',
+                url: '/atlas/list',
+                data: {
+                    roles: []
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'scripts/app/atlas/atlasList.html',
+                        controller: 'AtlasListController'
+                    }
+                },
+                resolve: {
+                    mainTranslatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
+                        $translatePartialLoader.addPart('atlas');
+                        return $translate.refresh();
+                    }]
+                }
+            })
             // account
             .state('account', {
                 abstract: true,

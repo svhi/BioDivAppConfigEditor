@@ -1,28 +1,28 @@
-<td class='code'>{{name}}</td>
+<td class='code'>{{qName}}</td>
 <td>
 
 	{{#if isBody}}
 		{{#if isFile}}
-			<input type="file" name='{{name}}'/>
+			<input type="file" qName='{{qName}}'/>
 			<div class="parameter-content-type" />
 		{{else}}
 			{{#if defaultValue}}
-				<textarea class='body-textarea' name='{{name}}'>{{defaultValue}}</textarea>
+				<textarea class='body-textarea' qName='{{qName}}'>{{defaultValue}}</textarea>
 			{{else}}
-				<textarea class='body-textarea' name='{{name}}'></textarea>
+				<textarea class='body-textarea' qName='{{qName}}'></textarea>
 				<br />
 				<div class="parameter-content-type" />
 			{{/if}}
 		{{/if}}
 	{{else}}
 		{{#if isFile}}
-			<input type="file" name='{{name}}'/>
+			<input type="file" qName='{{qName}}'/>
 			<div class="parameter-content-type" />
 		{{else}}
 			{{#if defaultValue}}
-				<input class='parameter' minlength='0' name='{{name}}' placeholder='' type='text' value='{{defaultValue}}'/>
+				<input class='parameter' minlength='0' qName='{{qName}}' placeholder='' type='text' value='{{defaultValue}}'/>
 			{{else}}
-				<input class='parameter' minlength='0' name='{{name}}' placeholder='' type='text' value=''/>
+				<input class='parameter' minlength='0' qName='{{qName}}' placeholder='' type='text' value=''/>
 			{{/if}}
 		{{/if}}
 	{{/if}}

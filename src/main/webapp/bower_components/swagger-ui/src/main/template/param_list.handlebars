@@ -1,6 +1,6 @@
-<td class='code'>{{name}}</td>
+<td class='code'>{{qName}}</td>
 <td>
-  <select {{#isArray this}} multiple='multiple'{{/isArray}} class='parameter' name='{{name}}'>
+  <select {{#isArray this}} multiple='multiple'{{/isArray}} class='parameter' qName='{{qName}}'>
     {{#if required}}
     {{else}}
       {{#if defaultValue}}

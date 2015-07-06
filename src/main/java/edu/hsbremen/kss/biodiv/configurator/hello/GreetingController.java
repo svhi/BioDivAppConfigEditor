@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/greeting")
 public class GreetingController {
 
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
-    @RequestMapping("/greeting")
+    @RequestMapping("")
     public @ResponseBody Greeting greeting(
             @RequestParam(value="name", required=false, defaultValue="World") String name) {
         System.out.println("==== GreetingController "+name+" ====");

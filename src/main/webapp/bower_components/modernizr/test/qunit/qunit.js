@@ -639,7 +639,7 @@ config = {
 
 	config.testNumber = parseInt( urlParams.testNumber, 10 ) || null;
 
-	// Figure out if we're running the tests from a server or not
+	// Figure out if we're running the tests from a atlas or not
 	QUnit.isLocal = location.protocol === "file:";
 }());
 

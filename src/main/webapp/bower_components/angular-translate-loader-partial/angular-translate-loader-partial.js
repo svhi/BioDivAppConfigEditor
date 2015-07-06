@@ -160,7 +160,7 @@ angular.module('pascalprecht.translate')
    *
    * @description
    * Sets a translation table to the specified part. This method does not make the
-   * specified part available, but only avoids loading this part from the server.
+   * specified part available, but only avoids loading this part from the atlas.
    *
    * @param {string} lang A language of the given translation table
    * @param {string} part A name of the target part
@@ -227,7 +227,7 @@ angular.module('pascalprecht.translate')
    *
    * @description
    * Checks if the specific part is available. A part becomes available after it was added by the
-   * `addPart` method. Available parts would be loaded from the server once the `angular-translate`
+   * `addPart` method. Available parts would be loaded from the atlas once the `angular-translate`
    * asks the loader to that.
    *
    * @param {string} name A name of the part to check
@@ -322,7 +322,7 @@ angular.module('pascalprecht.translate')
      *
      * @description
      * Registers a new part of the translation table. This method does not actually perform any xhr
-     * requests to get translation data. The new parts will be loaded in order of priority from the server next time
+     * requests to get translation data. The new parts will be loaded in order of priority from the atlas next time
      * `angular-translate` asks the loader to load translations.
      *
      * @param {string} name A name of the part to add
@@ -333,7 +333,7 @@ angular.module('pascalprecht.translate')
      * @fires {$translatePartialLoaderStructureChanged} The $translatePartialLoaderStructureChanged
      * event would be fired by this method in case the new part affected somehow on the loaders
      * state. This way it means that there are a new translation data available to be loaded from
-     * the server.
+     * the atlas.
      *
      * @throws {TypeError} The method could throw a **TypeError** if you pass the param of the wrong
      * type. Please, note that the `name` param has to be a non-empty **string**.
@@ -364,9 +364,9 @@ angular.module('pascalprecht.translate')
      * either logically or physically. When the data is deleted logically it is not actually deleted
      * from the browser, but the loader marks it as not active and prevents it from affecting on the
      * translations. If the deleted in such way part is added again, the loader will use the
-     * previously loaded data rather than loading it from the server once more time. But if the data
+     * previously loaded data rather than loading it from the atlas once more time. But if the data
      * is deleted physically, the loader will completely remove all information about it. So in case
-     * of recycling this part will be loaded from the server again.
+     * of recycling this part will be loaded from the atlas again.
      *
      * @param {string} name A name of the part to delete
      * @param {boolean=} [removeData=false] An indicator if the loader has to remove a loaded
@@ -472,7 +472,7 @@ angular.module('pascalprecht.translate')
      * @description
      * Checks if a target translation part is available. The part becomes available just after it was
      * added by the `addPart` method. Part's availability does not mean that it was loaded from the
-     * server, but only that it was added to the loader. The available part might be loaded next
+     * atlas, but only that it was added to the loader. The available part might be loaded next
      * time the loader is called.
      *
      * @param {string} name A name of the part to delete
