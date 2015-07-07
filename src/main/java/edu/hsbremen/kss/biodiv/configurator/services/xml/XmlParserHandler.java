@@ -18,13 +18,13 @@ public class XmlParserHandler extends DefaultHandler {
         currentTag = new Stack<XmlTagModel>();
     }
     public void endDocument() {
-        xmlFileModel.setTags(currentTag.pop());
+        xmlFileModel.setTag(currentTag.pop());
     }
 
     public void startElement(String uri, String localName,String qName,
                              Attributes attributes) throws SAXException {
 
-        System.out.println(">> Start Element :" + qName);
+        //System.out.println(">> Start Element :" + qName);
         XmlTagModel element = new XmlTagModel(qName);
         //TODO: add attributes;
         for (int i = 0; i < attributes.getLength(); i++){
@@ -41,7 +41,7 @@ public class XmlParserHandler extends DefaultHandler {
 
     public void endElement(String uri, String localName, String qName) throws SAXException {
 
-        System.out.println("<< End Element :" + qName);
+        //System.out.println("<< End Element :" + qName);
         if(currentTag.size() > 1) currentTag.pop();
 
     }

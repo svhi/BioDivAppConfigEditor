@@ -1,8 +1,25 @@
-<div class="xe-container well">
+<div class="xe-tag-container well ">
 
-    -- {{xmlTag.qName}}
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-sm-5 input-group">
+                <span class="input-group-addon">&#60;</span>
+                <input class="form-control" placeholder="tag" ng-model="xmlTag.qName" ng-required="true"/>
+                <span class="input-group-addon">&#62;</span>
+                <input class="form-control" placeholder="value" ng-hide="xmlTag.subTags.length > 0" ng-model="xmlTag.value" ng-required="false"/>
+                <span class="input-group-addon" ng-hide="xmlTag.subTags.length > 0"> &#60;&#47;{{xmlTag.qName}}&#62;</span>
+            </div>
+        </div>
+    </div>
 
-    <xe-xml-sub-tags xml-sub-tags="xmlTag.subTags"></xe-xml-sub-tags>
+    <xe-xml-sub-tags xml-tag="xmlTag"></xe-xml-sub-tags>
 
+    <div class="form-horizontal"  ng-show="xmlTag.subTags.length > 0">
+        <div class="form-group">
+            <div class="xe-xml-tag-end-marker">
+                <span> &#60;&#47;{{xmlTag.qName}}&#62;</span>
+            </div>
+        </div>
+    </div>
 
 </div>

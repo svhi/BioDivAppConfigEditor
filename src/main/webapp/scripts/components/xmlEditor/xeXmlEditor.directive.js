@@ -60,14 +60,16 @@ angular.module('configeditorApp')
             restrict: 'E',
             replace: true,
             scope: {
-                xmlSubTags: '='
+                xmlTag: '='
             },
             template: '',
             link: function (scope, element, attrs) {
 
-                scope.$watch("xmlSubTags", function() {
-                    if (angular.isArray(scope.xmlSubTags)) {
-                        element.append("<xe-xml-tag-editor ng-repeat='subTag in xmlSubTags' xml-tag='subTag'></xe-xml-tag-editor>");
+                scope.$watch("xmlTag.subTags", function(newValue) {
+                    if (angular.isArray(newValue)) {
+                        element.append(
+                            "<xe-xml-tag-editor ng-repeat='subTag in xmlTag.subTags' xml-tag='subTag'></xe-xml-tag-editor>"
+                            );
                         $compile(element.contents())(scope)
                     } else {
                         console.log("! --- xmlSubTags is not an array")

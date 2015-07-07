@@ -8,7 +8,7 @@ import java.util.List;
 public class XmlFileModel {
     private String fileURL;
     private String fileName;
-    private XmlTagModel tags;
+    private XmlTagModel tag;
 
     public XmlFileModel(String fileURL, String fileName){
         this.fileURL = fileURL;
@@ -37,12 +37,12 @@ public class XmlFileModel {
         return this;
     }
 
-    public XmlTagModel getTags() {
-        return tags;
+    public XmlTagModel getTag() {
+        return tag;
     }
 
-    public XmlFileModel setTags(XmlTagModel tags) {
-        this.tags = tags;
+    public XmlFileModel setTag(XmlTagModel tag) {
+        this.tag = tag;
         return this;
     }
 }

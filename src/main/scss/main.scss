@@ -203,3 +203,30 @@ ul.atlas-list{
     }
   }
 }
+
+/***********************************************************************************************************************
+ * XE - EmlEditor Styling
+ *
+ **********************************************************************************************************************/
+.ng-invalid {
+  border: red 1px solid !important;
+}
+.xe-xml-tag-end-marker{
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1;
+  color: #555555;
+  text-align: center;
+  background-color: #eeeeee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.xe-defaultLanguage{
+  max-width: 400px;
+  .xe-input-container{
+    vertical-align: middle;
+  }
+}
