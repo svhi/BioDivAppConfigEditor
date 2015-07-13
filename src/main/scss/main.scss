@@ -208,25 +208,151 @@ ul.atlas-list{
  * XE - EmlEditor Styling
  *
  **********************************************************************************************************************/
-.ng-invalid {
-  border: red 1px solid !important;
-}
-.xe-xml-tag-end-marker{
-  padding: 6px 12px;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 1;
-  color: #555555;
-  text-align: center;
-  background-color: #eeeeee;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  display: inline-block;
-}
+  .ng-invalid {
+    border: red 1px solid !important;
+  }
 
-.xe-defaultLanguage{
-  max-width: 400px;
-  .xe-input-container{
-    vertical-align: middle;
+  .xe-v-center{
+    display: flex;
+    align-items: center;
+  }
+  .xe-tag-container {
+    .panel-body {
+      padding: 5px;
+    }
+  }
+
+  .xe-xml-tag-end-marker{
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1;
+    color: #555555;
+    text-align: center;
+    background-color: #eeeeee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: inline-block;
+  }
+
+  .xe-defaultLanguage{
+    max-width: 400px;
+    .xe-input-container{
+      vertical-align: middle;
+    }
+  }
+  /********************
+   * Collapsing Panel
+   ********************/
+  .xe-collapsingpanel{
+    .panel-heading{
+      padding: 0px;
+      .panel-title{
+        button.xe-collapse-toggle-button{
+          width: 100%;
+          height: 100%;
+          text-align: left;
+          background: none;
+
+          &[aria-expanded="true"] {
+            span.xe-caret {
+              @extend .glyphicon;
+              @extend .glyphicon-triangle-bottom;
+            }
+          }
+          &[aria-expanded="false"] {
+            span.xe-caret {
+    @extend .glyphicon;
+    @extend .glyphicon-triangle-right;
   }
 }
+}
+}
+}
+}
+
+.xe-entryGroup{
+  @extend .col-xs-12; //Spall devices sholud use all space
+  @extend .col-md-4;
+  @extend .col-lg-4;
+  //max-width: 500px;
+  display: inline-block;
+}
+.xe-entryGroup-panel {
+
+    max-width: 500px;
+    background-color: rgb(236,236,236);
+    .xe-header {
+      display: inline-block;
+      width: 100%;
+      height: 50px;
+      background: url("../images/forTemplates/BioDivApp_Dummy_Head.jpg") no-repeat left top;
+      background-size: contain;
+      background-color: rgb(34, 34, 34);
+    }
+    .xe-body{
+      background-color: rgb(236,236,236);
+    }
+    .xe-footer {
+      display: inline-block;
+      width: 100%;
+      height: 50px;
+      background: url("../images/forTemplates/BioDivApp_Dummy_Foot.jpg") no-repeat left top;
+      background-size: contain;
+      background-color: rgb(0, 0, 0);
+    }
+  }
+  .xe-entry{
+    padding: 3px;
+    .xe-entry-label{
+      font-weight: bold;
+      //font-size: larger;
+    }
+  }
+
+  .xe-viewport{
+    padding-right: 10px;
+  }
+  .xe-spinner {
+    height: 50px;
+  }
+
+.xe-dummy {
+  display: inline-block;
+  height: 50px;
+  width: 100%;
+  background-color: rgb(236,236,236);
+
+  &.xe-dummy-spinner{
+    background: url("../images/forTemplates/BioDivApp_Dummy_spinner.jpg") no-repeat left top;
+    background-size: contain;
+  }
+  &.xe-dummy-textfield {
+    background: url("../images/forTemplates/BioDivApp_Dummy_textfield.jpg") no-repeat left top;
+    background-size: contain;
+  }
+  &.xe-dummy-numerictextfield {
+    height: 100px;
+    background: url("../images/forTemplates/BioDivApp_Dummy_numerictextfield2.jpg") no-repeat left top;
+    background-size: contain;
+  }
+  &.xe-dummy-buttonmatrix {
+    height: 110px;
+    background: url("../images/forTemplates/BioDivApp_Dummy_buttonmatrix.jpg") no-repeat left top;
+    background-size: contain;
+  }
+}
+
+.xe-datasource {
+  display: inline-block;
+  height: 100%;
+}
+.xe-options {
+  padding-top: 5px;
+}
+
+.xe-decimalplaces-modal, .xe-max-modal, .xe-min-modal, .xe-numberOfButtons-modal, .xe-datasource-type-modal{
+  margin: 2px 0px;
+}
+
+

@@ -1,18 +1,19 @@
-<div class="xe-tag-container xe-defaultLanguage">
+<div class="xe-tag-container xe-label">
     <div class="form-horizontal">
         <div class="form-group">
-            <label for="defaultLanguage" class="col-sm-3 control-label">Default Language: </label>
+            <label for="label_{{subIndex}}" class="col-sm-3 control-label">Label: </label>
             <div class="col-sm-9 xe-input-container">
                 <div class="input-group">
-                    <input id="defaultLanguage" type="text" class="form-control" aria-label="defaultLanguage" ng-model="xmlTag.value" ng-required="true">
+                    <input id="lang_{{subIndex}}" type="text" class="form-control" aria-label="language" ng-model="xmlTag.attributes[0].value" ng-required="true">
                     <div class="input-group-btn">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select <span class="caret"></span></button>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="#" ng-click="xmlTag.value='de'">de</a></li>
-                            <li><a href="#" ng-click="xmlTag.value='en'">en</a></li>
+                            <li><a href="#" ng-click="xmlTag.attributes[0].value='de'">de</a></li>
+                            <li><a href="#" ng-click="xmlTag.attributes[0].value='en'">en</a></li>
                         </ul>
                     </div>
                 </div>
+                <input id="label_{{subIndex}}" type="text" class="form-control col-sm-9" aria-label="Label" ng-model="xmlTag.value" ng-required="true">
             </div>
         </div>
     </div>

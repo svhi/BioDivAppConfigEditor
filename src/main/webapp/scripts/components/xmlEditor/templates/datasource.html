@@ -1,0 +1,28 @@
+<div class="xe-tag-container xe-datasource">
+    <!-- Button trigger modal -->
+    <button type="button xe-datasource-modal-button" class="btn" data-toggle="modal" data-target="#xe_datasource_type_modal_{{subIndex}}">
+        <span  class="glyphicon glyphicon-new-window"></span>
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade xe-datasource-type-modal" id="xe_datasource_type_modal_{{subIndex}}" tabindex="-1" role="dialog" aria-labelledby="xe_datasource_type_modal_label_{{subIndex}}">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="xe_datasource_type_modal_label_{{subIndex}}">Datasource Settings</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="xe-datasource-type">
+                        <label>Type</label>
+                        <select class="form-control" ng-model="xmlTag.attributes[0].value">
+                            <option>local</option>
+                            <option>rest</option>
+                        </select>
+                    </div>
+                    <xe-xml-sub-tags xml-tag="xmlTag" group-index="{{subIndex}}"></xe-xml-sub-tags>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

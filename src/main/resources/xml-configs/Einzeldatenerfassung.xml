@@ -137,7 +137,7 @@
 
 
 
-            <!--<entry restid="sampling.record.additionalproperties.sex">
+            <entry restid="sampling.record.additionalproperties.sex">
                 <labels>
                     <label lang="de">Geschlecht</label>
                     <label lang="en">Sex</label>
@@ -176,9 +176,104 @@
                     </spinner>
                 </viewport>
             </entry>
-            -->
+
 
             <entry restid="sampling.record.comment">
+                <mandatory>false</mandatory>
+                <labels>
+                    <label lang="de">Kommentar zum Fund</label>
+                    <label lang="en">Comment for Record</label>
+                </labels>
+                <viewport>
+                    <textfield/>
+                </viewport>
+            </entry>
+
+        </entryGroup>
+
+        <entryGroup>
+            <labels>
+                <label lang="de">Fund-Informationen 3(!)</label>
+                <label lang="en">Record Information</label>
+            </labels>
+
+            <entry restid="sampling.record.speciesid2">
+                <labels>
+                    <label lang="de">Spezies</label>
+                    <label lang="en">Species</label>
+                </labels>
+                <viewport>
+                    <buttonmatrix>
+                        <numberOfButtons>10</numberOfButtons>
+                        <datasource type="rest">
+                            <orderby>asc</orderby>
+                            <options>
+                                <uri>/rest/species</uri>
+                            </options>
+                        </datasource>
+                    </buttonmatrix>
+                </viewport>
+            </entry>
+
+            <entry restid="sampling.record.additionalproperties.length2">
+                <mandatory>false</mandatory>
+                <labels>
+                    <label lang="de">Totallänge in cm</label>
+                    <label lang="en">Total Length in cm</label>
+                </labels>
+                <viewport>
+                    <numerictextfield>
+                        <decimalplaces>2</decimalplaces>
+                        <min>0</min>
+                        <max>1000</max>
+                    </numerictextfield>
+                </viewport>
+            </entry>
+
+
+
+            <entry restid="sampling.record.additionalproperties.sex2">
+                <labels>
+                    <label lang="de">Geschlecht</label>
+                    <label lang="en">Sex</label>
+                </labels>
+                <viewport>
+                    <spinner>
+                        <datasource type="local">
+                            <orderby>none</orderby>
+                            <options>
+                                <option>
+                                    <key>unknown</key>
+                                    <labels>
+                                        <label lang="de">unbekannt</label>
+                                        <label lang="en">unkown</label>
+                                    </labels>
+                                </option>
+                                <option>
+                                    <key>male</key>
+                                    <labels>
+                                        <label lang="de">männlich</label>
+                                        <label lang="en">male</label>
+                                    </labels>
+                                </option>
+                                <option>
+                                    <key>female</key>
+                                    <labels>
+                                        <label lang="de">weiblich</label>
+                                        <label lang="en">female</label>
+                                    </labels>
+                                </option>
+                            </options>
+                            <defaults>
+                                <default>unknown</default>
+                            </defaults>
+                        </datasource>
+                    </spinner>
+                </viewport>
+            </entry>
+
+
+            <entry restid="sampling.record.comment2">
                 <mandatory>false</mandatory>
                 <labels>
                     <label lang="de">Kommentar zum Fund</label>

@@ -14,7 +14,7 @@ angular.module('configeditorApp')
             }
         };
     })
-    .directive('xeXmlTagEditor', function($compile, $http, $templateCache) {
+    .directive('xeXmlTagEditor',["$compile", "$http", "$templateCache", function($compile, $http, $templateCache) {
 
         var applyTemplate = function(element, html, scope){
             element.html(html);
@@ -38,12 +38,15 @@ angular.module('configeditorApp')
         };
         return {
             restrict: 'E',
-
+            replace: true,
             scope: {
-                xmlTag: '='
+                xmlTag: '=',
+                subIndex: '@'
             },
             template: '<div class="well">{{xmlTag.qName}}</div>',
+
             link: function (scope, element, attrs) {
+
                 scope.$watch("xmlTag.qName", function(newValue) {
                     if(angular.isDefined(newValue)) {
                         loadAndApplyTemplate(newValue, element, scope);
@@ -54,21 +57,60 @@ angular.module('configeditorApp')
 
             }
         };
+    }])
+    .filter('filterTagQName', function() {
+        return function(tags, includeQNames, excludeQNames) {
+            if (!angular.isArray(tags)){return tags;}
+            if(!angular.isDefined(includeQNames) && !angular.isDefined(excludeQNames)){return tags;}
+            if(includeQNames == '' && excludeQNames == ''){return tags;}
+
+            var includeQNameArray = angular.isDefined(includeQNames) ? includeQNames.split(' ') : [];
+            var excludeQNameArray = angular.isDefined(excludeQNames) ?  excludeQNames.split(' ') : [];
+
+            tags = tags || [];
+            var out = [];
+            tags.forEach(function(tag){
+                var include = includeQNameArray.length == 0,
+                    exclude = false;
+                includeQNameArray.forEach(function(includeQNameFilter){
+                        if (angular.isDefined(tag.qName) && tag.qName == includeQNameFilter){
+                            include = true;
+                        }
+                    }
+                )
+                excludeQNameArray.forEach(function(excludeQNameFilter){
+                        if (angular.isDefined(tag.qName) && tag.qName == excludeQNameFilter){
+                            exclude = true;
+                        }
+                    }
+                )
+
+                if(include && !exclude){
+                    out.push(tag);
+                }
+            });
+            return out;
+        };
     })
-    .directive('xeXmlSubTags', function($compile) {
+    .directive('xeXmlSubTags', ["$compile", "filterTagQNameFilter", function($compile, filterTagQNameFilter) {
         return {
             restrict: 'E',
             replace: true,
             scope: {
-                xmlTag: '='
+                xmlTag: '=',
+                groupIndex: '@',
+                qNameIncludeFilter: '@',
+                qNameExcludeFilter: '@'
             },
             template: '',
             link: function (scope, element, attrs) {
+                scope.filteredSubTags =  [];
 
                 scope.$watch("xmlTag.subTags", function(newValue) {
                     if (angular.isArray(newValue)) {
+                        scope.filteredSubTags = filterTagQNameFilter(newValue, scope.qNameIncludeFilter, scope.qNameExcludeFilter);
                         element.append(
-                            "<xe-xml-tag-editor ng-repeat='subTag in xmlTag.subTags' xml-tag='subTag'></xe-xml-tag-editor>"
+                            "<xe-xml-tag-editor ng-repeat='subTag in filteredSubTags' xml-tag='subTag' sub-index='{{groupIndex}}_{{$index}}'></xe-xml-tag-editor>"
                             );
                         $compile(element.contents())(scope)
                     } else {
@@ -77,10 +119,5 @@ angular.module('configeditorApp')
                 });
             }
         };
-    });
-
-
-
-
-
+    }]);
 
