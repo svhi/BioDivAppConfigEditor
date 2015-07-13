@@ -1,8 +1,9 @@
 <div class="xe-tag-container xe-label">
     <div class="form-horizontal">
         <div class="form-group">
-            <label for="label_{{subIndex}}" class="col-sm-3 control-label">Label: </label>
-            <div class="col-sm-9 xe-input-container">
+            <div class="col-sm-2"><button class="btn btn-default" ng-click="removeTag($parent.xmlTag.subTags, xmlTag);"><span class="glyphicon glyphicon-minus"></span></button></div>
+            <label for="label_{{subIndex}}" class="col-sm-2 control-label">Label: </label>
+            <div class="col-sm-8 xe-input-container">
                 <div class="input-group">
                     <input id="lang_{{subIndex}}" type="text" class="form-control" aria-label="language" ng-model="xmlTag.attributes[0].value" ng-required="true">
                     <div class="input-group-btn">

@@ -36,16 +36,57 @@ angular.module('configeditorApp')
                 applyTemplate(element, html, scope);
             });
         };
+
+        var addTag = function(tagArray, newTag, index){
+            if(!angular.isArray(tagArray)){return;}
+            if(angular.isDefined(index)) {
+                tagArray.splice(index, 0, newTag);
+            }else{
+                tagArray.push(newTag);
+            }
+            return tagArray;
+        }
+
+        var removeTag = function(array, xmlTag) {
+            if(!angular.isArray(array)){return;}
+            if(!angular.isDefined(xmlTag)){return;}
+
+            var index = array.indexOf(xmlTag);
+            array.splice(index, 1);
+
+        }
+
+        var Tag = function(qName, value, attributes, subTags){
+            return {
+                qName: qName,
+                value: value,
+                attributes: attributes,
+                subTags: subTags
+            };
+        }
+
+        var Attribute = function(qName, value){
+            return {
+                qName: qName,
+                value: value
+            };
+        }
+
         return {
             restrict: 'E',
             replace: true,
             scope: {
                 xmlTag: '=',
-                subIndex: '@'
+                subIndex: '@',
             },
             template: '<div class="well">{{xmlTag.qName}}</div>',
 
             link: function (scope, element, attrs) {
+                scope.addTag = addTag;
+                scope.Tag = Tag;
+                scope.Attr = Attribute;
+                scope.removeTag = removeTag;
+
 
                 scope.$watch("xmlTag.qName", function(newValue) {
                     if(angular.isDefined(newValue)) {
@@ -106,10 +147,11 @@ angular.module('configeditorApp')
             link: function (scope, element, attrs) {
                 scope.filteredSubTags =  [];
 
-                scope.$watch("xmlTag.subTags", function(newValue) {
+                scope.$watchCollection("xmlTag.subTags", function(newValue) {
                     if (angular.isArray(newValue)) {
                         scope.filteredSubTags = filterTagQNameFilter(newValue, scope.qNameIncludeFilter, scope.qNameExcludeFilter);
-                        element.append(
+
+                        element.html(
                             "<xe-xml-tag-editor ng-repeat='subTag in filteredSubTags' xml-tag='subTag' sub-index='{{groupIndex}}_{{$index}}'></xe-xml-tag-editor>"
                             );
                         $compile(element.contents())(scope)

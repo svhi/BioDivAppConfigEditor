@@ -22,7 +22,7 @@ public class XmlFileController {
 
         System.out.println("==== XmlFileController");
 
-        InputStream xmlFile = XmlFileController.class.getResourceAsStream("/xml-configs/Einzeldatenerfassung.xml");
+        InputStream xmlFile = XmlFileController.class.getResourceAsStream("/xml-configs/Massendatenerfassung.xml");
         try {
             XmlParser parser = new XmlParser();
             XmlFileModel xmlFileModel = parser.parse(xmlFile);

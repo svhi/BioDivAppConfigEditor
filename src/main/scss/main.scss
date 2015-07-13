@@ -333,7 +333,12 @@ ul.atlas-list{
   }
   &.xe-dummy-numerictextfield {
     height: 100px;
-    background: url("../images/forTemplates/BioDivApp_Dummy_numerictextfield2.jpg") no-repeat left top;
+    background: url("../images/forTemplates/BioDivApp_Dummy_numerictextfield.jpg") no-repeat left top;
+    background-size: contain;
+  }
+  &.xe-dummy-numberpicker {
+    height: 100px;
+    background: url("../images/forTemplates/BioDivApp_Dummy_numberpicker.jpg") no-repeat left top;
     background-size: contain;
   }
   &.xe-dummy-buttonmatrix {
@@ -353,6 +358,11 @@ ul.atlas-list{
 
 .xe-decimalplaces-modal, .xe-max-modal, .xe-min-modal, .xe-numberOfButtons-modal, .xe-datasource-type-modal{
   margin: 2px 0px;
+}
+
+.xe-panel-container {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 
