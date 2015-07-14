@@ -81,7 +81,7 @@ angular.module('configeditorApp')
 
         return {
             restrict: 'E',
-            replace: true,
+            //replace: true,
             scope: {
                 xmlTag: '=',
                 subIndex: '@',
@@ -89,6 +89,7 @@ angular.module('configeditorApp')
             template: '<div class="well">{{xmlTag.qName}}</div>',
 
             link: function (scope, element, attrs) {
+
                 scope.addTag = addTag;
                 scope.addTagBefore = addTagBefore;
                 scope.addTagAfter = addTagAfter;
@@ -101,9 +102,8 @@ angular.module('configeditorApp')
                 /* Watches Changes of qName in order to load a new template*/
                 scope.$watch("xmlTag.qName", function(newValue) {
                     if(angular.isDefined(newValue)) {
+                        console.log(scope.subIndex + " | " + scope.xmlTag.qName);
                         loadAndApplyTemplate(newValue, element, scope);
-                    }else{
-                        console.log("! --- xmlTag is undefined")
                     }
                 });
 
@@ -121,9 +121,9 @@ angular.module('configeditorApp')
             replace: true,
             scope: {
                 xmlTag: '=',
-                groupIndex: '@',
                 qNameIncludeFilter: '@',
-                qNameExcludeFilter: '@'
+                qNameExcludeFilter: '@',
+                groupIndex: '@'
             },
             template: '',
             link: function (scope, element, attrs) {
@@ -133,10 +133,8 @@ angular.module('configeditorApp')
                     if (angular.isArray(newValue)) {
                         scope.filteredSubTags = filterTagQNameFilter(newValue, scope.qNameIncludeFilter, scope.qNameExcludeFilter);
 
-                        element.html("<xe-xml-tag-editor ng-repeat='subTag in filteredSubTags' xml-tag='subTag' sub-index='{{xmlTag.subIndex}}_{{xmlTag.subTags.indexOf(subTag)}}'></xe-xml-tag-editor>"                            );
+                        element.html("<xe-xml-tag-editor ng-repeat='subTag in filteredSubTags' xml-tag='subTag' sub-index='{{groupIndex}}_{{xmlTag.subTags.indexOf(subTag)}}'></xe-xml-tag-editor>"                            );
                         $compile(element.contents())(scope)
-                    } else {
-                        console.log("! --- xmlSubTags is not an array")
                     }
                 });
             }
