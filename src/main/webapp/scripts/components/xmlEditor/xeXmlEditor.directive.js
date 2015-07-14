@@ -47,6 +47,13 @@ angular.module('configeditorApp')
             return tagArray;
         }
 
+        var addTagBefore = function (tagArray, newTag , existingTag){
+            addTag(tagArray, newTag, tagArray.indexOf(xmlTag));
+        }
+        var addTagAfter = function (tagArray, newTag , existingTag){
+            addTag(tagArray, newTag, tagArray.indexOf(xmlTag)+1);
+        }
+
         var removeTag = function(array, xmlTag) {
             if(!angular.isArray(array)){return;}
             if(!angular.isDefined(xmlTag)){return;}
@@ -83,11 +90,15 @@ angular.module('configeditorApp')
 
             link: function (scope, element, attrs) {
                 scope.addTag = addTag;
-                scope.Tag = Tag;
-                scope.Attr = Attribute;
+                scope.addTagBefore = addTagBefore;
+                scope.addTagAfter = addTagAfter;
+                /*Helpers to create tags and attributes */
+                    scope.Tag = Tag;
+                    scope.Attr = Attribute;
+                /* <<<<<<<<<<<< */
                 scope.removeTag = removeTag;
 
-
+                /* Watches Changes of qName in order to load a new template*/
                 scope.$watch("xmlTag.qName", function(newValue) {
                     if(angular.isDefined(newValue)) {
                         loadAndApplyTemplate(newValue, element, scope);
@@ -96,6 +107,38 @@ angular.module('configeditorApp')
                     }
                 });
 
+            }
+        };
+    }])
+    /*******************************************************************************************************************
+     * The subtags directive is used to render the teg directive rucursivly for all the subtags within it. it only
+     * renders a new directive if there is an array of subtags defined.
+     * This trick is necessary to avoid an endless loop!!!
+     ******************************************************************************************************************/
+    .directive('xeXmlSubTags', ["$compile", "filterTagQNameFilter", function($compile, filterTagQNameFilter) {
+        return {
+            restrict: 'E',
+            replace: true,
+            scope: {
+                xmlTag: '=',
+                groupIndex: '@',
+                qNameIncludeFilter: '@',
+                qNameExcludeFilter: '@'
+            },
+            template: '',
+            link: function (scope, element, attrs) {
+                scope.filteredSubTags =  [];
+
+                scope.$watchCollection("xmlTag.subTags", function(newValue) {
+                    if (angular.isArray(newValue)) {
+                        scope.filteredSubTags = filterTagQNameFilter(newValue, scope.qNameIncludeFilter, scope.qNameExcludeFilter);
+
+                        element.html("<xe-xml-tag-editor ng-repeat='subTag in filteredSubTags' xml-tag='subTag' sub-index='{{xmlTag.subIndex}}_{{xmlTag.subTags.indexOf(subTag)}}'></xe-xml-tag-editor>"                            );
+                        $compile(element.contents())(scope)
+                    } else {
+                        console.log("! --- xmlSubTags is not an array")
+                    }
+                });
             }
         };
     }])
@@ -132,34 +175,5 @@ angular.module('configeditorApp')
             });
             return out;
         };
-    })
-    .directive('xeXmlSubTags', ["$compile", "filterTagQNameFilter", function($compile, filterTagQNameFilter) {
-        return {
-            restrict: 'E',
-            replace: true,
-            scope: {
-                xmlTag: '=',
-                groupIndex: '@',
-                qNameIncludeFilter: '@',
-                qNameExcludeFilter: '@'
-            },
-            template: '',
-            link: function (scope, element, attrs) {
-                scope.filteredSubTags =  [];
-
-                scope.$watchCollection("xmlTag.subTags", function(newValue) {
-                    if (angular.isArray(newValue)) {
-                        scope.filteredSubTags = filterTagQNameFilter(newValue, scope.qNameIncludeFilter, scope.qNameExcludeFilter);
-
-                        element.html(
-                            "<xe-xml-tag-editor ng-repeat='subTag in filteredSubTags' xml-tag='subTag' sub-index='{{groupIndex}}_{{$index}}'></xe-xml-tag-editor>"
-                            );
-                        $compile(element.contents())(scope)
-                    } else {
-                        console.log("! --- xmlSubTags is not an array")
-                    }
-                });
-            }
-        };
-    }]);
+    });
 

@@ -85,7 +85,7 @@ angular.module('configeditorApp')
                 },
                 resolve: {
                     mainTranslatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
-                        $translatePartialLoader.addPart('greeting');//TODO:Translate
+                        $translatePartialLoader.addPart('xmlfile');
                         return $translate.refresh();
                     }]
                 }
