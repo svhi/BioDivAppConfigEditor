@@ -11,24 +11,17 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse" ng-switch="isAuthenticated()">
             <ul class="nav navbar-nav navbar-right">
-                <li ui-sref-active="active">
+                <!--<li ui-sref-active="active">
                     <a ui-sref="home">
                         <span class="glyphicon glyphicon-home"></span>
                         <span translate="global.menu.home">Home</span>
                     </a>
-                </li>
-
-                <li ui-sref-active="active" ng-switch-when="true">
-                    <a ui-sref="greeting">
-                        <span class="glyphicon glyphicon-leaf"></span>
-                        <span translate="global.menu.greeting">Greeting</span>
-                    </a>
-                </li>
+                </li>-->
 
                 <li ui-sref-active="active" ng-switch-when="true">
                     <a ui-sref="xmlfile">
-                        <span class="glyphicon glyphicon-leaf"></span>
-                        <span translate="global.menu.xmlfile">XML</span>
+                        <span class="glyphicon glyphicon-edit"></span>
+                        <span translate="global.menu.xmlfile">XML Editor</span>
                     </a>
                 </li>
 

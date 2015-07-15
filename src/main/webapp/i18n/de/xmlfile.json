@@ -1,5 +1,7 @@
 {
   "xmlfile": {
-    "headline": "XML Editor"
+    "headline": "XML Editor",
+    "SelectFile": "Datei wählen",
+    "Upload": "Datei hochladen"
   }
 }

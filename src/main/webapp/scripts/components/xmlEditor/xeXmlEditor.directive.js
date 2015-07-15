@@ -1,19 +1,28 @@
 "use strict";
 
 angular.module('configeditorApp')
-    .directive('xeXmlEditor', function() {
+    .directive('xeXmlEditor', ["$compile", "$http", "$templateCache", function($compile, $http, $templateCache) {
         return {
             restrict: 'E',
-            replace: true,
+            //replace: true,
             scope: {
                 xmlFile: '='
             },
             templateUrl: 'scripts/components/xmlEditor/xeXmlEditor.html',
             link: function (scope, element,  attrs) {
 
+                var content = element.contents().remove();
+                scope.$watch("xmlFile", function(newValue){
+                   if(newValue==null){
+                       element.html("");
+                   }else{
+                       element.html($compile(content)(scope));
+
+                   }
+                });
             }
         };
-    })
+    }])
     .directive('xeXmlTagEditor',["$compile", "$http", "$templateCache", function($compile, $http, $templateCache) {
 
         var applyTemplate = function(element, html, scope){
@@ -100,13 +109,16 @@ angular.module('configeditorApp')
                 scope.removeTag = removeTag;
 
                 /* Watches Changes of qName in order to load a new template*/
-                scope.$watch("xmlTag.qName", function(newValue) {
-                    if(angular.isDefined(newValue)) {
-                        console.log(scope.subIndex + " | " + scope.xmlTag.qName);
-                        loadAndApplyTemplate(newValue, element, scope);
-                    }
-                });
+                scope.$watch("xmlTag", function(newValue){
 
+                    scope.$watch("xmlTag.qName", function(newValue) {
+                        if(angular.isDefined(newValue)) {
+                            console.log(scope.subIndex + " | " + scope.xmlTag.qName);
+                            loadAndApplyTemplate(newValue, element, scope);
+                        }
+                    });
+
+                });
             }
         };
     }])

@@ -5,6 +5,8 @@
         "menu": {
             "home": "Home",
             "greeting": "Greeting",
+            "xmlfile": "XML Editor",
+            "atlas": "Select Atlas",
             "account": {
                 "main": "Account",
                 "login": "Log In",

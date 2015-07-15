@@ -31,7 +31,7 @@ angular.module('configeditorApp')
                 }
             })
             // main
-            .state('home', {
+            /*.state('home', {
                 parent: 'site',
                 url: '/',
                 data: {
@@ -69,11 +69,11 @@ angular.module('configeditorApp')
                         return $translate.refresh();
                     }]
                 }
-            })
+            })*/
             // xmlfile
             .state('xmlfile', {
                 parent: 'site',
-                url: '/xmlfile',
+                url: '/',// '/xmlfile',
                 data: {
                     roles: []
                 },
