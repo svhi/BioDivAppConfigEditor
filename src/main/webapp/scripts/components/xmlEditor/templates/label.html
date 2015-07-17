@@ -1,11 +1,14 @@
 <div class="xe-tag-container xe-label">
     <div class="form-horizontal">
         <div class="form-group">
-            <div class="col-xs-2"><button class="btn btn-default" ng-click="removeTag($parent.xmlTag.subTags, xmlTag);"><span class="glyphicon glyphicon-trash"></span></button></div>
-            <label for="label_{{subIndex}}" class="col-xs-2 control-label">Label: </label>
+            <div class="col-xs-2">
+                <button class="btn btn-default" ng-click="removeTag($parent.xmlTag.subTags, xmlTag);"><span class="glyphicon glyphicon-trash"></span></button>
+                <button class="btn btn-default" ng-click="addTag(xmlTag.subTags, Tag('label','',[Attr('lang','')], []), $parent.subTags.indexOf(xmlTag));"><span class="glyphicon glyphicon-trash"></span></button>
+            </div>
+            <label for="label_{{$id}}" class="col-xs-2 control-label">Label: </label>
             <div class="col-xs-8 xe-input-container">
                 <div class="input-group">
-                    <input id="lang_{{subIndex}}" type="text" class="form-control" aria-label="language" ng-model="xmlTag.attributes[0].value" ng-required="true">
+                    <input id="lang_{{$id}}" type="text" class="form-control" aria-label="language" ng-model="xmlTag.attributes[0].value" ng-required="true">
                     <div class="input-group-btn">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select <span class="caret"></span></button>
                         <ul class="dropdown-menu dropdown-menu-right">
@@ -14,9 +17,9 @@
                         </ul>
                     </div>
                 </div>
-                <input id="label_{{subIndex}}" type="text" class="form-control col-xs-9" aria-label="Label" ng-model="xmlTag.value" ng-required="true">
+                <input id="label_{{$id}}" type="text" class="form-control col-xs-9" aria-label="Label" ng-model="xmlTag.value" ng-required="true">
             </div>
         </div>
     </div>
-    <xe-xml-sub-tags xml-tag="xmlTag" group-index="{{subIndex}}"></xe-xml-sub-tags>
+    <xe-xml-sub-tags xml-tag="xmlTag"></xe-xml-sub-tags>
 </div>

@@ -1,23 +1,23 @@
 <div class="xe-tag-container xe-numberOfButtons">
     <!-- Button trigger modal -->
-    <button type="button xe-numberOfButtons-modal-button" class="btn" data-toggle="modal" data-target="#xe_datasource_type_modal_{{subIndex}}">
+    <button type="button xe-numberOfButtons-modal-button" class="btn" data-toggle="modal" data-target="#xe_datasource_type_modal_{{$id}}">
         <span  class="glyphicon glyphicon-th"></span> <span ng-bind="xmlTag.value"></span>
     </button>
 
     <!-- Modal -->
-    <div class="modal fade xe-numberOfButtons-modal" id="xe_datasource_type_modal_{{subIndex}}" tabindex="-1" role="dialog" aria-labelledby="xe_datasource_type_modal_label_{{subIndex}}">
+    <div class="modal fade xe-numberOfButtons-modal" id="xe_datasource_type_modal_{{$id}}" tabindex="-1" role="dialog" aria-labelledby="xe_datasource_type_modal_label_{{$id}}">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="xe_datasource_type_modal_label_{{subIndex}}">Number od Buttons</h4>
+                    <h4 class="modal-title" id="xe_datasource_type_modal_label_{{$id}}">Number od Buttons</h4>
                 </div>
                 <div class="modal-body">
                     <div class="">
                         <label>Number of Buttons</label>
                         <input class="form-control" ng-model="xmlTag.value" ng-pattern="/^[0-9]{1,7}$/">
                     </div>
-                    <xe-xml-sub-tags xml-tag="xmlTag" group-index="{{subIndex}}"></xe-xml-sub-tags>
+                    <xe-xml-sub-tags xml-tag="xmlTag"></xe-xml-sub-tags>
                 </div>
             </div>
         </div>

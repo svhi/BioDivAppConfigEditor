@@ -1,49 +1,11 @@
-"use strict";
-
-angular.module('configeditorApp')
-    .directive('xeXmlEditor', ["$compile", "$http", "$templateCache", function($compile, $http, $templateCache) {
-        return {
-            restrict: 'E',
-            //replace: true,
-            scope: {
-                xmlFile: '='
-            },
-            templateUrl: 'scripts/components/xmlEditor/xeXmlEditor.html',
-            link: function (scope, element,  attrs) {
-
-                var content = element.contents().remove();
-                scope.$watch("xmlFile", function(newValue){
-                   if(newValue==null){
-                       element.html("");
-                   }else{
-                       element.html($compile(content)(scope));
-
-                   }
-                });
-            }
-        };
-    }])
-    .directive('xeXmlTagEditor',["$compile", "$http", "$templateCache", function($compile, $http, $templateCache) {
+// Create an application module for our demo.
+angular.module("Demo", [])
+    .directive('item',["$compile", function($compile) {
 
         var applyTemplate = function(element, html, scope){
+            element.contents().remove();
             element.html(html);
             element.replaceWith($compile(element.html())(scope));
-        };
-        var loadAndApplyTemplate = function(tagName, element, scope) {
-            var templateLoader,
-                defaultTemplateUrl = 'scripts/components/xmlEditor/xeXmlTagEditor.html',
-                baseUrl = 'scripts/components/xmlEditor/templates/',
-                templateUrl = baseUrl + tagName + ".html";
-            templateLoader = $http.get(templateUrl, {cache: $templateCache});
-
-            templateLoader.error(function (html) {
-                templateLoader = $http.get(defaultTemplateUrl, {cache: $templateCache})
-                    .success(function (html) {
-                        applyTemplate(element,html, scope);
-                });
-            }).success(function (html) {
-                applyTemplate(element, html, scope);
-            });
         };
 
         var addTag = function(tagArray, newTag, index){
@@ -53,16 +15,7 @@ angular.module('configeditorApp')
             }else{
                 tagArray.push(newTag);
             }
-            return tagArray;
         }
-
-        var addTagBefore = function (tagArray, newTag , existingTag){
-            addTag(tagArray, newTag, tagArray.indexOf(xmlTag));
-        }
-        var addTagAfter = function (tagArray, newTag , existingTag){
-            addTag(tagArray, newTag, tagArray.indexOf(xmlTag)+1);
-        }
-
         var removeTag = function(array, xmlTag) {
             if(!angular.isArray(array)){return;}
             if(!angular.isDefined(xmlTag)){return;}
@@ -72,118 +25,131 @@ angular.module('configeditorApp')
 
         }
 
-        var Tag = function(qName, value, attributes, subTags){
-            return {
-                qName: qName,
-                value: value,
-                attributes: attributes,
-                subTags: subTags
-            };
-        }
-
-        var Attribute = function(qName, value){
-            return {
-                qName: qName,
-                value: value
-            };
-        }
-
         return {
             restrict: 'E',
             //replace: true,
             scope: {
-                xmlTag: '=',
-                subIndex: '@',
+                item: '=',
             },
-            template: '<div class="well">{{xmlTag.qName}}</div>',
+            //template: '<li>{{item.id}} : {{item.value}}</li>',
 
             link: function (scope, element, attrs) {
 
                 scope.addTag = addTag;
-                scope.addTagBefore = addTagBefore;
-                scope.addTagAfter = addTagAfter;
-                /*Helpers to create tags and attributes */
-                    scope.Tag = Tag;
-                    scope.Attr = Attribute;
-                /* <<<<<<<<<<<< */
                 scope.removeTag = removeTag;
 
                 /* Watches Changes of qName in order to load a new template*/
-                scope.$watch("xmlTag", function(newValue){
+                scope.$watch("xmlTag.qName", function(newValue, oldValue) {
+                    //console.log(newValue + " | EVAL ----" )
 
-                    scope.$watch("xmlTag.qName", function(newValue) {
-                        if(angular.isDefined(newValue)) {
-                            console.log(scope.subIndex + " | " + scope.xmlTag.qName);
-                            loadAndApplyTemplate(newValue, element, scope);
-                        }
-                    });
+                    if(angular.isDefined(newValue)) {
 
-                });
-            }
-        };
-    }])
-    /*******************************************************************************************************************
-     * The subtags directive is used to render the teg directive rucursivly for all the subtags within it. it only
-     * renders a new directive if there is an array of subtags defined.
-     * This trick is necessary to avoid an endless loop!!!
-     ******************************************************************************************************************/
-    .directive('xeXmlSubTags', ["$compile", "filterTagQNameFilter", function($compile, filterTagQNameFilter) {
-        return {
-            restrict: 'E',
-            replace: true,
-            scope: {
-                xmlTag: '=',
-                qNameIncludeFilter: '@',
-                qNameExcludeFilter: '@',
-                groupIndex: '@'
-            },
-            template: '',
-            link: function (scope, element, attrs) {
-                scope.filteredSubTags =  [];
-
-                scope.$watchCollection("xmlTag.subTags", function(newValue) {
-                    if (angular.isArray(newValue)) {
-                        scope.filteredSubTags = filterTagQNameFilter(newValue, scope.qNameIncludeFilter, scope.qNameExcludeFilter);
-
-                        element.html("<xe-xml-tag-editor ng-repeat='subTag in filteredSubTags' xml-tag='subTag' sub-index='{{groupIndex}}_{{xmlTag.subTags.indexOf(subTag)}}'></xe-xml-tag-editor>"                            );
-                        $compile(element.contents())(scope)
+                        applyTemplate(
+                            element,
+                            '<li>{{item.id}} : {{item.value}} <collection item="item"</li>',
+                            scope);
                     }
                 });
             }
         };
     }])
-    .filter('filterTagQName', function() {
-        return function(tags, includeQNames, excludeQNames) {
-            if (!angular.isArray(tags)){return tags;}
-            if(!angular.isDefined(includeQNames) && !angular.isDefined(excludeQNames)){return tags;}
-            if(includeQNames == '' && excludeQNames == ''){return tags;}
 
-            var includeQNameArray = angular.isDefined(includeQNames) ? includeQNames.split(' ') : [];
-            var excludeQNameArray = angular.isDefined(excludeQNames) ?  excludeQNames.split(' ') : [];
+.directive('collection', ["$compile", function($compile) {
+    return {
+        restrict: 'E',
+        replace: true,
+        scope: {
+            item: '=',
 
-            tags = tags || [];
-            var out = [];
-            tags.forEach(function(tag){
-                var include = includeQNameArray.length == 0,
-                    exclude = false;
-                includeQNameArray.forEach(function(includeQNameFilter){
-                        if (angular.isDefined(tag.qName) && tag.qName == includeQNameFilter){
-                            include = true;
-                        }
+        },
+        template: '',
+        link: function (scope, element, attrs) {
+            scope.filteredSubTags =  [];
+
+            var isShown = false;
+            scope.$watchCollection("item.collection", function(newValue, oldValue) {
+                if (angular.isArray(newValue)) {
+                    if (!isShown) {
+                        // Removing all contents and old listeners
+                        element.contents().remove();
+                        element.html("<item ng-repeat='subItem in item.collection' item='subItem'></xe-xml-tag-editor>");
+                        $compile(element.contents())(scope);
+
+                        isShown = true;
                     }
-                )
-                excludeQNameArray.forEach(function(excludeQNameFilter){
-                        if (angular.isDefined(tag.qName) && tag.qName == excludeQNameFilter){
-                            exclude = true;
-                        }
-                    }
-                )
-
-                if(include && !exclude){
-                    out.push(tag);
+                }else{
+                    element.contents().remove();
+                    $compile(element.contents())(scope);
+                    isShown = false;
                 }
             });
-            return out;
-        };
-    });
+        }
+    };
+}])
+    .controller(
+    "AppController",
+    function ($scope) {
 
+        // I am the collection being watched.
+        $scope.mainItem =
+        {
+            id: 1,
+            value: 0,
+            collection: [
+                {
+                    id: 11,
+                    value: "1.1 test"
+                },
+                {
+                    id: 12,
+                    value: "1.2 test",
+                    collection: [
+                        {
+                            id: 11,
+                            value: "1.1 test"
+                        },
+                        {
+                            id: 12,
+                            value: "1.2 test"
+                        }
+                    ]
+                }
+            ]
+        };
+
+
+
+
+
+        // Change a deep value in an existing item on in the
+        // current collection.
+        $scope.changeDeepValue = function () {
+            // Add new item to collection.
+            $scope.collection[0].value = now();
+        };
+
+        // Add a new item to the collection, causing a change
+        // in the shallow topology of the collection.
+        $scope.changeShallowValue = function () {
+
+            // Add new item to collection.
+            $scope.collection.splice(0,0,{
+                id: ($scope.collection.length + 1),
+                value: now()
+            });
+
+        };
+
+        // I clear the log items.
+        $scope.clear = function () {
+            $scope.watchCollectionLog = [];
+            $scope.watchLog = [];
+            $scope.watchEqualityLog = [];
+        };
+
+        // I return the current UTC milliseconds.
+        function now() {
+            return ((new Date()).toUTCString());
+        }
+    }
+);
