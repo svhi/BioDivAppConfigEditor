@@ -26,7 +26,15 @@ angular.module('configeditorApp')
                         .success(function (data) {
                             scope.xmlFile = data;
                         });
-                }
+                };
+                scope.loadSample = function() {
+                    var fd = new FormData();
+                    fd.append('file', scope.uploadFile);
+                    $http.get('/api/xmlfile/id/1')
+                        .success(function (data) {
+                            scope.xmlFile = data;
+                        });
+                };
             }
         };
     }]);

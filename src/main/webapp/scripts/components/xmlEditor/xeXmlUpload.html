@@ -5,4 +5,6 @@
     <button class="btn btn-danger xe-btn-delete" ng-hide="uploadFile == null;" ng-click="uploadFile = null; xmlFile = null;"><span class="glyphicon glyphicon-trash"></span></button>
     <button class="btn btn-primary xe-btn-upload" ng-hide="uploadFile == null" ng-click="upload()"><span translate="xmlfile.Upload">Upload</span></button>
 
+    <button class="btn btn-primary xe-btn-loadSample" ng-show="uploadFile == null" ng-click="loadSample()"><span translate="xmlfile.loadSampleFile">Load Sample File</span></button>
+
 </div>
