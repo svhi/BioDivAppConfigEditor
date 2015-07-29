@@ -14,6 +14,7 @@
             <div class="panel-body">
                 <div class="container-fluid xe-panel-container">
                     <xe-xml-sub-tags xml-tag="xmlTag"></xe-xml-sub-tags>
+                    <button class="btn btn-default" ng-if="!doSubTagsContain('entryGroup')" ng-click="addTag(xmlTag.subTags, XmlTag('entryGroup','',[], [XmlTag('labels','',[],[])]));"><span class="glyphicon glyphicon-plus"></span> Create EntryGroup</button>
                 </div>
 
             </div>

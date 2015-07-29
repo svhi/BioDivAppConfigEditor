@@ -3,6 +3,20 @@
     <div class="panel panel-default">
         <div class="panel-heading">Options</div>
         <div class="panel-body">
+            <div class="xe-selector btn-group" data-toggle="buttons">
+                <button type="button" class="btn" ng-class="{active:doSubTagsContain('option')}" ng-click="xmlTag.subTags = [XmlTag('option','',[], [])];">
+                    local options
+                </button>
+                <button type="button" class="btn" ng-show="doSubTagsContain('option')" ng-click="addTag(xmlTag.subTags, XmlTag('option','',[], [XmlTag('key','',[], []), XmlTag('labels','',[], [])]));">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+                <button type="button" class="btn" ng-class="{active:doSubTagsContain('uri')}" ng-click="xmlTag.subTags = [XmlTag('uri','',[], [])];">
+                    rest
+                </button>
+
+
+            </div>
+
             <xe-xml-sub-tags xml-tag="xmlTag"></xe-xml-sub-tags>
         </div>
     </div>

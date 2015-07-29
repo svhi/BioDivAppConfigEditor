@@ -331,6 +331,12 @@ ul.atlas-list{
 
   .xe-viewport{
     padding-right: 10px;
+    .xe-selector{
+      width: 100%;
+      margin-bottom: 5px;
+      margin-left: 5px;
+      background-color: rgb(221, 221, 221);
+    }
   }
   .xe-spinner {
     height: 50px;

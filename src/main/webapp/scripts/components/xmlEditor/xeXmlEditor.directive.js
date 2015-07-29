@@ -4,32 +4,27 @@ angular.module('configeditorApp')
     .directive('xeXmlEditor', ["$compile", "$http", "$templateCache", function($compile, $http, $templateCache) {
         return {
             restrict: 'E',
-            //replace: true,
+            replace: true,
             scope: {
                 xmlFile: '='
             },
             templateUrl: 'scripts/components/xmlEditor/xeXmlEditor.html',
-            link: function (scope, element,  attrs) {
-
-                /*var content = element.contents().remove();
-                 scope.$watch("xmlFile", function(newValue){
-                 if(newValue==null){
-                 element.contents().remove();
-                 element.html("");
-                 }else{
-                 element.contents().remove();
-                 element.html($compile(content)(scope));
-                 }
-                 });*/
-            }
         };
     }])
     .directive('xeXmlTagEditor',["$compile", "$http", "$templateCache", function($compile, $http, $templateCache) {
 
         var applyTemplate = function(element, html, scope){
             element.contents().remove();
-            element.html(html);
-            element.replaceWith($compile(element.html())(scope));
+            //element.html(html);
+            //element.replaceWith($compile(element.html())(scope));
+
+            // Compile the contents
+            var compiledContents = $compile(html);
+            // Re-add the compiled contents to the element
+            compiledContents(scope, function(clone){
+                element.append(clone);
+            });
+
         };
         var loadAndApplyTemplate = function(tagName, element, scope) {
             var templateLoader,
@@ -59,10 +54,10 @@ angular.module('configeditorApp')
         }
 
         var addTagBefore = function (tagArray, newTag , existingTag){
-            addTag(tagArray, newTag, tagArray.indexOf(xmlTag));
+            addTag(tagArray, newTag, tagArray.indexOf(existingTag));
         }
         var addTagAfter = function (tagArray, newTag , existingTag){
-            addTag(tagArray, newTag, tagArray.indexOf(xmlTag)+1);
+            addTag(tagArray, newTag, tagArray.indexOf(existingTag)+1);
         }
 
         var removeTag = function(array, xmlTag) {
@@ -102,26 +97,45 @@ angular.module('configeditorApp')
                 //console.log("link - " + scope.xmlTag + " >>>>>>>>>>>>>>>>>>>>>>>");
 
                 scope.addTag = addTag;
-                scope.addTagBefore = addTagBefore;
-                scope.addTagAfter = addTagAfter;
+                /* 1. $parent = ng-repeat
+                   2. $parent = xeXmlSubTags
+                   3. $parent = xeXmlTagEditor */
+                scope.addTagBefore = function(newTag){addTagBefore(scope.$parent.$parent.$parent.xmlTag.subTags, newTag, scope.xmlTag);};
+                scope.addTagAfter = function(newTag){addTagAfter(scope.$parent.$parent.$parent.xmlTag.subTags, newTag, scope.xmlTag);};
                 /*Helpers to create tags and attributes >>>>>>*/
-                scope.Tag = Tag;
-                scope.Attr = Attribute;
+                    scope.XmlTag = Tag;
+                    scope.XmlAttr = Attribute;
                 /* <<<<<<<<<<<< */
-                scope.removeTag = removeTag;
+                scope.removeTag = function(){removeTag(scope.$parent.$parent.$parent.xmlTag.subTags, scope.xmlTag);};
+
+                scope.doSubTagsContain = function(qName){
+                    if(!angular.isArray(scope.xmlTag.subTags) ||  scope.xmlTag.subTags.length == 0) return false;
+                    var doesContainQName = false
+                    scope.xmlTag.subTags.forEach(function (element, index, array) {
+                        if(angular.isDefined(element.qName)){
+                            if(element.qName === qName){
+                                doesContainQName = true;
+                            }
+                        }
+                    })
+                    return doesContainQName;
+                }
+
 
                 /* Watches Changes of qName in order to load a new template*/
+                var isCompiled = false;
                 scope.$watch("xmlTag.qName", function(newValue, oldValue) {
                     //console.log(newValue + " | EVAL ----" )
 
                     if(angular.isDefined(newValue)) {
-                        console.log(newValue + "_" + scope.xmlTag.$$hashKey + " | EVAL " + newValue + " : " + oldValue )
-                        //console.log(newValue + "_" + scope.xmlTag.$$hashKey + " | " + angular.isFunction(scope.$parent.addTag) + " | " + angular.isFunction(scope.$parent.$parent.addTag));
-
-                        loadAndApplyTemplate(newValue, element, scope);
+                        if(!isCompiled || !angular.isDefined(oldValue) || (newValue != oldValue)) {
+                            console.log(newValue + "_" + scope.xmlTag.$$hashKey + " | EVAL " + newValue + " : " + oldValue)
+                            //console.log(newValue + "_" + scope.xmlTag.$$hashKey + " | " + angular.isFunction(scope.$parent.addTag) + " | " + angular.isFunction(scope.$parent.$parent.addTag));
+                            loadAndApplyTemplate(newValue, element, scope);
+                            isCompiled = true;
+                        }
                     }
                 });
-
                 //console.log("<<<<<<<<<<<<<<<<<<<<<<<<< link");
             }
         };
@@ -131,7 +145,7 @@ angular.module('configeditorApp')
  * renders a new directive if there is an array of subtags defined.
  * This trick is necessary to avoid an endless loop!!!
  ******************************************************************************************************************/
-    .directive('xeXmlSubTags', ["$compile", "filterTagQNameFilter", function($compile, filterTagQNameFilter) {
+    .directive('xeXmlSubTags', ["$compile","RecursionHelper", "filterTagQNameFilter", function($compile, RecursionHelper, filterTagQNameFilter) {
         return {
             restrict: 'E',
             replace: true,
@@ -140,32 +154,40 @@ angular.module('configeditorApp')
                 qNameIncludeFilter: '@',
                 qNameExcludeFilter: '@',
             },
-            //template: "<xe-xml-tag-editor ng-repeat='subTag in filteredSubTags ' xml-tag='subTag'></xe-xml-tag-editor>",
-            link: function (scope, element, attrs) {
-                var isShown = false;
+            template: '<div class="xe-subTag-container"><xe-xml-tag-editor ng-repeat="subTag in xmlTag.subTags | filterTagQName :qNameIncludeFilter :qNameExcludeFilter" xml-tag="subTag"></xe-xml-tag-editor></div>',
+            compile:function(element) {
+                return RecursionHelper.compile(element, function (scope, iElement, iAttrs, controller, transcludeFn) {
+                    // Define your normal link function here.
+                    // Alternative: instead of passing a function,
+                    // you can also pass an object with
+                    // a 'pre'- and 'post'-link function.
+                });
+            }
+            /*link: function (scope, element, attrs) {
                 scope.$watchCollection("xmlTag.subTags", function(newValue, oldValue) {
                     if (angular.isArray(newValue)) {
-
                         console.log(scope.xmlTag.qName + "_" + scope.xmlTag.$$hashKey + " | SUBTAGS EVAL" + "\n - " + newValue)
 
-                        if (!isShown) {
+                        if(!angular.isArray(oldValue) || (newValue.length != oldValue.length))
                             // Removing all contents and old listeners
                             element.contents().remove();
                             element.html("<xe-xml-tag-editor ng-repeat='subTag in xmlTag.subTags | filterTagQName :qNameIncludeFilter :qNameExcludeFilter ' xml-tag='subTag'></xe-xml-tag-editor>");
                             $compile(element.contents())(scope);
 
-                            isShown = true;
-                        }
+
+
                     }else{
                         element.contents().remove();
-                        //element.html("<xe-xml-tag-editor ng-repeat='subTag in filteredSubTags ' xml-tag='subTag'></xe-xml-tag-editor>");
                         $compile(element.contents())(scope);
-                        isShown = false;
                     }
+
                 });
-            }
+            }*/
         };
     }])
+    /**
+     * Filters an array of subTags based on the tags qName.
+     */
     .filter('filterTagQName', function() {
         return function(tags, includeQNames, excludeQNames) {
             if (!angular.isArray(tags)){return tags;}
@@ -175,7 +197,6 @@ angular.module('configeditorApp')
             var includeQNameArray = angular.isDefined(includeQNames) ? includeQNames.split(' ') : [];
             var excludeQNameArray = angular.isDefined(excludeQNames) ?  excludeQNames.split(' ') : [];
 
-            //tags = tags || [];
             var out = [];
             tags.forEach(function(tag){
                 var include = includeQNameArray.length == 0,
