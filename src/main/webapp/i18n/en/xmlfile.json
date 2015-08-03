@@ -2,6 +2,7 @@
   "xmlfile": {
     "headline": "XML Editor",
     "SelectFile": "Select File",
-    "Upload": "Upload"
+    "Upload": "Upload",
+    "LoadSampleFile": "Load Sample File"
   }
 }

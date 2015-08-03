@@ -109,7 +109,7 @@ angular.module('configeditorApp')
                 scope.removeTag = function(){removeTag(scope.$parent.$parent.$parent.xmlTag.subTags, scope.xmlTag);};
 
                 scope.doSubTagsContain = function(qName){
-                    if(!angular.isArray(scope.xmlTag.subTags) ||  scope.xmlTag.subTags.length == 0) return false;
+                    if(scope.xmlTag==null || !angular.isArray(scope.xmlTag.subTags) ||  scope.xmlTag.subTags.length == 0) return false;
                     var doesContainQName = false
                     scope.xmlTag.subTags.forEach(function (element, index, array) {
                         if(angular.isDefined(element.qName)){

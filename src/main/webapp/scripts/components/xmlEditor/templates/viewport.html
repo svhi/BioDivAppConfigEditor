@@ -1,21 +1,31 @@
 <div class="xe-tag-container xe-viewport">
 
-    <div class="xe-selector btn-group" data-toggle="buttons">
-        <button type="button" class="btn" ng-class="{active:doSubTagsContain('textfield')}" ng-click="xmlTag.subTags = [XmlTag('textfield','',[], [])];">
-            Abc
-        </button>
-        <button type="button" class="btn" ng-class="{active:doSubTagsContain('numerictextfield')}" ng-click="xmlTag.subTags = [XmlTag('numerictextfield','',[], [])];">
-            123
-        </button>
-        <button type="button" class="btn" ng-class="{active:doSubTagsContain('numberpicker')}" ng-click="xmlTag.subTags = [XmlTag('numberpicker','',[], [])];">
-            123 <span class="glyphicon glyphicon-th"></span>
-        </button>
-        <button type="button" class="btn" ng-class="{active:doSubTagsContain('spinner')}" ng-click="xmlTag.subTags = [XmlTag('spinner','',[], [XmlTag('datasource','',[], [XmlTag('orderby','',[], []),XmlTag('options','',[], [])])])];">
-            spinner
-        </button>
-        <button type="button" class="btn" ng-class="{active:doSubTagsContain('buttonmatrix')}" ng-click="xmlTag.subTags = [XmlTag('buttonmatrix','',[], [])];">
-            <span class="glyphicon glyphicon-th"></span>
-        </button>
+    <div class="xe-selector btn-group btn-group-justified" role="group">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn  btn-default" ng-class="{active:doSubTagsContain('textfield')}" ng-click="xmlTag.subTags = [XmlTag('textfield','',[], [])];">
+                Abc
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" ng-class="{active:doSubTagsContain('numerictextfield')}" ng-click="xmlTag.subTags = [XmlTag('numerictextfield','',[], [])];">
+                123
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" ng-class="{active:doSubTagsContain('numberpicker')}" ng-click="xmlTag.subTags = [XmlTag('numberpicker','',[], [])];">
+                123 <span class="glyphicon glyphicon-th"></span>
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" ng-class="{active:doSubTagsContain('spinner')}" ng-click="xmlTag.subTags = [XmlTag('spinner','',[], [XmlTag('datasource','',[], [XmlTag('orderby','',[], []),XmlTag('options','',[], [])])])];">
+                spinner
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" ng-class="{active:doSubTagsContain('buttonmatrix')}" ng-click="xmlTag.subTags = [XmlTag('buttonmatrix','',[], [XmlTag('numberOfButtons','',[], []), XmlTag('datasource','',[], [XmlTag('orderby','',[], []),XmlTag('options','',[], [])])])];">
+                <span class="glyphicon glyphicon-th"></span>
+            </button>
+        </div>
     </div>
 
     <xe-xml-sub-tags xml-tag="xmlTag"></xe-xml-sub-tags>

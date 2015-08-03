@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module('configeditorApp')
-    .directive('xeXmlUpload', ["$http", function($http) {
+    .directive('xeXmlUpload', ['$http', function($http) {
 
         return {
             restrict: 'E',
@@ -34,6 +34,19 @@ angular.module('configeditorApp')
                         .success(function (data) {
                             scope.xmlFile = data;
                         });
+                };
+                scope.newConfigFile = function() {
+
+                    scope.xmlFile = {
+                        fileUrl: "",
+                        fileName: newConfig.xml,
+                        tag: {
+                            qName:"configuration",
+                            value: "",
+
+                        }
+                    };
+
                 };
             }
         };

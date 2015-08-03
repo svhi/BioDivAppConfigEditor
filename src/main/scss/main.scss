@@ -322,20 +322,26 @@ ul.atlas-list{
   }
   .xe-entry{
     padding: 3px;
-    border: 1px solid green;
+    border: 1px solid deepskyblue;
     .xe-entry-label{
       font-weight: bold;
       //font-size: larger;
     }
   }
+  .xe-mandatory{
+    button{
+      width:100%;
+    }
+  }
 
   .xe-viewport{
+    padding-left: 10px;
     padding-right: 10px;
     .xe-selector{
       width: 100%;
       margin-bottom: 5px;
-      margin-left: 5px;
-      background-color: rgb(221, 221, 221);
+      //margin-left: 5px;
+      //background-color: rgb(221, 221, 221);
     }
   }
   .xe-spinner {

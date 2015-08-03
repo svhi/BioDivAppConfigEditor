@@ -1,10 +1,15 @@
 <div class="xe-upload xe-upload-container">
 
-    <span class="xe-upload-filename" ng-show="uploadFile != null" ng-bind="uploadFile.name"></span>
-    <file-field class="btn btn-primary xe-btn-select" ng-model="uploadFile" ng-show="uploadFile == null"><span translate="xmlfile.SelectFile">Select File </span></file-field>
-    <button class="btn btn-danger xe-btn-delete" ng-hide="uploadFile == null;" ng-click="uploadFile = null; xmlFile = null;"><span class="glyphicon glyphicon-trash"></span></button>
-    <button class="btn btn-primary xe-btn-upload" ng-hide="uploadFile == null" ng-click="upload()"><span translate="xmlfile.Upload">Upload</span></button>
+    <span>
+        <span class="xe-upload-filename" ng-show="uploadFile != null && xmlFile==null" ng-bind="uploadFile.name"></span>
+        <file-field class="btn btn-primary xe-btn-select" ng-model="uploadFile" ng-show="uploadFile == null"><span translate="xmlfile.SelectFile">Select File</span></file-field>
+        <button class="btn btn-primary xe-btn-upload" ng-hide="uploadFile==null || xmlFile!=null" ng-click="upload()"><span translate="xmlfile.Upload">Upload</span></button>
+    </span>
 
-    <button class="btn btn-primary xe-btn-loadSample" ng-show="uploadFile == null" ng-click="loadSample()"><span translate="xmlfile.loadSampleFile">Load Sample File</span></button>
+    <button class="btn btn-primary xe-btn-loadSample" ng-show="xmlFile==null" ng-click="loadSample()"><span translate="xmlfile.LoadSampleFile">Load Sample File</span></button>
 
+    <span>
+        <span class="xe-upload-filename" ng-show="xmlfile != null" ng-bind="xmlFile.fileName"></span>
+        <button class="btn btn-danger xe-btn-delete" ng-show="xmlFile!=null;" ng-click="uploadFile = null; xmlFile = null;"><span class="glyphicon glyphicon-trash"></span></button>
+    </span>
 </div>

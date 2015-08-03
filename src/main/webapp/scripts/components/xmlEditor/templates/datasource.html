@@ -1,6 +1,6 @@
 <div class="xe-tag-container xe-datasource">
     <!-- Button trigger modal -->
-    <button type="button xe-datasource-modal-button" class="btn" data-toggle="modal" data-target="#xe_datasource_type_modal_{{$id}}">
+    <button type="button xe-datasource-modal-button" class="btn btn-default" data-toggle="modal" data-target="#xe_datasource_type_modal_{{$id}}">
         <span  class="glyphicon glyphicon-new-window"></span>
     </button>
 
@@ -15,7 +15,7 @@
                 <div class="modal-body">
                     <div class="xe-datasource-type">
                         <label>Type</label>
-                        <select class="form-control" ng-model="xmlTag.attributes[0].value">
+                        <select class="form-control" ng-model="xmlTag.attributes[0].value" ng-required="true">
                             <option>local</option>
                             <option>rest</option>
                         </select>

@@ -30,6 +30,8 @@ public class XmlFileController {
             XmlParser parser = new XmlParser();
             XmlFileModel xmlFileModel = parser.parse(xmlFile);
 
+
+            xmlFileModel.setFileName("sampleConfig.xml");
             return xmlFileModel;
 
         } catch (ParserConfigurationException e) {
