@@ -30,14 +30,14 @@
                                 <span>
                                     <span class="glyphicon glyphicon-globe"></span>
                                     <span class="hidden-tablet" translate="global.menu.atlas">
-                                        Atlas
+                                        Atlanten
                                     </span>
                                     <b class="caret"></b>
                                 </span>
                     </a>
                     <ul class="dropdown-menu">
                         <li ng-repeat="a in atlasList" ng-class="{active: selectedAtlas!=null && selectedAtlas.id === a.id}">
-                            <a href="" ng-click="setSelectedAtlas(a)">
+                            <a ng-href="{{a.url}}">
                                 <span ng-bind="a.name" />
                             </a>
                         </li>

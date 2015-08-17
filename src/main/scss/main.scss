@@ -131,6 +131,23 @@ body {
       background-size: contain;
     }
   }
+  .img-logo-hsb{
+    display: inline-block;
+    width: 130px;
+    height: 58px;
+    background: url("../images/logo-RS317_HSB_Horizontal_RGB.png") no-repeat center top;
+    background-size: contain;
+    @extend .pull-right;
+  }
+  .img-logo-hsb-biodiv{
+    display: inline-block;
+    width: 150px;
+    height: 58px;
+    background: url("../images/logo-hsb-biodiv.png") no-repeat center top;
+    background-size: contain;
+    @extend .pull-right;
+  }
+
 
   /* make sure browsers use the pointer cursor for anchors, even with no href */
   a:hover {
@@ -180,7 +197,9 @@ body {
   }
 
   /* Custom page CSS -  Not required for template or sticky footer method. */
-  .container .text-muted {
+  .footer-text{
+    @extend .text-muted;
+    display:inline-block;
     margin: 20px 0;
   }
 

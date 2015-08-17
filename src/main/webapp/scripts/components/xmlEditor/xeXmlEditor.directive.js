@@ -105,28 +105,29 @@ angular.module('configeditorApp')
             },
             //template: '<div class="well">{{xmlTag.qName}}</div>',
 
-            link: function (scope, element, attrs) {
-                //console.log("link - " + scope.xmlTag + " >>>>>>>>>>>>>>>>>>>>>>>");
+            link: function ($scope, element, attrs) {
+                //console.log("link - " + $scope.xmlTag + " >>>>>>>>>>>>>>>>>>>>>>>");
 
-                scope.addTag = util.addTag;
-                /* $parent is used to access the parent scope
+                $scope.addTag = util.addTag;
+                /* $parent is used to access the parent $scope
                    1. $parent = ng-repeat
                    2. $parent = xeXmlSubTags
                    3. $parent = xeXmlTagEditor */
-                scope.addTagBefore = function(newTag){util.addTagBefore(scope.$parent.$parent.$parent.xmlTag.subTags, newTag, scope.xmlTag);};
-                scope.addTagAfter = function(newTag){util.addTagAfter(scope.$parent.$parent.$parent.xmlTag.subTags, newTag, scope.xmlTag);};
+                $scope.addTagBefore = function(newTag){util.addTagBefore($scope.$parent.$parent.$parent.xmlTag.subTags, newTag, $scope.xmlTag);};
+                $scope.addTagAfter = function(newTag){util.addTagAfter($scope.$parent.$parent.$parent.xmlTag.subTags, newTag, $scope.xmlTag);}
+                $scope.removeTag = function(){util.removeTag($scope.$parent.$parent.$parent.xmlTag.subTags, $scope.xmlTag);};
+
                 /*Helpers to create tags and attributes >>>>>>*/
-                    scope.XmlTag = util.Tag;
-                    scope.XmlAttr = util.Attribute;
+                $scope.XmlTag = util.Tag;
+                $scope.XmlAttr = util.Attribute;
                 /* <<<<<<<<<<<< */
-                scope.removeTag = function(){util.removeTag(scope.$parent.$parent.$parent.xmlTag.subTags, scope.xmlTag);};
 
                 // Helper function that evaluate if a Tag with the given qName is present within the subtags array.
                 // Possible usecase: show create button only if tag is not present yet.
-                scope.doSubTagsContain = function(qName){
-                    if(scope.xmlTag==null || !angular.isArray(scope.xmlTag.subTags) ||  scope.xmlTag.subTags.length == 0) return false;
+                $scope.doSubTagsContain = function(qName){
+                    if($scope.xmlTag==null || !angular.isArray($scope.xmlTag.subTags) ||  $scope.xmlTag.subTags.length == 0) return false;
                     var doesContainQName = false;
-                    scope.xmlTag.subTags.forEach(function (element) {
+                    $scope.xmlTag.subTags.forEach(function (element) {
                         if(angular.isDefined(element.qName)){
                             if(element.qName === qName){
                                 doesContainQName = true;
@@ -136,17 +137,15 @@ angular.module('configeditorApp')
                     return doesContainQName;
                 };
 
-
                 /* Watches Changes of qName in order to load a new template*/
                 var isCompiled = false;
-                scope.$watch("xmlTag.qName", function(newValue, oldValue) {
+                $scope.$watch("xmlTag.qName", function(newValue, oldValue) {
                     //console.log(newValue + " | EVAL ----" )
-
                     if(angular.isDefined(newValue)) {
                         if(!isCompiled || !angular.isDefined(oldValue) || (newValue != oldValue)) {
-                            //console.log(newValue + "_" + scope.xmlTag.$$hashKey + " | EVAL " + newValue + " : " + oldValue);
-                            //console.log(newValue + "_" + scope.xmlTag.$$hashKey + " | " + angular.isFunction(scope.$parent.addTag) + " | " + angular.isFunction(scope.$parent.$parent.addTag));
-                            util.loadAndApplyTemplate(newValue, element, scope);
+                            //console.log(newValue + "_" + $scope.xmlTag.$$hashKey + " | EVAL " + newValue + " : " + oldValue);
+                            //console.log(newValue + "_" + $scope.xmlTag.$$hashKey + " | " + angular.isFunction($scope.$parent.addTag) + " | " + angular.isFunction($scope.$parent.$parent.addTag));
+                            util.loadAndApplyTemplate(newValue, element, $scope);
                             isCompiled = true;
                         }
                     }
@@ -169,7 +168,7 @@ angular.module('configeditorApp')
             },
             template: '<div class="xe-subTag-container"><xe-xml-tag-editor ng-repeat="subTag in xmlTag.subTags | filterTagQName :qNameIncludeFilter :qNameExcludeFilter" xml-tag="subTag"></xe-xml-tag-editor></div>',
             compile:function(element) {
-                return RecursionHelper.compile(element, function (scope, iElement, iAttrs, controller, transcludeFn) {
+                return RecursionHelper.compile(element, function ($scope, element, attrs, controller, transcludeFn) {
                     /* Define your normal link function here.
                        Alternative: instead of passing a function, you can also pass an object with a 'pre'- and 'post'-link function.*/
                 });
