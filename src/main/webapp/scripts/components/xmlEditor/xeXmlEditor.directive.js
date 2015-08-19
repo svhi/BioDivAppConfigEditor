@@ -103,7 +103,7 @@ angular.module('configeditorApp')
             scope: {
                 xmlTag: '='
             },
-            //template: '<div class="well">{{xmlTag.qName}}</div>',
+            template: '<div class="xe-xml-tag"><div class="well text-muted"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> <span>{{xmlTag.qName}}</span></div></div>',
 
             link: function ($scope, element, attrs) {
                 //console.log("link - " + $scope.xmlTag + " >>>>>>>>>>>>>>>>>>>>>>>");
