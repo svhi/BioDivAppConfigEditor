@@ -29,6 +29,14 @@
     display: flex;
     align-items: center;
   }
+
+  .spacer-btn {
+    margin: 3px;
+  }
+.btn-fullwidth {
+    width: 100%
+  }
+
   .xe-tag-container {
     .panel-body {
       padding: 5px;
@@ -85,12 +93,34 @@
   }
 
   .xe-entryGroup{
-    @extend .col-xs-12; //Spall devices sholud use all space
+    @extend .col-xs-12; //Small devices sholud use all space
+    @extend .col-sm-6;
     @extend .col-md-4;
     @extend .col-lg-4;
     //max-width: 500px;
     display: inline-block;
+    @media only screen  and (max-width: 768px){
+        padding-left: 0px;
+        padding-right: 0px;
+    }
   }
+  @media only screen and (min-width: 768px) and (max-width: 992px) {
+    .xe-spacer-2 {
+      clear: both;
+      width: 100%;
+      border-bottom: dotted 1px grey;
+      margin-bottom: 20px;
+    }
+  }
+  @media only screen and (min-width: 992px) {
+    .xe-spacer-3 {
+      clear: both;
+      width: 100%;
+      border-bottom: dotted 1px grey;
+      margin-bottom: 20px;
+    }
+  }
+
   .xe-entryGroup-panel {
     max-width: 500px;
     background-color: rgb(236,236,236);
@@ -114,12 +144,56 @@
       background-color: rgb(0, 0, 0);
     }
   }
-  .xe-entry{
+
+  .xe-entryGroup{
+    .btn-add-entry {
+      margin: 3px 0px;
+
+    }
+  }
+
+.xe-entry {
+  .btn-group {
+    margin: 3px 0px;
+  }
+}
+
+  .btn-add-entry {
+    color: #fff;
+    background-color: deepskyblue;
+    border-color: #0098cc;
+    padding: 3px 12px;
+  }
+
+
+  .xe-entry-body{
     padding: 3px;
     border: 1px solid deepskyblue;
-    .xe-entry-label{
+    margin-bottom: 0px;
+    .xe-label{
       font-weight: bold;
       //font-size: larger;
+    }
+    .xe-entry-labels, .xe-entry-delete{
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    .xe-entry-labels{
+      min-height: 33px;
+    }
+    .xe-entry-delete{
+      height: 100%;
+    }
+  }
+
+  .xe-labels{
+    .panel{
+      margin-bottom: 5px;
+    }
+
+    .xe-labels-values {
+      display: inline-block;
+      min-height: 21px;
     }
   }
   .xe-mandatory{
@@ -129,8 +203,11 @@
   }
 
   .xe-viewport{
-    padding-left: 10px;
-    padding-right: 10px;
+    @media only screen  and (min-width: 480px){
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
     .xe-selector{
       width: 100%;
       margin-bottom: 5px;
@@ -147,6 +224,7 @@
     height: 50px;
     width: 100%;
     background-color: rgb(236,236,236);
+    margin-right: 3px;
 
     &.xe-dummy-spinner{
       background: url("/scripts/components/xmlEditor/templates/images/BioDivApp_Dummy_spinner.jpg") no-repeat left top;
@@ -189,5 +267,6 @@
     padding-left: 0;
     padding-right: 0;
   }
+
 
 

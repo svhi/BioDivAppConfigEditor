@@ -79,6 +79,15 @@ angular.module('configeditorApp')
 
             },
 
+            moveToIndex: function(array, xmlTag, index){
+                util.removeTag(array, xmlTag);
+                util.addTag(array, xmlTag, index);
+            },
+            moveUp: function(array, xmlTag){
+                var index = array.indexOf(xmlTag) - 1;
+                util.moveToIndex(array, xmlTag, index);
+            },
+
             // Helper function for creating new Tags.
             Tag: function (qName, value, attributes, subTags) {
                 return {
@@ -116,6 +125,13 @@ angular.module('configeditorApp')
                 $scope.addTagBefore = function(newTag){util.addTagBefore($scope.$parent.$parent.$parent.xmlTag.subTags, newTag, $scope.xmlTag);};
                 $scope.addTagAfter = function(newTag){util.addTagAfter($scope.$parent.$parent.$parent.xmlTag.subTags, newTag, $scope.xmlTag);}
                 $scope.removeTag = function(){util.removeTag($scope.$parent.$parent.$parent.xmlTag.subTags, $scope.xmlTag);};
+                $scope.moveUp = function(){util.moveUp($scope.$parent.$parent.$parent.xmlTag.subTags, $scope.xmlTag );};
+                $scope.isFirst = function(){
+                    return $scope.$parent.$first;
+                }
+                $scope.isLast = function(){
+                    return $scope.$parent.$last;
+                }
 
                 /*Helpers to create tags and attributes >>>>>>*/
                 $scope.XmlTag = util.Tag;

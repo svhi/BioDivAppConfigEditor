@@ -4,7 +4,7 @@
 
         <div class="panel-heading" role="tab" id="heading_entryGroup_{{$id}}">
             <h4 class="panel-title">
-                <div class="btn-group">
+                <div class="btn-group" role="group">
 
                     <button class="btn btn-default xe-collapse-toggle-button" type="button" data-toggle="collapse" data-target="#collapse_entryGroup_{{$id}}" aria-expanded="true" aria-controls="collapse_entryGroup_{{$id}}">
                         <span class="xe-caret"></span> Entry Group
@@ -31,7 +31,7 @@
                     <div class="xe-body">
                         <xe-xml-sub-tags xml-tag="xmlTag" q-name-include-filter="labels"></xe-xml-sub-tags>
                         <xe-xml-sub-tags xml-tag="xmlTag" q-name-include-filter="entry"></xe-xml-sub-tags>
-                        <button class="btn btn-default" ng-hide="doSubTagsContain('multiSubmit')"
+                        <button class="btn btn-primary btn-fullwidth btn-add-entry" ng-if="!doSubTagsContain('entry')"
                                 ng-click="addTag(xmlTag.subTags, XmlTag('entry','',[], [XmlTag('labels','',[],[]), XmlTag('viewport','5',[],[])]));"><span class="glyphicon glyphicon-plus"></span> Create Entry</button>
                         <xe-xml-sub-tags xml-tag="xmlTag" q-name-exclude-filter="labels entry"></xe-xml-sub-tags>
                     </div>
@@ -43,3 +43,5 @@
     </div>
 
 </div>
+
+<div ng-class="{'xe-spacer-2': ($parent.$index+1)%2 === 0, 'xe-spacer-3': ($parent.$index+1)%3 === 0}" ng-hide="$parent.$last"></div>

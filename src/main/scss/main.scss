@@ -17,11 +17,8 @@ $navi-color: rgb(110, 125, 97);
 
 
 body {
-  //background: $background-color;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: $color_6;
-
-  background: url("../images/gras-in-nebel-und-morgentau.jpg") no-repeat center bottom;
   background-size: 100%;
   background-color: $background-color;
 
@@ -29,6 +26,16 @@ body {
     padding-top: 60px;
   }
 }
+
+@media only screen and (min-width: 480px) {
+
+  body {
+    background: url("../images/gras-in-nebel-und-morgentau.jpg") no-repeat center bottom;
+    background-size: 100%;
+    background-color: $background-color;
+  }
+}
+
 .content{
   background: #FFFFFF;
   min-height: 100%;
@@ -53,6 +60,8 @@ body {
   }
   z-index: 1040;
 }
+
+
 
 /*
 .navbar{
@@ -127,7 +136,7 @@ body {
       display: inline-block;
       width: 347px;
       height: 390px;
-      background: url("../images/tree1.png") no-repeat center top;
+      //background: url("../images/tree1.png") no-repeat center top;
       background-size: contain;
     }
   }
