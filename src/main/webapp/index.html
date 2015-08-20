@@ -9,8 +9,11 @@
 
     <title>BioDivApp Confieditor</title>
 
-    <!-- bower:css -->
-    <!-- endbower -->
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css(.) assets/styles/main.css -->
+
+    <!-- endbuild -->
     <link rel="stylesheet" href="assets/styles/main.css">
 
 
@@ -20,7 +23,7 @@
     <!--[if lt IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak=""><div class="container"></div></div>
+    <div ng-show="{{ENV==='dev'}}" class="development" ng-cloak=""><div class="container"></div></div>
 
     <div ui-view="navbar" ng-cloak=""></div>
 
@@ -33,6 +36,7 @@
             <span class="footer-text">Hochschule Bremen</span> <a href="http://www.hs-bremen.de/internet/de/"><span class="img-logo-hsb-biodiv img-responsive"></span><span class="img-logo-hsb img-responsive"></span></a>
         </div>
     </footer>
+    <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/modernizr/modernizr.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -53,16 +57,13 @@
     <script src="bower_components/angular-bootstrap-file-field/dist/angular-bootstrap-file-field.min.js"></script>
     <script src="bower_components/angular-recursion/angular-recursion.js"></script>
     <!-- endbower -->
-
+    <!-- endbuild -->
     <!--custom javascript files -->
+
+    <!-- build:js({.tmp,src/main/webapp}) scripts/app.js -->
     <script src="scripts/app/app.js"></script>
     <script src="scripts/app/app.constants.js"></script>
 
-    <script src="scripts/helper/angular-recursion.js"></script>
-
-    <script src="scripts/components/form/form.directive.js"></script>
-    <script src="scripts/components/form/pager.directive.js"></script>
-    <script src="scripts/components/form/pagination.directive.js"></script>
     <script src="scripts/components/language/language.service.js"></script>
     <script src="scripts/components/language/language.controller.js"></script>
     <script src="scripts/components/navbar/navbar.directive.js"></script>
@@ -72,12 +73,10 @@
     <script src="scripts/components/xmlEditor/xeXmlUpload.directive.js"></script>
 
     <script src="scripts/app/error/error.js"></script>
-    <script src="scripts/app/main/main.controller.js"></script>
     <script src="scripts/app/greeting/greeting.controller.js"></script>
     <script src="scripts/app/atlas/atlasList.controller.js"></script>
     <script src="scripts/app/xmlfile/xmlfile.controller.js"></script>
-    <script src="scripts/app/account/login/login.controller.js"></script>
-    <script src="scripts/app/account/logout/logout.controller.js"></script>
+    <!-- endbuild -->
     <!-- end custom javascript files -->
 
 </body>

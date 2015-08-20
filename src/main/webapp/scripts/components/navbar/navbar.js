@@ -30,26 +30,6 @@ angular.module('configeditorApp')
                     }]
                 }
             })
-            // main
-            /*.state('home', {
-                parent: 'site',
-                url: '/',
-                data: {
-                    roles: []
-                },
-                views: {
-                    'content@': {
-                        templateUrl: 'scripts/app/main/main.html',
-                        controller: 'MainController'
-                    }
-                },
-                resolve: {
-                    mainTranslatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
-                        $translatePartialLoader.addPart('main');
-                        return $translate.refresh();
-                    }]
-                }
-            })
             // greeting
             .state('greeting', {
                 parent: 'site',
@@ -69,7 +49,7 @@ angular.module('configeditorApp')
                         return $translate.refresh();
                     }]
                 }
-            })*/
+            })
             // xmlfile
             .state('xmlfile', {
                 parent: 'site',
@@ -107,41 +87,6 @@ angular.module('configeditorApp')
                         $translatePartialLoader.addPart('atlas');
                         return $translate.refresh();
                     }]
-                }
-            })
-            // account
-            .state('account', {
-                abstract: true,
-                parent: 'site'
-            })
-            // account.login
-            .state('login', {
-                parent: 'account',
-                url: '/login',
-                data: {
-                    roles: [],
-                    pageTitle: 'login.title'
-                },
-                views: {
-                    'content@': {
-                        templateUrl: 'scripts/app/account/login/login.html',
-                        controller: 'LoginController'
-                    }
-                }
-
-            })
-            // account.logout
-            .state('logout', {
-                parent: 'account',
-                url: '/logout',
-                data: {
-                    roles: []
-                },
-                views: {
-                    'content@': {
-                        templateUrl: 'scripts/app/main/main.html',
-                        controller: 'LogoutController'
-                    }
                 }
             })
             //error
