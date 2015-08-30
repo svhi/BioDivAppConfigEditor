@@ -1,5 +1,7 @@
 'use strict';
-
+/**********************************************************************************************************************
+ * app.js
+ *********************************************************************************************************************/
 angular.module('configeditorApp',['LocalStorageModule', 'tmh.dynamicLocale',
     'ngResource', 'ui.router', 'ngCookies', 'pascalprecht.translate', 'ngCacheBuster', 'infinite-scroll', 'bootstrap.fileField', 'RecursionHelper'])
 

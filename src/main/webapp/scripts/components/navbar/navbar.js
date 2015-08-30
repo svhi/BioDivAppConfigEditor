@@ -1,5 +1,7 @@
 'use strict';
-
+/**********************************************************************************************************************
+ * navbar.js
+ *********************************************************************************************************************/
 angular.module('configeditorApp')
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, httpRequestInterceptorCacheBusterProvider) {
 

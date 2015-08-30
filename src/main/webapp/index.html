@@ -25,12 +25,14 @@
     <meta name="msapplication-config" content="/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
-    <!-- build:css(.) assets/styles/main.css -->
-
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css ./assets/styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
     <!-- endbuild -->
-    <link rel="stylesheet" href="assets/styles/main.css">
-
-
+    <!-- build:css assets/styles/main.css -->
+    <link rel="stylesheet" href="./assets/styles/main.css">
+    <!-- endbuild -->
 
 
 </head>
@@ -78,8 +80,9 @@
     <script src="bower_components/angular-recursion/angular-recursion.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-    <!--custom javascript files -->
 
+
+    <!--custom javascript files -->
     <!-- build:js({.tmp,src/main/webapp}) scripts/app.js -->
     <script src="scripts/app/app.js"></script>
     <script src="scripts/app/app.constants.js"></script>

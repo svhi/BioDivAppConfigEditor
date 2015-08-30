@@ -1,5 +1,7 @@
 'use strict';
-
+/**********************************************************************************************************************
+ * language.controller.js
+ *********************************************************************************************************************/
 angular.module('configeditorApp')
     .controller('LanguageController', function ($scope, $translate, Language) {
         $scope.changeLanguage = function (languageKey) {
