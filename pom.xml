@@ -77,7 +77,7 @@
 	 - dev
 	 - prod
 
-	 yeoman-maven-plugin is used to triger frontend build
+	 yeoman-maven-plugin is used to trigger frontend build
 	 requirements: grunt has to be installed
 
 	-->
