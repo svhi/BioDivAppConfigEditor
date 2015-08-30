@@ -32,7 +32,7 @@
                         <xe-xml-sub-tags xml-tag="xmlTag" q-name-include-filter="labels"></xe-xml-sub-tags>
                         <xe-xml-sub-tags xml-tag="xmlTag" q-name-include-filter="entry"></xe-xml-sub-tags>
                         <button class="btn btn-primary btn-fullwidth btn-add-entry" ng-if="!doSubTagsContain('entry')"
-                                ng-click="addTag(xmlTag.subTags, XmlTag('entry','',[], [XmlTag('labels','',[],[]), XmlTag('viewport','5',[],[])]));"><span class="glyphicon glyphicon-plus"></span> Create Entry</button>
+                                ng-click="addTag(xmlTag.subTags, XmlTag('entry',null,[XmlAttr('restid', '')], [XmlTag('labels',null,[],[]), XmlTag('viewport',null,[],[])]));"><span class="glyphicon glyphicon-plus"></span> Create Entry</button>
                         <xe-xml-sub-tags xml-tag="xmlTag" q-name-exclude-filter="labels entry"></xe-xml-sub-tags>
                     </div>
                     <div class="xe-footer"></div>

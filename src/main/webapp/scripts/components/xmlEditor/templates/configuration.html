@@ -1,12 +1,30 @@
 <div class="xe-tag-container xe-configuration">
 
+    <div class="xe-configuration-attrs">
+        <div class="form-horizontal">
+            <div class="form-group" ng-repeat="attr in xmlTag.attributes" >
+                <label for="configuration_attr_{{$id}}" class="col-sm-3 control-label" ng-bind="attr.qName"></label>
+                <div class="col-sm-9 xe-input-container">
+                    <textarea class="form-control" rows="2"
+                              id="configuration_attr_{{$id}}" placeholder="{{attr.qName}}" ng-model="attr.value">
+                    </textarea>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+
+
     <xe-xml-sub-tags xml-tag="xmlTag" q-name-include-filter="defaultLanguage"></xe-xml-sub-tags>
+
+
 
     <xe-xml-sub-tags xml-tag="xmlTag" q-name-include-filter="singleSubmit"></xe-xml-sub-tags>
 
     <xe-xml-sub-tags xml-tag="xmlTag" q-name-include-filter="multiSubmit"></xe-xml-sub-tags>
     <button class="btn btn-default" ng-hide="doSubTagsContain('multiSubmit')"
-            ng-click="addTag(xmlTag.subTags, XmlTag('multiSubmit','',[], [XmlTag('log','',[],[XmlTag('show','true',[],[]), XmlTag('rowCount','5',[],[])])]));"><span class="glyphicon glyphicon-plus"></span> Create MultiSubmit</button>
+            ng-click="addTag(xmlTag.subTags, XmlTag('multiSubmit','',[], [XmlTag('log','',[],[XmlTag('show','true',[],[]), XmlTag('rowCount','3',[],[])]), XmlTag('summerizeDataBy', '', [],[])]));"><span class="glyphicon glyphicon-plus"></span> Create MultiSubmit</button>
 
     <xe-xml-sub-tags xml-tag="xmlTag" q-name-exclude-filter="defaultLanguage singleSubmit multiSubmit"></xe-xml-sub-tags>
 

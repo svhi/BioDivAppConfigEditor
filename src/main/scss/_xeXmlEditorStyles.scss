@@ -1,3 +1,17 @@
+/***********************************************************************************************************************
+ * Good to know:
+ *
+ * Responsive Measurements
+ * -----------------------------------------------------------
+ * Extra small devices (phones, less than 768px)
+ *   No media query since this is the default in Bootstrap
+ * Small devices (tablets, 768px and up)
+ *   @media only screen and (min-width: 768px)
+ * Medium devices (desktops, 992px and up)
+ *   @media only screen and (min-width: 992px)
+ * Large devices (large desktops, 1200px and up)
+ *   @media only screen and (min-width: 1200px)
+ **********************************************************************************************************************/
 
 /***********************************************************************************************************************
  * XE - XmlEditor Upload Styling
@@ -17,12 +31,31 @@
 
  }
 
+/***********************************************************************************************************************
+* XE - XmlEditor Download Styling
+*
+**********************************************************************************************************************/
+.xe-download {
+  &.xe-download-container {
+    padding: 20px;
+    margin-top: 10px;
+    border-top: solid 1px lightgray;
+  }
+}
+
+
   /***********************************************************************************************************************
  * XE - XmlEditor Styling
  *
  **********************************************************************************************************************/
   .ng-invalid {
-    border: red 1px solid !important;
+    //border: red 1px solid !important;
+    /* glowing border*/
+    outline: none;
+    border-color: red;
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(255,0,0,0.6);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(255,0,0,0.6);
+    box-shadow: 0px 0px 7px 0px rgba(255,0,0,0.6);
   }
 
   .xe-v-center{
@@ -56,24 +89,33 @@
     display: inline-block;
   }
 
-  .xe-defaultLanguage{
-    max-width: 400px;
+
+  .xe-defaultLanguage, .xe-configuration-attrs{
+    max-width: 100%;
     .xe-input-container{
       vertical-align: middle;
     }
   }
+  /*Medium devices (desktops, 992px and up)*/
+  @media only screen and (min-width: 992px) {
+    .xe-defaultLanguage, .xe-configuration-attrs {
+      max-width: 65%;
+    }
+  }
+
   /********************
    * Collapsing Panel
    ********************/
   .xe-collapsingpanel{
     .panel-heading{
       padding: 0px;
+
       .panel-title{
         button.xe-collapse-toggle-button{
           //width: 100%;
           height: 100%;
           text-align: left;
-          background: none;
+          //background: none;
 
           &[aria-expanded="true"] {
             span.xe-caret {
@@ -104,6 +146,7 @@
         padding-right: 0px;
     }
   }
+  /*Small devices (tablets, 768px and up)*/
   @media only screen and (min-width: 768px) and (max-width: 992px) {
     .xe-spacer-2 {
       clear: both;
@@ -112,6 +155,7 @@
       margin-bottom: 20px;
     }
   }
+  /*Medium devices (desktops, 992px and up)*/
   @media only screen and (min-width: 992px) {
     .xe-spacer-3 {
       clear: both;
@@ -174,12 +218,13 @@
       font-weight: bold;
       //font-size: larger;
     }
-    .xe-entry-labels, .xe-entry-delete{
+    .xe-entry-restid, .xe-entry-delete{
       padding-left: 0px;
       padding-right: 0px;
     }
     .xe-entry-labels{
       min-height: 33px;
+      margin-top:3px;
     }
     .xe-entry-delete{
       height: 100%;
@@ -187,10 +232,37 @@
   }
 
   .xe-labels{
-    .panel{
+
+    .panel {
       margin-bottom: 5px;
+      //background: none;
+    }
+    .panel-collapse{
+      padding-top: 10px;
+
+    }
+    .xe-labels-col{
+      padding-left: 0px;
+      padding-right: 0px;
     }
 
+
+    .xe-labels-summery{
+      display: inline-block;
+      min-height: 32px;
+      width: 100%;
+      vertical-align: middle;
+
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 6px 12px;
+
+      font-size: medium;
+      font-weight: bold;
+
+    }
     .xe-labels-values {
       display: inline-block;
       min-height: 21px;

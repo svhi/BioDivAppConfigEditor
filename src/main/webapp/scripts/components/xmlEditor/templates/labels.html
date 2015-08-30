@@ -1,37 +1,41 @@
 <div class="xe-tag-container xe-labels">
-        <!-- trigger modal -->
-   <div class="panel panel-default" data-toggle="modal" data-target="#xe_labels_modal_{{$id}}">
-       <div class="panel-body">
-            <span class="xe-labels-values"><span ng-repeat="label in xmlTag.subTags"><span class="xe-label" ng-bind="label.value" /> <span class="xe-label-lang">[<span ng-bind="label.attributes[0].value"/>]<span><span ng-show="!$last">, </span> </span></span>
-       </div>
-   </div>
 
-    <div class="modal fade xe-labels-modal" id="xe_labels_modal_{{$id}}" tabindex="-1" role="dialog" aria-labelledby="xe_labels_modal_label_{{$id}}">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="xe_labels_modal_label_{{$id}}">Labels</h4>
+    <div class="panel panel-default xe-collapsingpanel">
+
+        <div class="panel-heading" role="tab" id="heading_labels_{{$id}}">
+            <h4 class="panel-title">
+                <div class="xe-labels-header container-fluid">
+                    <div class="row">
+                        <div class="xe-labels-col col-xs-2">
+                            <button class="btn btn-default xe-collapse-toggle-button"
+                                    type="button" data-toggle="collapse" data-target="#collapse_labels_{{$id}}"
+                                    aria-expanded="false" aria-controls="collapse_labels_{{$id}}"
+                                    title="Edit Labels">
+                                <span class="xe-caret"></span>
+                            </button>
+                        </div>
+                        <div class="xe-labels-col col-xs-10">
+                            <span class="xe-labels-summery"><span ng-repeat="label in xmlTag.subTags" ><span ng-bind="label.value" /> [<span ng-bind="label.attributes[0].value"/>]<span ng-show="!$last">, </span> </span></span>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <div class="list-groups">
-                        <xe-xml-sub-tags xml-tag="xmlTag"></xe-xml-sub-tags>
-                        <div class="form-horizontal">
-                            <div class="form-group">
-                                <div class="col-sm-4"> </div>
-                                <div class="col-sm-8 xe-input-container">
-                                    <button class="btn btn-default" ng-click="addTag(xmlTag.subTags, XmlTag('label','',[XmlAttr('lang','')], []));"><span class="glyphicon glyphicon-plus"></span> Add Label</button>
-                                </div>
-                            </div>
+            </h4>
+        </div>
+
+        <div id="collapse_labels_{{$id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_labels_{{$id}}">
+            <div class="list-groups">
+                <xe-xml-sub-tags xml-tag="xmlTag"></xe-xml-sub-tags>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-sm-4"> </div>
+                        <div class="col-sm-8 xe-input-container">
+                            <button class="btn btn-default" ng-click="addTag(xmlTag.subTags, XmlTag('label','',[XmlAttr('lang','')], []));"><span class="glyphicon glyphicon-plus"></span> Add Label</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 
-
-
-
 </div>
-

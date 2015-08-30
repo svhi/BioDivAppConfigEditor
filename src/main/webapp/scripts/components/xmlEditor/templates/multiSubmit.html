@@ -5,7 +5,7 @@
         <div class="panel-heading" role="tab" id="heading_singleSubmit">
             <h4 class="panel-title">
                 <div class="btn-group">
-                    <button class="btn xe-collapse-toggle-button" type="button" data-toggle="collapse" data-target="#collapse_multiSubmit" aria-expanded="true" aria-controls="collapse_multiSubmit">
+                    <button class="btn btn-default xe-collapse-toggle-button" type="button" data-toggle="collapse" data-target="#collapse_multiSubmit" aria-expanded="true" aria-controls="collapse_multiSubmit">
                         <span class="xe-caret"></span> Multi Submit
                     </button>
                     <button class="btn btn-default" type="button" data-toggle="collapse" ng-click="removeTag();">
@@ -21,7 +21,7 @@
                     <div class="panel panel-default xe-collapsingpanel">
                         <div class="panel-heading" role="tab" id="heading_multiLog">
                             <h4 class="panel-title">
-                                <button class="btn xe-collapse-toggle-button" type="button" data-toggle="collapse" data-target="#collapse_multiLog" aria-expanded="true" aria-controls="collapse_multiLog">
+                                <button class="btn btn-default xe-collapse-toggle-button" type="button" data-toggle="collapse" data-target="#collapse_multiLog" aria-expanded="true" aria-controls="collapse_multiLog">
                                     <span class="xe-caret"></span> Log Settings
                                 </button>
                             </h4>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="container-fluid xe-panel-container">
                     <xe-xml-sub-tags xml-tag="xmlTag" q-name-exclude-filter="log summerizeDataBy"></xe-xml-sub-tags>
-                    <button class="btn btn-default" ng-if="xmlTag.subTags.length<=2" ng-click="addTag(xmlTag.subTags, XmlTag('entryGroup','',[], [XmlTag('labels','',[],[])]));"><span class="glyphicon glyphicon-plus"></span> Create EntryGroup</button>
+                    <button class="btn btn-default" ng-if="!doSubTagsContain('entryGroup')" ng-click="addTag(xmlTag.subTags, XmlTag('entryGroup','',[], [XmlTag('labels','',[],[])]));"><span class="glyphicon glyphicon-plus"></span> Create EntryGroup</button>
                 </div>
 
             </div>

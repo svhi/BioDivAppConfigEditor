@@ -247,5 +247,11 @@ ul.atlas-list{
   to { transform: scale(1) rotate(360deg);}
 }
 
+.btn-default:hover {
+  color: #333;
+  background-color: rgb(241, 252, 244);
+  border-color: #adadad;
+}
+
 
 @import "xeXmlEditorStyles";
