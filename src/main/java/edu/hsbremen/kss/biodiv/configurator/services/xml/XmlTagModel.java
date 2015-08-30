@@ -12,10 +12,13 @@ public class XmlTagModel {
     private List<XmlTagModel> subTags;
     private List<XmlAttributeModel> attributes;
 
-    public XmlTagModel(String qName){
-        this.qName = qName;
+    public XmlTagModel(){
         this.setSubTags(new ArrayList<XmlTagModel>());
         this.setAttributes(new ArrayList<XmlAttributeModel>());
+    }
+    public XmlTagModel(String qName){
+        this();
+        this.qName = qName;
     }
 
     public String getqName() {

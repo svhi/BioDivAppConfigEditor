@@ -3,6 +3,7 @@
     "headline": "XML Editor",
     "SelectFile": "Datei wählen",
     "Upload": "Datei hochladen",
+    "Download": "Datei herunterladen",
     "LoadSampleFile": "Beispieldatei Laden"
   }
 }

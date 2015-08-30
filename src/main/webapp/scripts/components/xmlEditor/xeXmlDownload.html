@@ -1,0 +1,15 @@
+<div class="xe-download xe-download-container" ng-if="xmlFileModel!=null">
+
+    <span>
+        <button class="btn btn-primary xe-btn-download"  ng-click="download()"><span class="glyphicon glyphicon-save-file"></span> <span translate="xmlfile.Download">Download</span></button>
+    </span>
+
+    <hr>
+
+    <div class="form-group"  ng-if="downloadFile!=null">
+        <label for="downloadText">Downloaded File:</label>
+        <textarea class="form-control" rows="20" id="downloadText" ng-model="downloadFile"></textarea>
+    </div>
+
+
+</div>
