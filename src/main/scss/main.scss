@@ -140,21 +140,32 @@ body {
       background-size: contain;
     }
   }
+
+  .footer-text {
+    display: none
+  }
+  @media only screen and (min-width: 992px) {
+    .footer-text {
+      display: inline-block;
+    }
+  }
+  .footer-logos{
+    display: inline-block;
+    @extend .pull-right;
+  }
   .img-logo-hsb{
     display: inline-block;
     width: 130px;
     height: 58px;
     background: url("../images/logo-RS317_HSB_Horizontal_RGB.png") no-repeat center top;
     background-size: contain;
-    @extend .pull-right;
   }
   .img-logo-hsb-biodiv{
     display: inline-block;
     width: 150px;
     height: 58px;
-    background: url("../images/logo-hsb-biodiv.png") no-repeat center top;
+    background: url("../images/logo-hsb-biodiv_2.png") no-repeat center top;
     background-size: contain;
-    @extend .pull-right;
   }
 
 
@@ -208,7 +219,6 @@ body {
   /* Custom page CSS -  Not required for template or sticky footer method. */
   .footer-text{
     @extend .text-muted;
-    display:inline-block;
     margin: 20px 0;
   }
 
