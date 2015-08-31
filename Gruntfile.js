@@ -213,7 +213,7 @@ module.exports = function (grunt) {
         cssmin: {
             // src and dest is configured in a subtask called "generated" by usemin
         },
-        ngtemplates:    {
+        ngtemplates:    { //Causes --> Error: [$rootScope:infdig] 10 $digest() iterations reached. Aborting!
             //dist: {
             //    cwd: 'src/main/webapp',
             //    src: ['scripts/app/**/*.html', 'scripts/components/**/*.html',],
@@ -376,7 +376,7 @@ module.exports = function (grunt) {
         'wiredep:app',
         'ngconstant:prod',
         'useminPrepare',
-        //'ngtemplates',
+        //'ngtemplates', //Causes --> Error: [$rootScope:infdig] 10 $digest() iterations reached. Aborting!
         'compass:dist',
         'imagemin',
         'svgmin',
