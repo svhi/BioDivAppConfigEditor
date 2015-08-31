@@ -65,9 +65,11 @@ public class BioDivAppConfigurationEditorApplication {
         SimpleCommandLinePropertySource source = new SimpleCommandLinePropertySource(args);
         addDefaultProfile(app, source);
         Environment env = app.run(args).getEnvironment();
-        log.info("Access URLs:\n----------------------------------------------------------\n\t" +
-                        "Local: \t\thttp://127.0.0.1:{}\n\t" +
-                        "External: \thttp://{}:{}\n----------------------------------------------------------",
+        log.info("Access URLs:\n" +
+                        "----------------------------------------------------------\n" +
+                        "\tLocal: \t\t http://127.0.0.1:{}\n" +
+                        "\tExternal: \t http://{}:{}\n" +
+                        "----------------------------------------------------------",
                 env.getProperty("server.port"),
                 InetAddress.getLocalHost().getHostAddress(),
                 env.getProperty("server.port"));
