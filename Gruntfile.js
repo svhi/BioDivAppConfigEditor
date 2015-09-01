@@ -79,6 +79,7 @@ module.exports = function (grunt) {
                 }
             }
         },
+        //use grunt:serve separately build a Frontend and enable browsersync!
         browserSync: {
             dev: {
                 bsFiles: {
@@ -121,6 +122,8 @@ module.exports = function (grunt) {
                 'src/main/webapp/scripts/components/**/*.js'
             ]
         },
+        // Processes scss-files and generates the css-files
+        // also corrects the urls
         compass: {
             options: {
                 sassDir: 'src/main/scss',
@@ -160,6 +163,13 @@ module.exports = function (grunt) {
                 }
             }
         },
+        /**
+         * All minimized files will be saved in 'src/main/webapp/dist'
+         * These file are only used when application is started with mav spring-boot:run -Pprod
+         * or when the war file was build with -Pprod and started with java -jar jhipster-0.0.1-SNAPSHOT.war --spring.profiles.active=prod
+         * or you can add -Dspring.profiles.active=prod to your JAVA_OPTS when running your server, if you want to deploy the war-file
+         * in an external application server.
+         */
         useminPrepare: {
             html: 'src/main/webapp/**/*.html',
             css: 'src/main/webapp/assets/styles/**/*.css',
@@ -190,6 +200,7 @@ module.exports = function (grunt) {
                 dirs: ['<%= yeoman.dist %>']
             }
         },
+        //minimizes image files
         imagemin: {
             dist: {
                 files: [{
@@ -213,6 +224,7 @@ module.exports = function (grunt) {
         cssmin: {
             // src and dest is configured in a subtask called "generated" by usemin
         },
+        //minimizes angular templates an creates a file to attache them directly to the concatenated app.js file
         ngtemplates:    { //Causes --> Error: [$rootScope:infdig] 10 $digest() iterations reached. Aborting!
             //dist: {
             //    cwd: 'src/main/webapp',
@@ -281,14 +293,6 @@ module.exports = function (grunt) {
                         'generated/*'
                     ]
                 }]
-            },
-            generateOpenshiftDirectory: {
-                expand: true,
-                dest: 'deploy/openshift',
-                src: [
-                    'pom.xml',
-                    'src/main/**'
-                ]
             }
         },
         karma: {
@@ -305,21 +309,6 @@ module.exports = function (grunt) {
                     src: '*.js',
                     dest: '.tmp/concat/scripts'
                 }]
-            }
-        },
-        buildcontrol: {
-            options: {
-                commit: true,
-                push: false,
-                connectCommits: false,
-                message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
-            },
-            openshift: {
-                options: {
-                    dir: 'deploy/openshift',
-                    remote: 'openshift',
-                    branch: 'master'
-                }
             }
         },
         ngconstant: {
@@ -408,19 +397,6 @@ module.exports = function (grunt) {
 
         grunt.file.write(filepath, fileContent + "\nskipBower=true\n");
     });
-
-    grunt.registerTask('buildOpenshift', [
-        'test',
-        'build',
-        'copy:generateOpenshiftDirectory',
-    ]);
-
-    grunt.registerTask('deployOpenshift', [
-        'test',
-        'build',
-        'copy:generateOpenshiftDirectory',
-        'buildcontrol:openshift'
-    ]);
 
     grunt.registerTask('default', [
         'test',
