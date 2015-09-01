@@ -4,6 +4,7 @@
     "SelectFile": "Datei wählen",
     "Upload": "Datei hochladen",
     "Download": "Datei herunterladen",
-    "LoadSampleFile": "Beispieldatei Laden"
+    "LoadSampleFile": "Beispieldatei Laden",
+    "PleaseCheckForm": "Bitte kontrollieren Sie das Formular auf Fehler!"
   }
 }

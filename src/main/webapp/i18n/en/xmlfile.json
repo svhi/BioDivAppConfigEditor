@@ -4,6 +4,7 @@
     "SelectFile": "Select File",
     "Upload": "Upload",
     "Download": "Download File",
-    "LoadSampleFile": "Load Sample File"
+    "LoadSampleFile": "Load Sample File",
+    "PleaseCheckForm": "Please check the form for errors!"
   }
 }
