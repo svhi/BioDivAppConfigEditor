@@ -9,7 +9,8 @@ angular.module('configeditorApp')
             restrict: 'E',
             replace: false,
             scope: {
-                xmlFileModel: '='
+                xmlFileModel: '=',
+                form: '=',
             },
             templateUrl: 'scripts/components/xmlEditor/xeXmlDownload.html',
             controller: ['$scope', function ($scope) {
@@ -24,6 +25,7 @@ angular.module('configeditorApp')
                     $http.post(scope.downloadURL, scope.xmlFileModel)
                         .success(function (data) {
                             scope.downloadFile = data;
+                            scope.form.$setPristine();
                         });
                 };
             }

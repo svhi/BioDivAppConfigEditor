@@ -19,32 +19,44 @@ angular.module('configeditorApp')
  ******************************************************************************************************************/
     .factory('xeXmlTagEditorUtils', ["$compile", "$http", "$templateCache", function($compile, $http, $templateCache) {
         var util = {
+
+            /*Applies a angular template to a given element*/
             applyTemplate: function (element, html, scope) {
-                // remove previous content
+                // Remove previous content
                 element.contents().remove();
                 // Compile the new contents
                 var compiledContents = $compile(html);
-                // Re-add the compiled contents to the element
+                // Link the template to a scope and re-add the compiled contents to the element
                 compiledContents(scope, function (clone) {
                     element.append(clone);
                 });
             },
+
+            /*Loads a angular template based on the name of a xml tag. If no suitable
+            template is available the default template will be used. $templateCache is
+            used to reduce calls to the server */
             loadAndApplyTemplate: function (tagName, element, scope) {
                 var templateLoader,
                     defaultTemplateUrl = 'scripts/components/xmlEditor/xeXmlTagEditor.html',
                     baseUrl = 'scripts/components/xmlEditor/templates/',
                     templateUrl = baseUrl + tagName + ".html";
-                templateLoader = $http.get(templateUrl, {cache: $templateCache});
 
-                templateLoader.error(function () {
-                    templateLoader = $http.get(defaultTemplateUrl, {cache: $templateCache})
-                        .success(function (html) {
-                            util.applyTemplate(element, html, scope);
-                        });
-                }).success(function (html) {
-                    util.applyTemplate(element, html, scope);
-                });
+                templateLoader = $http.get(templateUrl, {cache: $templateCache});
+                // On error: use default template
+                templateLoader
+                    .error(function () {
+                        $http.get(defaultTemplateUrl, {cache: $templateCache})
+                            // Apply default template
+                            .success(function (html) {
+                                util.applyTemplate(element, html, scope);
+                            });
+                    })
+                    // On success: apply template
+                    .success(function (html) {
+                        util.applyTemplate(element, html, scope);
+                    });
             },
+
             addTag: function (tagArray, newTag, index) {
                 if (!angular.isArray(tagArray)) {
                     return;
@@ -159,25 +171,24 @@ angular.module('configeditorApp')
                 };
 
                 /* Watches changes of qName in order to load a new template*/
-                $scope.isCompiled = false;
+                var isCompiled = false; // Makes sure the template is compiled at least once
                 $scope.$watch("xmlTag.qName", function(newValue, oldValue) {
-                    //console.log(newValue + " | EVAL ----" )
-                    if(angular.isDefined(newValue) && newValue!='') {
-                        if(!$scope.isCompiled || (newValue != oldValue)) {
-                            //console.log(newValue + "_" + $scope.xmlTag.$$hashKey + " | EVAL " + newValue + " : " + oldValue);
-                            //console.log(newValue + "_" + $scope.xmlTag.$$hashKey + " | " + angular.isFunction($scope.$parent.addTag) + " | " + angular.isFunction($scope.$parent.$parent.addTag));
+                    if(angular.isDefined(newValue) && newValue!=='') {
+                        // Load template when qName is first set, afterwards only on changes
+                        if(!isCompiled || (newValue !== oldValue)) {
                             xeXmlTagEditorUtils.loadAndApplyTemplate(newValue, element, $scope);
-                            $scope.isCompiled = true;
+                            if(isCompiled) isCompiled = true;
                         }
                     }
                 });
-                //console.log("<<<<<<<<<<<<<<<<<<<<<<<<< link");
 
+                /* Watches xmlTag to destroy the scope if it is set to null in order to prevent memory leaks*/
                 $scope.$watch("xmlTag", function(newValue, oldValue) {
                     if(newValue == null) {
                         $scope.$destroy()
                     }
                 });
+                //console.log("<<<<<<<<<<<<<<<<<<<<<<<<< link");
             }
         };
     }])

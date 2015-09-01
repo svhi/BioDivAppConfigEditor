@@ -1,7 +1,15 @@
-<div class="xe-container">
-    <div ng-if="xmlFile!=null">
-        <form>
-            <xe-xml-tag-editor xml-tag="xmlFile.tag"></xe-xml-tag-editor>
+<div class="xe-editor">
+    <xe-xml-upload xml-file="xmlFile" ></xe-xml-upload>
+
+    <div class="xe-container">
+
+        <form name="xmlFileForm" >
+            <xe-xml-tag-editor xml-tag="xmlFile.tag" ng-if="xmlFile!=null"></xe-xml-tag-editor>
         </form>
+
     </div>
+
+
+
+    <xe-xml-download xml-file-model="xmlFile" form="xmlFileForm"></xe-xml-download>
 </div>
