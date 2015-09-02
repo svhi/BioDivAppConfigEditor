@@ -4,13 +4,13 @@
             <button class="btn btn-default" ng-click="removeTag();"><span class="glyphicon glyphicon-trash"></span></button>
         </div>
         <div class="col-xs-10">
-            <xe-xml-sub-tags xml-tag="xmlTag" q-name-include-filter="key"></xe-xml-sub-tags>
+            <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-include-filter="key"></xe-xml-sub-tags>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <xe-xml-sub-tags xml-tag="xmlTag" q-name-include-filter="labels"></xe-xml-sub-tags>
+            <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-include-filter="labels"></xe-xml-sub-tags>
         </div>
     </div>
-    <xe-xml-sub-tags xml-tag="xmlTag" q-name-exclude-filter="labels key"></xe-xml-sub-tags>
+    <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-exclude-filter="labels key"></xe-xml-sub-tags>
 </div>

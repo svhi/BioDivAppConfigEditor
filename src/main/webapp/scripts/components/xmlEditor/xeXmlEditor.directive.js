@@ -83,10 +83,8 @@ angular.module('configeditorApp')
                 if (!angular.isDefined(xmlTag)) {
                     return;
                 }
-
                 var index = array.indexOf(xmlTag);
                 array.splice(index, 1);
-
             },
 
             moveToIndex: function(array, xmlTag, index){
@@ -200,18 +198,14 @@ angular.module('configeditorApp')
             restrict: 'E',
             replace: true,
             scope: {
-                xmlTag: '=',
+                subTags: '=',
                 qNameIncludeFilter: '@',
                 qNameExcludeFilter: '@'
             },
-            template: '<div class="xe-subTag-container"><xe-xml-tag-editor ng-repeat="subTag in xmlTag.subTags | filterTagQName :qNameIncludeFilter :qNameExcludeFilter" xml-tag="subTag"></xe-xml-tag-editor></div>',
-            //compile:function(element) {
-            //    return RecursionHelper.compile(element, function ($scope, element, attrs, controller, transcludeFn) {
-            //        /* Define your normal link function here.
-            //           Alternative: instead of passing a function, you can also pass an object with a 'pre'- and 'post'-link function.*/
-            //    });
-            //}
-
+            template:
+                '<div class="xe-subTag-container">' +
+                    '<xe-xml-tag-editor ng-repeat="subTag in subTags | filterTagQName :qNameIncludeFilter :qNameExcludeFilter" xml-tag="subTag"></xe-xml-tag-editor>' +
+                '</div>'
         };
     }])
 /*******************************************************************************************************************

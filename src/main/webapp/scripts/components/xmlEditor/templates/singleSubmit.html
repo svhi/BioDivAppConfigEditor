@@ -1,5 +1,4 @@
 <div class="xe-tag-container xe-singleSubmit">
-
     <div class="panel panel-default xe-collapsingpanel">
 
         <div class="panel-heading" role="tab" id="heading_singleSubmit">
@@ -13,15 +12,13 @@
         <div id="collapse_singleSubmit" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading_singleSubmit">
             <div class="panel-body">
                 <div class="container-fluid xe-panel-container">
-                    <xe-xml-sub-tags xml-tag="xmlTag"></xe-xml-sub-tags>
+                    <xe-xml-sub-tags sub-tags="xmlTag.subTags"></xe-xml-sub-tags>
                     <div class="spacer-btn">
                         <button class="btn btn-default btn-fullwidth" ng-if="!doSubTagsContain('entryGroup')" ng-click="addTag(xmlTag.subTags, XmlTag('entryGroup','',[], [XmlTag('labels','',[],[])]));"><span class="glyphicon glyphicon-plus"></span> Create EntryGroup</button>
                     </div>
                 </div>
-
             </div>
         </div>
 
     </div>
-
 </div>

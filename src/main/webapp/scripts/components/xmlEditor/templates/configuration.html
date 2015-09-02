@@ -16,16 +16,16 @@
 
 
 
-    <xe-xml-sub-tags xml-tag="xmlTag" q-name-include-filter="defaultLanguage"></xe-xml-sub-tags>
+    <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-include-filter="defaultLanguage"></xe-xml-sub-tags>
 
 
 
-    <xe-xml-sub-tags xml-tag="xmlTag" q-name-include-filter="singleSubmit"></xe-xml-sub-tags>
+    <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-include-filter="singleSubmit"></xe-xml-sub-tags>
 
-    <xe-xml-sub-tags xml-tag="xmlTag" q-name-include-filter="multiSubmit"></xe-xml-sub-tags>
+    <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-include-filter="multiSubmit"></xe-xml-sub-tags>
     <button class="btn btn-default" ng-hide="doSubTagsContain('multiSubmit')"
             ng-click="addTag(xmlTag.subTags, XmlTag('multiSubmit','',[], [XmlTag('log','',[],[XmlTag('show','true',[],[]), XmlTag('rowCount','3',[],[])]), XmlTag('summerizeDataBy', '', [],[])]));"><span class="glyphicon glyphicon-plus"></span> Create MultiSubmit</button>
 
-    <xe-xml-sub-tags xml-tag="xmlTag" q-name-exclude-filter="defaultLanguage singleSubmit multiSubmit"></xe-xml-sub-tags>
+    <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-exclude-filter="defaultLanguage singleSubmit multiSubmit"></xe-xml-sub-tags>
 
 </div>

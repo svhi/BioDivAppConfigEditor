@@ -30,8 +30,8 @@
                         <div id="collapse_multiLog" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading_multiLog">
                             <div class="panel-body">
                                 <div class="container-fluid xe-panel-container">
-                                    <xe-xml-sub-tags xml-tag="xmlTag" q-name-include-filter="log"></xe-xml-sub-tags>
-                                    <xe-xml-sub-tags xml-tag="xmlTag" q-name-include-filter="summerizeDataBy"></xe-xml-sub-tags>
+                                    <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-include-filter="log"></xe-xml-sub-tags>
+                                    <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-include-filter="summerizeDataBy"></xe-xml-sub-tags>
                                 </div>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
 
                 </div>
                 <div class="container-fluid xe-panel-container">
-                    <xe-xml-sub-tags xml-tag="xmlTag" q-name-exclude-filter="log summerizeDataBy"></xe-xml-sub-tags>
+                    <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-exclude-filter="log summerizeDataBy"></xe-xml-sub-tags>
                     <button class="btn btn-default" ng-if="!doSubTagsContain('entryGroup')" ng-click="addTag(xmlTag.subTags, XmlTag('entryGroup','',[], [XmlTag('labels','',[],[])]));"><span class="glyphicon glyphicon-plus"></span> Create EntryGroup</button>
                 </div>
 

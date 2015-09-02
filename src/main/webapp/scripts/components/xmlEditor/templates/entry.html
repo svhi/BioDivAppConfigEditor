@@ -24,17 +24,17 @@
             </div>
         </div>
         <div class="xe-entry-labels">
-            <xe-xml-sub-tags xml-tag="xmlTag" q-name-include-filter="labels"></xe-xml-sub-tags>
+            <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-include-filter="labels"></xe-xml-sub-tags>
         </div>
-        <xe-xml-sub-tags xml-tag="xmlTag" q-name-include-filter="viewport"></xe-xml-sub-tags>
-        <xe-xml-sub-tags xml-tag="xmlTag" q-name-include-filter="mandatory"></xe-xml-sub-tags>
+        <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-include-filter="viewport"></xe-xml-sub-tags>
+        <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-include-filter="mandatory"></xe-xml-sub-tags>
         <div class="xe-mandatory" ng-hide="doSubTagsContain('mandatory')">
             <button type="button" class="btn btn-default" ng-click="addTag(xmlTag.subTags, XmlTag('mandatory','false',[], []),0);">
                 <span class="glyphicon glyphicon-check"></span> Mandatory
             </button>
         </div>
 
-        <xe-xml-sub-tags xml-tag="xmlTag" q-name-exclude-filter="labels viewport mandatory"></xe-xml-sub-tags>
+        <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-exclude-filter="labels viewport mandatory"></xe-xml-sub-tags>
     </div>
 
     <button class="btn btn-primary btn-fullwidth btn-add-entry" ng-if="isLast()"

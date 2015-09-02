@@ -2,22 +2,22 @@
     <div class="xe-v-center">
         <div class="xe-dummy xe-dummy-numberpicker col-xs-8"></div>
         <div class="pull-right">
-            <xe-xml-sub-tags xml-tag="xmlTag" q-name-include-filter="decimalplaces"></xe-xml-sub-tags>
+            <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-include-filter="decimalplaces"></xe-xml-sub-tags>
             <button type="button" class="btn btn-default xe-decimalplaces-modal-button" ng-hide="doSubTagsContain('decimalplaces')"
                     ng-click="addTag(xmlTag.subTags, XmlTag('decimalplaces','2',[], []),0);">
                 <span  class="glyphicon glyphicon-th-list"></span> <span ng-bind="xmlTag.value"></span>
             </button>
-            <xe-xml-sub-tags xml-tag="xmlTag" q-name-include-filter="min"></xe-xml-sub-tags>
+            <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-include-filter="min"></xe-xml-sub-tags>
             <button type="button" class="btn btn-default xe-decimalplaces-modal-button" ng-hide="doSubTagsContain('min')"
                     ng-click="addTag(xmlTag.subTags, XmlTag('min','0',[], []),0);">
                 <span  class="glyphicon glyphicon-chevron-right"></span> <span ng-bind="xmlTag.value"></span>
             </button>
-            <xe-xml-sub-tags xml-tag="xmlTag" q-name-include-filter="max"></xe-xml-sub-tags>
+            <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-include-filter="max"></xe-xml-sub-tags>
             <button type="button" class="btn btn-default xe-decimalplaces-modal-button" ng-hide="doSubTagsContain('max')"
                     ng-click="addTag(xmlTag.subTags, XmlTag('max','1000',[], []),0);">
                 <span  class="glyphicon glyphicon-chevron-left"></span> <span ng-bind="xmlTag.value"></span>
             </button>
-            <xe-xml-sub-tags xml-tag="xmlTag" q-name-exclude-filter="decimalplaces min max"></xe-xml-sub-tags>
+            <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-exclude-filter="decimalplaces min max"></xe-xml-sub-tags>
         </div>
     </div>
 </div>
