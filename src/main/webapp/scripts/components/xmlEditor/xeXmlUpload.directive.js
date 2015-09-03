@@ -17,10 +17,10 @@ angular.module('configeditorApp')
 
             }],
             link: function (scope, element,  attrs) {
-                scope.xmlFile = null;
+                scope.uploadFile = null;
+
                 scope.xmlFileIsSet = false;
                 scope.xmlFileName = null;
-                scope.uploadFile = null;
 
                 scope.$watch(xeXmlFileService.getXmlFileModel, function(newValue, oldValue) {
                     scope.xmlFileIsSet = newValue != null;
@@ -28,28 +28,15 @@ angular.module('configeditorApp')
                 });
 
                 scope.upload = function() {
-                    var fd = new FormData();
-                    fd.append('file', scope.uploadFile);
-                    $http.post('/api/xmlfile/upload', fd, {
-                        transformRequest: angular.identity,
-                        headers: {'Content-Type': undefined}
-                    })
-                        .success(function (data) {
-                            xeXmlFileService.setXmlFileModel(data);
-                        });
+                    xeXmlFileService.uploadXml(scope.uploadFile);
                 };
                 scope.loadSample = function() {
-                    var fd = new FormData();
-                    fd.append('file', scope.uploadFile);
-                    $http.get('/api/xmlfile/id/1')
-                        .success(function (data) {
-                            xeXmlFileService.setXmlFileModel(data);
-                        });
+                    xeXmlFileService.loadSample();
                 };
 
                 scope.reset = function(){
                     scope.uploadFile=null;
-                    xeXmlFileService.reset(null);
+                    xeXmlFileService.reset();
                 }
             }
         };

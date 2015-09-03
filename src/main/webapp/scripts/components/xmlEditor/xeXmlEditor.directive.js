@@ -22,24 +22,6 @@ angular.module('configeditorApp')
         };
     }])
 
-    .factory('xeXmlFileService', function() {
-        var service = {
-            xmlFileModel: null,
-            getXmlFileModel: function() {
-                return service.xmlFileModel;
-            },
-            setXmlFileModel: function(data) {
-                service.xmlFileModel = data;
-            },
-            reset: function(){
-                service.xmlFileModel.tag.subTags = [];
-                service.xmlFileModel.tag = null;
-                service.xmlFileModel = null;
-            }
-        }
-        return service;
-    })
-
 
 /******************************************************************************************************************
  * This service provides all helper functions for xeXmlTagEditor.
@@ -123,30 +105,13 @@ angular.module('configeditorApp')
                 util.moveToIndex(array, xmlTag, index);
             },
 
-            // Helper function for creating new Tags.
-            Tag: function (qName, value, attributes, subTags) {
-                return {
-                    qName: qName,
-                    value: value,
-                    attributes: attributes,
-                    subTags: subTags
-                };
-            },
-
-            // Helper function for creating ne attributes.
-            Attribute: function (qName, value) {
-                return {
-                    qName: qName,
-                    value: value
-                };
-            }
         };
         return util;
     }])
 /******************************************************************************************************************
  * This directive handels the template loading and provides function for adding and removing tags.
  ******************************************************************************************************************/
-    .directive('xeXmlTagEditor',["xeXmlTagEditorUtils", function(xeXmlTagEditorUtils) {
+    .directive('xeXmlTagEditor',["xeXmlTagEditorUtils", "xeXmlFileService", function(xeXmlTagEditorUtils, xeXmlFileService) {
         return {
             restrict: 'E',
             replace: true,
@@ -176,8 +141,8 @@ angular.module('configeditorApp')
                 }
 
                 /*Helpers to create tags and attributes >>>>>>*/
-                $scope.XmlTag = xeXmlTagEditorUtils.Tag;
-                $scope.XmlAttr = xeXmlTagEditorUtils.Attribute;
+                $scope.XmlTag = xeXmlFileService.util.Tag;
+                $scope.XmlAttr = xeXmlFileService.util.Attribute;
                 /* <<<<<<<<<<<< */
 
                 // Helper function that evaluate if a Tag with the given qName is present within the subtags array.
