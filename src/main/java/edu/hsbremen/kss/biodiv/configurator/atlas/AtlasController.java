@@ -8,10 +8,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * AtlasController
+ */
 @RestController
 @RequestMapping("/api/atlas")
 public class AtlasController {
 
+    /**
+     * Rettrns the list with supported atlas instances.
+     * @return
+     */
     @RequestMapping("")
     public @ResponseBody
     List<Atlas> get() {

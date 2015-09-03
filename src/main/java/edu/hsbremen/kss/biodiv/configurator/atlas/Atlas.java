@@ -1,7 +1,7 @@
 package edu.hsbremen.kss.biodiv.configurator.atlas;
 
 /**
- * Created by Svenja on 03.06.2015.
+ * Pojo holds infoemation about an atlas instance.
  */
 public class Atlas {
 
