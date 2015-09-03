@@ -37,11 +37,12 @@ public class XmlWriter {
                 XMLOutputFactory xmlOutputFactory = XMLOutputFactory.newInstance();
                 XMLStreamWriter xmlStreamWriter = xmlOutputFactory.createXMLStreamWriter(stringWriter);
 
-
                 xmlStreamWriter.writeStartDocument("utf-8", "1.0");
 
-                this.writeXmlTag(xmlStreamWriter, model.getTag());
 
+                this.writeXmlTag(xmlStreamWriter, model.getTag(), "");
+
+                xmlStreamWriter.writeCharacters("\n");
                 xmlStreamWriter.writeEndDocument();
                 xmlStreamWriter.flush();
                 xmlStreamWriter.close();
@@ -59,18 +60,23 @@ public class XmlWriter {
             return xmlString;
         }
 
-        private void writeXmlTag( XMLStreamWriter xmlStreamWriter, XmlTagModel tag){
+        private void writeXmlTag( XMLStreamWriter xmlStreamWriter, XmlTagModel tag, String spacer){
             try {
+                xmlStreamWriter.writeCharacters("\n");
+                xmlStreamWriter.writeCharacters(spacer);
                 xmlStreamWriter.writeStartElement(tag.getqName());
                 this.writeXmlAttributes(xmlStreamWriter, tag);
 
                 String tagValue = tag.getValue();
                 if(tagValue != null && !tagValue.isEmpty() && !tagValue.trim().isEmpty()){
                     xmlStreamWriter.writeCharacters(tagValue);
-                }
+                }else{
+                    for(XmlTagModel subTag : tag.getSubTags()){
 
-                for(XmlTagModel subTag : tag.getSubTags()){
-                    this.writeXmlTag(xmlStreamWriter, subTag);
+                        this.writeXmlTag(xmlStreamWriter, subTag, spacer+"   ");
+                    }
+                    xmlStreamWriter.writeCharacters("\n");
+                    xmlStreamWriter.writeCharacters(spacer);
                 }
 
                 xmlStreamWriter.writeEndElement();
@@ -91,10 +97,5 @@ public class XmlWriter {
 
 
         }
-        /*public XmlFileModel parse(InputStream file) throws IOException, SAXException, ParserConfigurationException {
-            XmlParserHandler handler   = new XmlParserHandler();
-            this.saxParser.parse(file, handler);
 
-            return handler.xmlFileModel;
-        }*/
 }

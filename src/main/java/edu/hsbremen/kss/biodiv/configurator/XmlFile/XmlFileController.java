@@ -104,12 +104,13 @@ public class XmlFileController {
 
         String xmlString = xmlWriter.writeToXML(xmlFileModel);
 
+        byte[] xmlStringByteArray = xmlString.getBytes(StandardCharsets.UTF_8);
 
         return ResponseEntity
                 .ok()
-                .contentLength(xmlString.getBytes().length)
+                .contentLength(xmlStringByteArray.length)
                 .contentType(
                         MediaType.TEXT_XML)
-                .body(new InputStreamResource(new ByteArrayInputStream(xmlString.getBytes(StandardCharsets.UTF_8))));
+                .body(new InputStreamResource(new ByteArrayInputStream(xmlStringByteArray)));
     }
 }
