@@ -1,6 +1,6 @@
 <div class="xe-tag-container xe-labels">
 
-    <div class="panel panel-default xe-collapsingpanel">
+    <div id="labels_{{$id}}_form" class="panel panel-default xe-collapsingpanel" ng-form="labels_{{$id}}_form">
 
         <div class="panel-heading" role="tab" id="heading_labels_{{$id}}">
             <h4 class="panel-title">
@@ -22,20 +22,18 @@
             </h4>
         </div>
 
-        <div id="collapse_labels_{{$id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_labels_{{$id}}">
+        <div id="collapse_labels_{{$id}}" class="panel-collapse collapse"  role="tabpanel" aria-labelledby="heading_labels_{{$id}}">
             <div class="list-groups">
                 <xe-xml-sub-tags sub-tags="xmlTag.subTags"></xe-xml-sub-tags>
                 <div class="form-horizontal">
                     <div class="form-group">
                         <div class="col-sm-4"> </div>
                         <div class="col-sm-8 xe-input-container">
-                            <button class="btn btn-default" ng-click="addTag(xmlTag.subTags, XmlTag('label','',[XmlAttr('lang','')], []));"><span class="glyphicon glyphicon-plus"></span> Add Label</button>
+                            <button class="btn btn-default" ng-click="addTag(xmlTag.subTags, XmlTag('label',null,[XmlAttr('lang','')], []));"><span class="glyphicon glyphicon-plus"></span> Add Label</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
-
 </div>

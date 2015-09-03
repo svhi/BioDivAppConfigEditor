@@ -5,7 +5,7 @@
         </div>
         <div class="btn-group" role="group">
             <button class="btn btn-primary btn-add-entry"
-                ng-click="addTagBefore(XmlTag('entry',null,[XmlAttr('restid', '')], [XmlTag('labels',null,[],[]), XmlTag('viewport',null,[],[])]));"><span class="glyphicon glyphicon-plus"></span> Create Entry</button>
+                ng-click="addTagBefore(XmlTag('entry',null,[XmlAttr('restid', '')], [XmlTag('labels',null,[],[XmlTag('label',null,[XmlAttr('lang','')], [])]), XmlTag('viewport',null,[],[])]));"><span class="glyphicon glyphicon-plus"></span> Create Entry</button>
         </div>
     </div>
     <div class="xe-tag-container xe-entry-body well">
@@ -38,5 +38,5 @@
     </div>
 
     <button class="btn btn-primary btn-fullwidth btn-add-entry" ng-if="isLast()"
-            ng-click="addTagAfter(XmlTag('entry',null,[XmlAttr('restid', '')], [XmlTag('labels',null,[],[]), XmlTag('viewport',null,[],[])]));"><span class="glyphicon glyphicon-plus"></span> Create Entry</button>
+            ng-click="addTagAfter(XmlTag('entry',null,[XmlAttr('restid', '')], [XmlTag('labels',null,[],[XmlTag('label',null,[XmlAttr('lang','')], [])]), XmlTag('viewport',null,[],[])]));"><span class="glyphicon glyphicon-plus"></span> Create Entry</button>
 </div>

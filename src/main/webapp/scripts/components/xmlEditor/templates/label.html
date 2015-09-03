@@ -7,16 +7,16 @@
             <label for="label_{{$id}}" class="col-xs-2 control-label">Label: </label>
             <div class="col-xs-8 xe-input-container">
                 <div class="input-group">
-                    <input id="lang_{{$id}}" type="text" class="form-control" aria-label="language" ng-model="xmlTag.attributes[0].value" ng-required="true">
+                    <input name="label_{{$id}}_language" id="lang_{{$id}}" type="text" class="form-control" aria-label="language" ng-model="xmlTag.attributes[0].value" ng-required="true">
                     <div class="input-group-btn">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select <span class="caret"></span></button>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="#" ng-click="xmlTag.attributes[0].value='de'">de</a></li>
-                            <li><a href="#" ng-click="xmlTag.attributes[0].value='en'">en</a></li>
+                            <li><a href="" ng-click="xmlTag.attributes[0].value='de'">de</a></li>
+                            <li><a href="" ng-click="xmlTag.attributes[0].value='en'">en</a></li>
                         </ul>
                     </div>
                 </div>
-                <input id="label_{{$id}}" type="text" class="form-control col-xs-9" aria-label="Label" ng-model="xmlTag.value" ng-required="true">
+                <input name="label_{{$id}}" id="label_{{$id}}" type="text" class="form-control col-xs-9" aria-label="Label" ng-model="xmlTag.value" ng-required="true">
             </div>
         </div>
     </div>

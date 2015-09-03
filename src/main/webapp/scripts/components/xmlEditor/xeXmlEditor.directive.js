@@ -1,18 +1,45 @@
 "use strict";
+
+angular.module('configeditorApp')
 /**********************************************************************************************************************
  * xeXmlEditor.directive.js
  *********************************************************************************************************************/
-angular.module('configeditorApp')
-    .directive('xeXmlEditor', function() {
+    .directive('xeXmlEditor', ['xeXmlFileService', function(xeXmlFileService) {
         return {
             restrict: 'E',
             replace: true,
-            scope: {
-                xmlFile: '='
-            },
-            templateUrl: 'scripts/components/xmlEditor/xeXmlEditor.html'
+            scope: {},
+            templateUrl: 'scripts/components/xmlEditor/xeXmlEditor.html',
+            link: function ($scope, element, attrs) {
+                $scope.showEditor =  false;
+                $scope.xmlStartTag =  null;
+
+                $scope.$watch(xeXmlFileService.getXmlFileModel, function(newValue, oldValue) {
+                    $scope.showEditor = newValue != null;
+                    $scope.xmlStartTag = (newValue!=null && angular.isDefined(newValue.tag)) ? newValue.tag : null;
+                });
+            }
         };
+    }])
+
+    .factory('xeXmlFileService', function() {
+        var service = {
+            xmlFileModel: null,
+            getXmlFileModel: function() {
+                return service.xmlFileModel;
+            },
+            setXmlFileModel: function(data) {
+                service.xmlFileModel = data;
+            },
+            reset: function(){
+                service.xmlFileModel.tag.subTags = [];
+                service.xmlFileModel.tag = null;
+                service.xmlFileModel = null;
+            }
+        }
+        return service;
     })
+
 
 /******************************************************************************************************************
  * This service provides all helper functions for xeXmlTagEditor.

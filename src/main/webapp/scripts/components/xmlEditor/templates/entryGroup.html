@@ -10,10 +10,10 @@
                         <span class="xe-caret"></span> Entry Group
                     </button>
 
-                    <button class="btn btn-default" type="button" data-toggle="collapse" ng-click="addTagBefore(XmlTag('entryGroup','',[], [XmlTag('labels','',[],[])]));">
+                    <button class="btn btn-default" type="button" data-toggle="collapse" ng-click="addTagBefore(XmlTag('entryGroup','',[], [XmlTag('labels','',[],[XmlTag('label',null,[XmlAttr('lang','')], [])])]));">
                         <span class="glyphicon glyphicon-arrow-left"></span> <span class="glyphicon glyphicon-plus"></span>
                     </button>
-                    <button class="btn btn-default" type="button" data-toggle="collapse" ng-click="addTagAfter(XmlTag('entryGroup','',[], [XmlTag('labels','',[],[])]));">
+                    <button class="btn btn-default" type="button" data-toggle="collapse" ng-click="addTagAfter(XmlTag('entryGroup','',[], [XmlTag('labels','',[],[XmlTag('label',null,[XmlAttr('lang','')], [])])]));">
                         <span class="glyphicon glyphicon-plus"></span> <span class="glyphicon glyphicon-arrow-right"></span>
                     </button>
                     <button class="btn btn-default pull-right" type="button" data-toggle="collapse" ng-click="removeTag();">
@@ -32,7 +32,7 @@
                         <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-include-filter="labels"></xe-xml-sub-tags>
                         <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-include-filter="entry"></xe-xml-sub-tags>
                         <button class="btn btn-primary btn-fullwidth btn-add-entry" ng-if="!doSubTagsContain('entry')"
-                                ng-click="addTag(xmlTag.subTags, XmlTag('entry',null,[XmlAttr('restid', '')], [XmlTag('labels',null,[],[]), XmlTag('viewport',null,[],[])]));"><span class="glyphicon glyphicon-plus"></span> Create Entry</button>
+                                ng-click="addTag(xmlTag.subTags, XmlTag('entry',null,[XmlAttr('restid', '')], [XmlTag('labels',null,[],[XmlTag('label',null,[XmlAttr('lang','')], [])]), XmlTag('viewport',null,[],[])]));"><span class="glyphicon glyphicon-plus"></span> Create Entry</button>
                         <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-exclude-filter="labels entry"></xe-xml-sub-tags>
                     </div>
                     <div class="xe-footer"></div>

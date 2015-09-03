@@ -3,26 +3,26 @@
  * xeXmlDownload.directive.js
  *********************************************************************************************************************/
 angular.module('configeditorApp')
-    .directive('xeXmlDownload', ['$http', function($http) {
+    .directive('xeXmlDownload', ['$http', 'xeXmlFileService', function($http, xeXmlFileService ) {
 
         return {
             restrict: 'E',
             replace: false,
             scope: {
-                xmlFileModel: '=',
+
                 form: '=',
             },
             templateUrl: 'scripts/components/xmlEditor/xeXmlDownload.html',
-            controller: ['$scope', function ($scope) {
 
-
-            }],
             link: function (scope, element,  attrs) {
                 scope.downloadURL = "/api/xmlfile/download";
-                scope.downloadFile = null;
+                scope.showDownload = false;
+                scope.$watch(xeXmlFileService.getXmlFileModel, function(newValue, oldValue) {
+                    scope.showDownload = newValue != null;
+                });
 
                 scope.download = function() {
-                    $http.post(scope.downloadURL, scope.xmlFileModel)
+                    $http.post(scope.downloadURL, xeXmlFileService.getXmlFileModel())
                         .success(function (data) {
                             scope.downloadFile = data;
                             scope.form.$setPristine();
