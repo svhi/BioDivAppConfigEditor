@@ -3,7 +3,7 @@
  * xeXmlUpload.directive.js
  *********************************************************************************************************************/
 angular.module('configeditorApp')
-    .directive('xeXmlUpload', ['$http', 'xeXmlFileService', function($http, xeXmlFileService) {
+    .directive('xeXmlUpload', ['xeXmlFileService', function(xeXmlFileService) {
 
         return {
             restrict: 'E',
