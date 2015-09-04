@@ -3,7 +3,7 @@
  * xeXmlDownload.directive.js
  *********************************************************************************************************************/
 angular.module('configeditorApp')
-    .directive('xeXmlDownload', ['$http', 'xeXmlFileService', function($http, xeXmlFileService ) {
+    .directive('xeXmlDownload', ['xeXmlFileService', function(xeXmlFileService ) {
 
         return {
             restrict: 'E',
@@ -29,6 +29,10 @@ angular.module('configeditorApp')
                             scope.form.$setPristine();
                         });
 
+                };
+
+                scope.validate = function() {
+                    xeXmlFileService.validateXml();
                 };
             }
         };

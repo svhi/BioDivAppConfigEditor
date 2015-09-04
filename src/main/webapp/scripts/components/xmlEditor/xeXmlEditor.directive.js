@@ -13,10 +13,14 @@ angular.module('configeditorApp')
             link: function ($scope, element, attrs) {
                 $scope.showEditor =  false;
                 $scope.xmlStartTag =  null;
+                $scope.validationMessages = null;
 
                 $scope.$watch(xeXmlFileService.getXmlFileModel, function(newValue, oldValue) {
                     $scope.showEditor = newValue != null;
                     $scope.xmlStartTag = (newValue!=null && angular.isDefined(newValue.tag)) ? newValue.tag : null;
+                });
+                $scope.$watch(xeXmlFileService.getValidationMessages, function(newValue, oldValue) {
+                    $scope.validationMessages = newValue;
                 });
             }
         };
@@ -122,7 +126,6 @@ angular.module('configeditorApp')
 
             link: function ($scope, element, attrs) {
                 //console.log("link - " + $scope.xmlTag + " >>>>>>>>>>>>>>>>>>>>>>>");
-
                 $scope.addTag = xeXmlTagEditorUtils.addTag;
                 /* $parent is used to access the parent $scope
                    1. $parent = ng-repeat

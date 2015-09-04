@@ -8,16 +8,23 @@ angular.module('configeditorApp')
         srv._uploadURL = '/api/xmlfile/upload';
         srv._loadSampelURL = '/api/xmlfile/id/1';
         srv._downloadURL = "/api/xmlfile/download";
+        srv._validateURL = "/api/xmlfile/validate";
 
         // Service data
+        //-----------------------------------------------------------------
         srv._xmlFileModel =  null;
 
         // Service implementation
+        //-----------------------------------------------------------------
+        //
         srv.setXmlFileModel = function(data) {
             srv._xmlFileModel = angular.copy(data);
         };
         srv.getXmlFileModel = function() {
             return srv._xmlFileModel;
+        };
+        srv.getValidationMessages = function() {
+            return  srv._xmlFileModel==null ? null : srv._xmlFileModel.validationMessages;
         };
         srv.reset = function() {
             srv._xmlFileModel.tag.subTags = [];
@@ -43,7 +50,12 @@ angular.module('configeditorApp')
         };
         srv.downloadXml= function() {
             return $http.post(srv._downloadURL, srv._xmlFileModel);
-
+        };
+        srv.validateXml= function() {
+            return $http.post(srv._validateURL, srv._xmlFileModel)
+                .success(function (data) {
+                    srv._xmlFileModel.validationMessages = data.validationMessages;
+                });
         };
 
         // Helper function for creating new Tags.
@@ -65,24 +77,38 @@ angular.module('configeditorApp')
         }
 
         // Public API
+        //-----------------------------------------------------------------
         return {
+            /* Returns the current xml file model. */
             getXmlFileModel: function() {
                 return srv.getXmlFileModel();
             },
-            setXmlFileModel: function(data) {
-                srv.setXmlFileModel(data);
+            /* Returns the current xml file model. */
+            getValidationMessages: function() {
+                return srv.getValidationMessages();
             },
+            /* Resets the service. */
             reset: function(){
                 srv.reset();
             },
+            /* Uploads a given xml file to the server to retrieve
+              a xml file model based on the xml file.*/
             uploadXml: function(uploadFile){
                 srv.uploadXml(uploadFile);
             },
+            /* Loads the xml file model for a sampel file from the server*/
             loadSample: function(){
                 srv.loadSample();
             },
+            /* Sends the xml file model to the server to retrieve
+               a xml file base on the given model.*/
             downloadXml: function(){
                 return srv.downloadXml();
+            },
+            /* Sends the xml file model to the server to retrieve
+               a xml file base on the given model.*/
+            validateXml: function(){
+                srv.validateXml();
             },
             util: {
                 Tag: function(qName, value, attributes, subTags){

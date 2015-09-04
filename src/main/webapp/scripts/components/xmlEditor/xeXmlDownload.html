@@ -1,6 +1,7 @@
 <div class="xe-download xe-download-container" ng-if="showDownload">
 
     <span>
+        <button class="btn btn-primary "  ng-click="validate()"><span class="glyphicon glyphicon-save-file"></span> <span translate="xmlfile.Validate">Download</span></button>
         <button class="btn btn-primary xe-btn-download"  ng-click="download()"><span class="glyphicon glyphicon-save-file"></span> <span translate="xmlfile.Download">Download</span></button>
         <span class="text-primary glyphicon glyphicon-refresh" ng-show="form.$dirty"></span>
         <span class="text-danger" ng-show="form.$invalid"><span class="glyphicon glyphicon-warning-sign"></span> <span translate="xmlfile.PleaseCheckForm">Bitte kontrollieren Sie das Formular auf Fehler!</span></span>
