@@ -2,7 +2,8 @@
 
 <configuration
         xmlns="edu.hsb.biodivapp"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="edu.hsb.biodivapp http://atlas.winkler-biologie.de/rest/schemes/configuration.xsd">
     <!--xsi:schemaLocation="edu.hsb.biodivapp /edu/hsb/biodivapp/configuration/configuration.xsd">-->
 
     <defaultLanguage>de</defaultLanguage>
