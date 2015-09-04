@@ -2,7 +2,7 @@
 
 angular.module('configeditorApp')
 
-    .factory('xeXmlFileService', ['$http', function($http) {
+    .factory('xeXmlFileService', ['$http', 'Upload', function($http, Upload) {
         var srv ={};
 
         srv._uploadURL = '/api/xmlfile/upload';
@@ -31,17 +31,24 @@ angular.module('configeditorApp')
             srv._xmlFileModel.tag = null;
             srv._xmlFileModel = null;
         };
-        srv.uploadXml = function(uploadFile) {
-            var fd = new FormData();
-            fd.append('file', uploadFile);
-            $http.post(srv._uploadURL, fd, {
-                transformRequest: angular.identity,
-                headers: {'Content-Type': undefined}
-            })
-                .success(function (data) {
-                    srv.setXmlFileModel(data);
-                });
-        };
+        srv.uploadXml = function(file) {
+            file.upload = Upload.upload({
+                url: srv._uploadURL,
+                method: 'POST',
+                headers: {
+                    'ContentType': file.ContetnType
+                },
+                //fields: {username: $scope.username},
+                file: file,
+                fileFormDataName: 'file'
+            });
+
+            file.upload.success(function (data) {
+                srv.setXmlFileModel(data);
+            });
+        }
+
+
         srv.loadSample = function() {
             $http.get(srv._loadSampelURL)
                 .success(function (data) {

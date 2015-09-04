@@ -1,16 +1,27 @@
 <div class="xe-upload xe-upload-container">
 
     <span>
-        <span class="xe-upload-filename" ng-show="uploadFile != null && !xmlFileIsSet" ng-bind="uploadFile.name"></span>
-        <file-field class="btn btn-primary xe-btn-select" ng-model="uploadFile" ng-show="uploadFile==null && !xmlFileIsSet"><span class="glyphicon  glyphicon-file"></span> <span translate="xmlfile.SelectFile">Select File</span></file-field>
-        <button class="btn btn-primary xe-btn-upload" ng-hide="uploadFile==null || xmlFileIsSet" ng-click="upload()"><span class="glyphicon glyphicon-open-file"></span> <span translate="xmlfile.Upload">Upload</span></button>
+        <form name="uploadForm">
+            <span class="xe-upload-filename" ng-show="uploadFile != null && !xmlFileIsSet" ng-bind="uploadFile.name"></span>
+
+            <span class="btn btn-primary xe-btn-select" name="uploadFile" accept="text/xml"
+                  ngf-select  ngf-pattern="text/xml" ngf-max-size="20MB"
+                  ng-model="uploadFile" ng-show="!xmlFileIsSet">
+
+                <span class="glyphicon  glyphicon-file"></span> <span translate="xmlfile.SelectFile">Select File</span>
+            </span>
+
+            <button class="btn btn-primary xe-btn-upload" ng-hide="uploadFile==null || xmlFileIsSet" ng-click="upload()"><span class="glyphicon glyphicon-open-file"></span> <span translate="xmlfile.Upload">Upload</span></button>
+            
+            <button class="btn btn-primary xe-btn-loadSample" ng-show="!xmlFileIsSet" ng-click="loadSample()"><span translate="xmlfile.LoadSampleFile">Load Sample File</span></button>
+        </form>
     </span>
 
-    <button class="btn btn-primary xe-btn-loadSample" ng-show="!xmlFileIsSet" ng-click="loadSample()"><span translate="xmlfile.LoadSampleFile">Load Sample File</span></button>
+
 
     <span>
         <span class="xe-upload-filename" ng-show="xmlFileIsSet" ng-bind="xmlFileName"></span>
-        <a class="btn btn-danger xe-btn-delete" ng-show="xmlFileIsSet;" ng-click="reset()"><span class="glyphicon glyphicon-trash"></span></a>
+        <a class="btn btn-danger xe-btn-delete" ng-show="xmlFileIsSet;" href="javascript:window.location.reload();"><span class="glyphicon glyphicon-trash"></span></a>
     </span>
 
 </div>

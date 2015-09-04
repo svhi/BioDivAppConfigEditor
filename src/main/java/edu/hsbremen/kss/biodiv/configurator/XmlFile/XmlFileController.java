@@ -55,9 +55,9 @@ public class XmlFileController {
 
     @RequestMapping(value="/upload", method=RequestMethod.POST)
     public @ResponseBody
-    XmlFileModel uploadXmlFile(@RequestParam("file") MultipartFile file) {
+    ResponseEntity<XmlFileModel> uploadXmlFile(@RequestParam("file") MultipartFile file) {
         System.out.println("==== XmlFileController UPLOAD");
-        if (!file.isEmpty()) {
+        if (!file.isEmpty() && file.getContentType().equals("text/xml")) {
 
             try {
                 XmlParser parser = new XmlParser();
@@ -66,7 +66,9 @@ public class XmlFileController {
 
                 System.out.println("     file: "+file.getOriginalFilename());
                 xmlFileModel.setFileName(file.getOriginalFilename());
-                return xmlFileModel;
+                return ResponseEntity
+                        .ok()
+                        .body(xmlFileModel);
 
             } catch (ParserConfigurationException e) {
                 e.printStackTrace();
@@ -79,14 +81,17 @@ public class XmlFileController {
             return null;
 
         } else {
-            return null; //"You failed to upload " + name + " because the file was empty.";
+
+            System.out.println("\t File rejectet! contentType: " + file.getContentType());
+            return ResponseEntity
+                    .badRequest()
+                    .body(null); //"You failed to upload " + name + " because the file was empty.";
         }
     }
     @RequestMapping(value="/validate", method=RequestMethod.POST)
     public @ResponseBody
     XmlFileModel validateXmlFile(@RequestBody XmlFileModel xmlFileModel) {
         System.out.println("==== XmlFileController VALIDATE");
-        System.out.println("==== XmlFileController DOWNLOAD");
         XmlWriter xmlWriter = new XmlWriter();
         xmlWriter.writeToXML(xmlFileModel);
 
