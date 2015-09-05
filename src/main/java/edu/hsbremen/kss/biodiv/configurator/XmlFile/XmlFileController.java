@@ -58,7 +58,7 @@ public class XmlFileController {
     public @ResponseBody
     ResponseEntity<XmlFileModel> uploadXmlFile(@RequestParam("file") MultipartFile file) {
         System.out.println("==== XmlFileController UPLOAD");
-        if (!file.isEmpty() && file.getContentType().equals("text/xml")) {
+        if (!file.isEmpty() && file.getContentType().equals("application/xml")) {
 
             try {
                 XmlParser parser = new XmlParser();
@@ -137,7 +137,7 @@ public class XmlFileController {
         return ResponseEntity
                 .ok()
                 .contentLength(xmlStringByteArray.length)
-                .contentType(MediaType.TEXT_XML)
+                .contentType(MediaType.APPLICATION_XML)
                 .header("Content-Disposition", "attachment; filename = " + xmlFileModel.getFileName())
                 .body(xmlStringByteArray);
     }

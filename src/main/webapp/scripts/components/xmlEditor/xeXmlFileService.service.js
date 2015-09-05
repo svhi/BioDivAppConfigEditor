@@ -36,7 +36,7 @@ angular.module('configeditorApp')
                 url: srv._uploadURL,
                 method: 'POST',
                 headers: {
-                    'ContentType': file.ContetnType
+                    'ContentType': file.ContentType
                 },
                 //fields: {username: $scope.username},
                 file: file,
@@ -63,11 +63,12 @@ angular.module('configeditorApp')
                 data: srv._xmlFileModel,
                 headers: {
                     'Content-type': 'application/json',
-                    'Accept': 'text/xml'
+                    'Accept': 'application/xml'
                 }
             })
+
             .success(function (data) {
-                var blob = new Blob([data], {type: "text/xml"});
+                var blob = new Blob([data], {type: "application/xml"});
                 var objectUrl = URL.createObjectURL(blob);
 
                 var hiddenElement = document.createElement('a');
@@ -78,6 +79,7 @@ angular.module('configeditorApp')
 
                 URL.revokeObjectURL(objectUrl)
             });
+
         };
         srv.validateXml= function() {
             return $http.post(srv._validateURL, srv._xmlFileModel)
