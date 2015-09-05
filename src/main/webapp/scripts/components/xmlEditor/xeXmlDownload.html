@@ -1,11 +1,17 @@
 <div class="xe-download xe-download-container" ng-if="showDownload">
+    <div>
+        <div class="xe-download-button-container">
+            <button class="btn btn-primary btn-xs-full-width"  ng-click="validate()"><span class="glyphicon glyphicon glyphicon glyphicon-transfer"></span> <span translate="xmlfile.Validate">Validate</span></button>
+            <span class="msg text-success" ng-show="validationOK"><span class="glyphicon glyphicon-ok" ></span> <span translate="xmlfile.ValidationOK">Die Datei ist valide.</span></span>
+            <span class="msg text-danger" ng-hide="validationOK"><span class="glyphicon glyphicon-alert"></span> <span translate="xmlfile.ValidationErrors">Es sind Validierungsfehler vorhanden!</span></span>
+        </div>
 
-    <span>
-        <button class="btn btn-primary "  ng-click="validate()"><span class="glyphicon glyphicon-save-file"></span> <span translate="xmlfile.Validate">Download</span></button>
-        <button class="btn btn-primary xe-btn-download"  ng-click="download()"><span class="glyphicon glyphicon-save-file"></span> <span translate="xmlfile.Download">Download</span></button>
-        <span class="text-primary glyphicon glyphicon-refresh" ng-show="form.$dirty"></span>
-        <span class="text-danger" ng-show="form.$invalid"><span class="glyphicon glyphicon-warning-sign"></span> <span translate="xmlfile.PleaseCheckForm">Bitte kontrollieren Sie das Formular auf Fehler!</span></span>
-    </span>
+        <div class="xe-download-button-container">
+            <button class="btn btn-primary xe-btn-download btn-xs-full-width"  ng-click="download()"><span class="glyphicon glyphicon-save-file"></span> <span translate="xmlfile.Download">Download</span></button>
+            <span class="msg text-primary glyphicon glyphicon-refresh" ng-show="form.$dirty"></span>
+            <span class="msg text-danger" ng-show="form.$invalid"><span class="glyphicon glyphicon-alert"></span> <span translate="xmlfile.PleaseCheckForm">Bitte kontrollieren Sie das Formular auf Fehler!</span></span>
+        </div>
+    </div>
 
     <hr>
 

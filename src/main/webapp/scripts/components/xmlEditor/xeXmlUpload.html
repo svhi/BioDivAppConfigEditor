@@ -4,16 +4,16 @@
         <form name="uploadForm">
             <span class="xe-upload-filename" ng-show="uploadFile != null && !xmlFileIsSet" ng-bind="uploadFile.name"></span>
 
-            <span class="btn btn-primary xe-btn-select" name="uploadFile" accept="text/xml"
+            <span class="btn btn-primary xe-btn-select btn-xs-full-width" name="uploadFile" accept="text/xml"
                   ngf-select  ngf-pattern="text/xml" ngf-max-size="20MB"
                   ng-model="uploadFile" ng-show="!xmlFileIsSet">
 
                 <span class="glyphicon  glyphicon-file"></span> <span translate="xmlfile.SelectFile">Select File</span>
             </span>
 
-            <button class="btn btn-primary xe-btn-upload" ng-hide="uploadFile==null || xmlFileIsSet" ng-click="upload()"><span class="glyphicon glyphicon-open-file"></span> <span translate="xmlfile.Upload">Upload</span></button>
+            <button class="btn btn-primary xe-btn-upload btn-xs-full-width" ng-hide="uploadFile==null || xmlFileIsSet" ng-click="upload()"><span class="glyphicon glyphicon-open-file"></span> <span translate="xmlfile.Upload">Upload</span></button>
 
-            <button class="btn btn-primary xe-btn-loadSample" ng-show="!xmlFileIsSet" ng-click="loadSample()"><span translate="xmlfile.LoadSampleFile">Load Sample File</span></button>
+            <button class="btn btn-primary xe-btn-loadSample btn-xs-full-width" ng-show="!xmlFileIsSet" ng-click="loadSample()"><span translate="xmlfile.LoadSampleFile">Load Sample File</span></button>
         </form>
     </span>
 

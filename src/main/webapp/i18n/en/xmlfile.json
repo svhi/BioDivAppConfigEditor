@@ -5,6 +5,9 @@
     "Upload": "Upload",
     "Download": "Download File",
     "LoadSampleFile": "Load Sample File",
-    "PleaseCheckForm": "Please check the form for errors!"
+    "PleaseCheckForm": "Please check the form for errors!",
+    "Validate": "Validate",
+    "ValidationOK": "The file is valid.",
+    "ValidationErrors": "Validation errors occured."
   }
 }

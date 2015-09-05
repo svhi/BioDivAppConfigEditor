@@ -9082,16 +9082,28 @@ ul.atlas-list li div a {
 **********************************************************************************************************************/
 @media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\0000339}}
 .xe-download.xe-download-container {
-  padding: 20px;
+  padding-top: 20px;
   margin-top: 10px;
   border-top: solid 1px lightgray;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\0000345}}
+.xe-download .xe-download-button-container {
+  margin-bottom: 5px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\0000347}}
+.xe-download .xe-download-button-container .btn-xs-full-width {
+  min-width: 170px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\0000350}}
+.xe-download .xe-download-button-container .msg {
+  margin-left: 5px;
 }
 
  /***********************************************************************************************************************
 * XE - XmlEditor Styling
 *
 **********************************************************************************************************************/
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\0000351}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\0000361}}
 .ng-invalid {
   /* glowing border*/
   outline: none;
@@ -9101,28 +9113,38 @@ ul.atlas-list li div a {
   box-shadow: 0px 0px 7px 0px rgba(255, 0, 0, 0.6);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\0000361}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\0000371}}
 .xe-v-center {
   display: flex;
   align-items: center;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\0000366}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\0000376}}
 .spacer-btn {
   margin: 3px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\0000369}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\0000379}}
 .btn-fullwidth {
   width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\0000374}}
+@media only screen and (max-width: 768px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\0000383}}
+  .btn-xs-full-width {
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\0000393}}
 .xe-tag-container .panel-body {
   padding: 5px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\0000379}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\0000398}}
 .xe-xml-tag-end-marker {
   padding: 6px 12px;
   font-size: 14px;
@@ -9136,18 +9158,18 @@ ul.atlas-list li div a {
   display: inline-block;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\0000393}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003112}}
 .xe-defaultLanguage, .xe-configuration-attrs {
   max-width: 100%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\0000395}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003114}}
 .xe-defaultLanguage .xe-input-container, .xe-configuration-attrs .xe-input-container {
   vertical-align: middle;
 }
 
 /*Medium devices (desktops, 992px and up)*/
 @media only screen and (min-width: 992px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003101}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003120}}
   .xe-defaultLanguage, .xe-configuration-attrs {
     max-width: 65%;
   }
@@ -9155,22 +9177,22 @@ ul.atlas-list li div a {
 /********************
  * Collapsing Panel
  ********************/
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003110}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003129}}
 .xe-collapsingpanel .panel-heading {
   padding: 0px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003114}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003133}}
 .xe-collapsingpanel .panel-heading .panel-title button.xe-collapse-toggle-button {
   height: 100%;
   text-align: left;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003137}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003156}}
 .xe-entryGroup {
   display: inline-block;
 }
 @media only screen and (max-width: 768px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003137}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003156}}
   .xe-entryGroup {
     padding-left: 0px;
     padding-right: 0px;
@@ -9179,7 +9201,7 @@ ul.atlas-list li div a {
 
 /*Small devices (tablets, 768px and up)*/
 @media only screen and (min-width: 768px) and (max-width: 992px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003151}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003170}}
   .xe-spacer-2 {
     clear: both;
     width: 100%;
@@ -9189,7 +9211,7 @@ ul.atlas-list li div a {
 }
 /*Medium devices (desktops, 992px and up)*/
 @media only screen and (min-width: 992px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003160}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003179}}
   .xe-spacer-3 {
     clear: both;
     width: 100%;
@@ -9197,12 +9219,12 @@ ul.atlas-list li div a {
     margin-bottom: 20px;
   }
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003168}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003187}}
 .xe-entryGroup-panel {
   max-width: 500px;
   background-color: #ececec;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003171}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003190}}
 .xe-entryGroup-panel .xe-header {
   display: inline-block;
   width: 100%;
@@ -9211,11 +9233,11 @@ ul.atlas-list li div a {
   background-size: contain;
   background-color: #222222;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003179}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003198}}
 .xe-entryGroup-panel .xe-body {
   background-color: #ececec;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003182}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003201}}
 .xe-entryGroup-panel .xe-footer {
   display: inline-block;
   width: 100%;
@@ -9225,17 +9247,17 @@ ul.atlas-list li div a {
   background-color: black;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003193}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003212}}
 .xe-entryGroup .btn-add-entry {
   margin: 3px 0px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003200}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003219}}
 .xe-entry .btn-group {
   margin: 3px 0px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003205}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003224}}
 .btn-add-entry {
   color: #fff;
   background-color: deepskyblue;
@@ -9243,45 +9265,45 @@ ul.atlas-list li div a {
   padding: 3px 12px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003213}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003232}}
 .xe-entry-body {
   padding: 3px;
   border: 1px solid deepskyblue;
   margin-bottom: 0px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003217}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003236}}
 .xe-entry-body .xe-label {
   font-weight: bold;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003221}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003240}}
 .xe-entry-body .xe-entry-restid, .xe-entry-body .xe-entry-delete {
   padding-left: 0px;
   padding-right: 0px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003225}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003244}}
 .xe-entry-body .xe-entry-labels {
   min-height: 33px;
   margin-top: 3px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003229}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003248}}
 .xe-entry-body .xe-entry-delete {
   height: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003236}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003255}}
 .xe-labels .panel {
   margin-bottom: 5px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003240}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003259}}
 .xe-labels .panel-collapse {
   padding-top: 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003244}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003263}}
 .xe-labels .xe-labels-col {
   padding-left: 0px;
   padding-right: 0px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003250}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003269}}
 .xe-labels .xe-labels-summery {
   display: inline-block;
   min-height: 32px;
@@ -9295,36 +9317,36 @@ ul.atlas-list li div a {
   font-size: medium;
   font-weight: bold;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003266}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003285}}
 .xe-labels .xe-labels-values {
   display: inline-block;
   min-height: 21px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003272}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003291}}
 .xe-mandatory button {
   width: 100%;
 }
 
 @media only screen and (min-width: 480px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003277}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003296}}
   .xe-viewport {
     padding-left: 10px;
     padding-right: 10px;
   }
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003283}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003302}}
 .xe-viewport .xe-selector {
   width: 100%;
   margin-bottom: 5px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003290}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003309}}
 .xe-spinner {
   height: 50px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003294}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003313}}
 .xe-dummy {
   display: inline-block;
   height: 50px;
@@ -9332,57 +9354,57 @@ ul.atlas-list li div a {
   background-color: #ececec;
   margin-right: 3px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003301}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003320}}
 .xe-dummy.xe-dummy-spinner {
   background: url("/scripts/components/xmlEditor/templates/images/BioDivApp_Dummy_spinner.jpg") no-repeat left top;
   background-size: contain;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003305}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003324}}
 .xe-dummy.xe-dummy-textfield {
   background: url("/scripts/components/xmlEditor/templates/images/BioDivApp_Dummy_textfield.jpg") no-repeat left top;
   background-size: contain;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003309}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003328}}
 .xe-dummy.xe-dummy-numerictextfield {
   height: 100px;
   background: url("/scripts/components/xmlEditor/templates/images/BioDivApp_Dummy_numerictextfield.jpg") no-repeat left top;
   background-size: contain;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003314}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003333}}
 .xe-dummy.xe-dummy-numberpicker {
   height: 100px;
   background: url("/scripts/components/xmlEditor/templates/images/BioDivApp_Dummy_numberpicker.jpg") no-repeat left top;
   background-size: contain;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003319}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003338}}
 .xe-dummy.xe-dummy-buttonmatrix {
   height: 110px;
   background: url("/scripts/components/xmlEditor/templates/images/BioDivApp_Dummy_buttonmatrix.jpg") no-repeat left top;
   background-size: contain;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003326}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003345}}
 .xe-datasource {
   display: inline-block;
   height: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003330}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003349}}
 .xe-options {
   padding-top: 5px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003334}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003353}}
 .xe-default, .xe-option {
   margin-bottom: 7px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003357}}
 .xe-decimalplaces-modal, .xe-max-modal, .xe-min-modal, .xe-numberOfButtons-modal, .xe-datasource-type-modal {
   margin: 2px 0px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003342}}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Svenja\/Studium\/KSS\/Master-Thesis\/BioDivAppConfigEditor\/src\/main\/scss\/_xeXmlEditorStyles\.scss}line{font-family:\00003361}}
 .xe-panel-container {
   padding-left: 0;
   padding-right: 0;

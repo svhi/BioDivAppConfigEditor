@@ -37,9 +37,19 @@
 **********************************************************************************************************************/
 .xe-download {
   &.xe-download-container {
-    padding: 20px;
+    padding-top
+    : 20px;
     margin-top: 10px;
     border-top: solid 1px lightgray;
+  }
+  .xe-download-button-container{
+    margin-bottom: 5px;
+    .btn-xs-full-width {
+      min-width: 170px;
+    }
+    .msg {
+      margin-left: 5px;
+    }
   }
 }
 
@@ -66,9 +76,18 @@
   .spacer-btn {
     margin: 3px;
   }
-.btn-fullwidth {
+  .btn-fullwidth {
     width: 100%
   }
+
+.btn-xs-full-width{
+  @media only screen and (max-width: 768px) {
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
 
   .xe-tag-container {
     .panel-body {

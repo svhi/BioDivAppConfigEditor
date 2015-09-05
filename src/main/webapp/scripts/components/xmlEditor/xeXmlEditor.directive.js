@@ -4,7 +4,7 @@ angular.module('configeditorApp')
 /**********************************************************************************************************************
  * xeXmlEditor.directive.js
  *********************************************************************************************************************/
-    .directive('xeXmlEditor', ['xeXmlFileService', function(xeXmlFileService) {
+    .directive('xeXmlEditor', ['xeXmlFileService', 'xeXmlFormService', function(xeXmlFileService, xeXmlFormService) {
         return {
             restrict: 'E',
             replace: true,
@@ -22,6 +22,8 @@ angular.module('configeditorApp')
                 $scope.$watch(xeXmlFileService.getValidationMessages, function(newValue, oldValue) {
                     $scope.validationMessages = newValue;
                 });
+                xeXmlFormService.setForm($scope.xmlFileForm);
+
             }
         };
     }])
@@ -30,7 +32,7 @@ angular.module('configeditorApp')
 /******************************************************************************************************************
  * This service provides all helper functions for xeXmlTagEditor.
  ******************************************************************************************************************/
-    .factory('xeXmlTagEditorUtils', ["$compile", "$http", "$templateCache", function($compile, $http, $templateCache) {
+    .factory('xeXmlTagEditorUtils', ["$compile", "$http", "$templateCache", 'xeXmlFormService', function($compile, $http, $templateCache, xeXmlFormService) {
         var util = {
 
             /*Applies a angular template to a given element*/
@@ -76,8 +78,10 @@ angular.module('configeditorApp')
                 }
                 if (angular.isDefined(index)) {
                     tagArray.splice(index, 0, newTag);
+                    xeXmlFormService.getForm().$setDirty();
                 } else {
                     tagArray.push(newTag);
+                    xeXmlFormService.getForm().$setDirty();
                 }
             },
 
@@ -98,16 +102,19 @@ angular.module('configeditorApp')
                 }
                 var index = array.indexOf(xmlTag);
                 array.splice(index, 1);
+                xeXmlFormService.getForm().$setDirty();
             },
 
             moveToIndex: function(array, xmlTag, index){
                 util.removeTag(array, xmlTag);
                 util.addTag(array, xmlTag, index);
+                xeXmlFormService.getForm().$setDirty();
             },
             moveUp: function(array, xmlTag){
                 var index = array.indexOf(xmlTag) - 1;
                 util.moveToIndex(array, xmlTag, index);
-            },
+                xeXmlFormService.getForm().$setDirty();
+            }
 
         };
         return util;

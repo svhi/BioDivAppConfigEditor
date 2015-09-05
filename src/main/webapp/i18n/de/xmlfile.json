@@ -5,6 +5,9 @@
     "Upload": "Datei hochladen",
     "Download": "Datei herunterladen",
     "LoadSampleFile": "Beispieldatei Laden",
-    "PleaseCheckForm": "Bitte kontrollieren Sie das Formular auf Fehler!"
+    "PleaseCheckForm": "Bitte kontrollieren Sie das Formular auf Fehler!",
+    "Validate": "Validieren",
+    "ValidationOK": "Die Datei ist valide.",
+    "ValidationErrors": "Es sind Validierungsfehler vorhanden."
   }
 }
