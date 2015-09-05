@@ -56,7 +56,26 @@ angular.module('configeditorApp')
                 });
         };
         srv.downloadXml= function() {
-            return $http.post(srv._downloadURL, srv._xmlFileModel);
+            $http({
+                url: srv._downloadURL,
+                method: 'POST',
+                responseType: 'arraybuffer',
+                data: srv._xmlFileModel,
+                headers: {
+                    'Content-type': 'application/json',
+                    'Accept': 'text/xml'
+                }
+            })
+            .success(function (data) {
+                var blob = new Blob([data], {type: "text/xml"});
+                var objectUrl = URL.createObjectURL(blob);
+
+                var hiddenElement = document.createElement('a');
+                hiddenElement.href = objectUrl;
+                hiddenElement.target = '_blank';
+                hiddenElement.download = srv._xmlFileModel.fileName;
+                hiddenElement.click();
+            });
         };
         srv.validateXml= function() {
             return $http.post(srv._validateURL, srv._xmlFileModel)

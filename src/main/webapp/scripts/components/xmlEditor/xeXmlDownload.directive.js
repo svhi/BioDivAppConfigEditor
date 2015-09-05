@@ -15,7 +15,6 @@ angular.module('configeditorApp')
             templateUrl: 'scripts/components/xmlEditor/xeXmlDownload.html',
 
             link: function (scope, element,  attrs) {
-                scope.downloadFile = null;
                 scope.showDownload = false;
                 scope.validationOK = true;
                 scope.form = xeXmlFormService.getForm();
@@ -29,12 +28,8 @@ angular.module('configeditorApp')
                 });
 
                 scope.download = function() {
-                    xeXmlFileService.downloadXml()
-                        .success(function (data) {
-                            scope.downloadFile = data;
-                            scope.form.$setPristine();
-                        });
-
+                    xeXmlFileService.downloadXml();
+                    scope.form.$setPristine();
                 };
 
                 scope.validate = function() {

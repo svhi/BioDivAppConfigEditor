@@ -8,6 +8,7 @@ import edu.hsbremen.kss.biodiv.configurator.services.xml.XmlWriter;
 import org.apache.catalina.util.XMLWriter;
 import org.apache.tomcat.util.http.fileupload.FileItem;
 import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -101,34 +102,28 @@ public class XmlFileController {
 
         byte[] xmlStringByteArray = xmlString.getBytes(StandardCharsets.UTF_8);
 
-        InputStream stream = new ByteArrayInputStream(xmlStringByteArray);
+    InputStream stream = new ByteArrayInputStream(xmlStringByteArray);
+        try {
+            XmlParser parser = new XmlParser();
+            xmlFileModel.setValidationMessages(parser.validate(stream));
 
+            System.out.println("     file: "+xmlFileModel.getFileName());
+            return xmlFileModel;
 
-            try {
-                XmlParser parser = new XmlParser();
-                xmlFileModel.setValidationMessages(parser.validate(stream));
-
-                System.out.println("     file: "+xmlFileModel.getFileName());
-                return xmlFileModel;
-
-            } catch (ParserConfigurationException e) {
-                e.printStackTrace();
-            } catch (SAXException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            return null;
-
-
-
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 
     @RequestMapping(value="/download", method=RequestMethod.POST)
     public @ResponseBody
-    ResponseEntity<InputStreamResource> downloadXmlFile(@RequestBody XmlFileModel xmlFileModel) {
+    ResponseEntity<byte[]> downloadXmlFile(@RequestBody XmlFileModel xmlFileModel) {
         System.out.println("==== XmlFileController DOWNLOAD");
         XmlWriter xmlWriter = new XmlWriter();
         xmlWriter.writeToXML(xmlFileModel);
@@ -142,8 +137,10 @@ public class XmlFileController {
         return ResponseEntity
                 .ok()
                 .contentLength(xmlStringByteArray.length)
-                .contentType(
-                        MediaType.TEXT_XML)
-                .body(new InputStreamResource(new ByteArrayInputStream(xmlStringByteArray)));
+                .contentType(MediaType.TEXT_XML)
+                .header("Content-Disposition", "attachment; filename = " + xmlFileModel.getFileName())
+                .body(xmlStringByteArray);
     }
+
+
 }
