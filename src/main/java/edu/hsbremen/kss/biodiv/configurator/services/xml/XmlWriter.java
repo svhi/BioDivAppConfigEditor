@@ -84,7 +84,7 @@ public class XmlWriter {
         private void writeXmlAttributes( XMLStreamWriter xmlStreamWriter, XmlTagModel tag){
             try {
                 for(XmlAttributeModel attr : tag.getAttributes()){
-                    xmlStreamWriter.writeAttribute(attr.getqName(), attr.getValue());
+                    xmlStreamWriter.writeAttribute(attr.getqName(), attr.getValue()==null ? "" : attr.getValue() );
                 }
             } catch (XMLStreamException e) {
                 e.printStackTrace();
