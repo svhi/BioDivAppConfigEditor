@@ -13,7 +13,7 @@ angular.module('configeditorApp')
         //-----------------------------------------------------------------
         //
         srv.getForm = function() {
-            console.log(srv._form);
+            //console.log(srv._form);
             return srv._form;
         };
         srv.setForm = function(newForm) {
