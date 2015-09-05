@@ -75,6 +75,8 @@ angular.module('configeditorApp')
                 hiddenElement.target = '_blank';
                 hiddenElement.download = srv._xmlFileModel.fileName;
                 hiddenElement.click();
+
+                URL.revokeObjectURL(objectUrl)
             });
         };
         srv.validateXml= function() {
