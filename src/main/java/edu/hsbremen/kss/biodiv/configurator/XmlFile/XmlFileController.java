@@ -58,7 +58,7 @@ public class XmlFileController {
     public @ResponseBody
     ResponseEntity<XmlFileModel> uploadXmlFile(@RequestParam("file") MultipartFile file) {
         System.out.println("==== XmlFileController UPLOAD");
-        if (!file.isEmpty() && file.getContentType().equals("application/xml")) {
+        if (!file.isEmpty() && (file.getContentType().equals("application/xml") || file.getContentType().equals("text/xml"))) {
 
             try {
                 XmlParser parser = new XmlParser();
