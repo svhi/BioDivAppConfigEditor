@@ -11,14 +11,15 @@ import java.util.concurrent.atomic.AtomicLong;
 @RequestMapping("/api/greeting")
 public class GreetingController {
 
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
+    private static final String template = "Hello %s!";
+    private final AtomicLong counter = new AtomicLong(0);
 
     @RequestMapping("")
     public @ResponseBody Greeting greeting(
             @RequestParam(value="name", required=false, defaultValue="World") String name) {
         System.out.println("==== GreetingController "+name+" ====");
-        return new Greeting(counter.incrementAndGet(),
-                String.format(template, name));
+        return new Greeting(counter.incrementAndGet(), String.format(template, name));
     }
 }
+
+

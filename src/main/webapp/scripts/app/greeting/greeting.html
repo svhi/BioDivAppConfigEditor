@@ -1,19 +1,31 @@
-<div ng-cloak>
-    <div class="row">
-        <div class="col-md-4">
-            <span class="biodiv img-responsive img-rounded"></span>
-        </div>
-        <div class="col-md-8">
 
-            <div ng-controller="GreetingController">
-                <div class="page-header">
-                    <h1 translate="greeting.headline">Hello</h1>
+    <div ng-cloak>
+        <div class="row">
+            <div class="col-md-4">
+                <span class="biodiv img-responsive img-rounded"></span>
+            </div>
+            <div class="col-md-8">
+
+                <div ng-controller="GreetingController">
+                    <div class="page-header">
+                        <h1 translate="greeting.headline">Hello</h1>
+                    </div>
+
+                    <p><span translate="greeting.theIdIs"></span> {{greeting.id}}</p>
+                    <p><span translate="greeting.theContentIs"></span> {{greeting.content}}</p>
+
+                    <form name="greetingForm">
+                        <p>
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Name" ng-model="name">
+                        </p>
+                        <button class="btn btn-primary" ng-click="sendName();" >Senden</button>
+                    </form>
                 </div>
-
-                <p><span translate="greeting.theIdIs"></span> {{greeting.id}}</p>
-                <p><span translate="greeting.theContentIs"></span> {{greeting.content}}</p>
             </div>
         </div>
     </div>
-</div>
+
+
+
 

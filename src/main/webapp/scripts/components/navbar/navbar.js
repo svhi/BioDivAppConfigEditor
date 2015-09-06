@@ -46,10 +46,12 @@ angular.module('configeditorApp')
                     }
                 },
                 resolve: {
-                    mainTranslatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
-                        $translatePartialLoader.addPart('greeting');
-                        return $translate.refresh();
-                    }]
+                    mainTranslatePartialLoader: ['$translate', '$translatePartialLoader',
+                        function ($translate,$translatePartialLoader) {
+                            $translatePartialLoader.addPart('greeting');
+                            return $translate.refresh();
+                        }
+                    ]
                 }
             })
             // xmlfile
