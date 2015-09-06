@@ -11,7 +11,10 @@ How to build this Project
 3. Execute mvn spring-boot:run to start the project via maven
    or execute mvn spring-boot:run -Pprod to start the project in production mode
    or execute mvn package 
-   
 
-If anything goes wrong, pleas go through each of the steps above again. If there are still problems try to find 
+If anything goes wrong, please go through each of the steps above again. If there are still problems try to find 
 the "node_modules" folder and delete it. Afterwards repeat the steps above once again.
+
+For Frontend development you might want to run the project in development mode and use the command grunt serve. 
+It will start a separate instance of the frontend with enables browser sync. Browser sync allows faster development 
+because it takes care of reloading changes files into the browser. 
