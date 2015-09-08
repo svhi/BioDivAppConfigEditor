@@ -9,12 +9,12 @@
             </button>
             <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-include-filter="min"></xe-xml-sub-tags>
             <button type="button" class="btn btn-default xe-decimalplaces-modal-button" ng-hide="doSubTagsContain('min')"
-                    ng-click="addTag(xmlTag.subTags, XmlTag('min','0',[], []),0);">
+                    ng-click="addTag(xmlTag.subTags, XmlTag('min','0',[], []),1);">
                 <span  class="glyphicon glyphicon-chevron-right"></span> <span ng-bind="xmlTag.value"></span>
             </button>
             <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-include-filter="max"></xe-xml-sub-tags>
             <button type="button" class="btn btn-default xe-decimalplaces-modal-button" ng-hide="doSubTagsContain('max')"
-                    ng-click="addTag(xmlTag.subTags, XmlTag('max','1000',[], []),0);">
+                    ng-click="addTag(xmlTag.subTags, XmlTag('max','1000',[], []),2);">
                 <span  class="glyphicon glyphicon-chevron-left"></span> <span ng-bind="xmlTag.value"></span>
             </button>
             <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-exclude-filter="decimalplaces min max"></xe-xml-sub-tags>
