@@ -5,9 +5,11 @@
         "menu": {
             "xmlfile": "XML Editor",
             "atlas": "Atlanten",
-
             "language": "DE"
         }
     },
-    "footer": "This is your footer"
+    "footer": {
+        "aProjectOf": "Ein Projekt der",
+        "HSB": "Hochschule Bremen"
+    }
 }

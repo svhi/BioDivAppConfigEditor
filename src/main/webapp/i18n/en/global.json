@@ -8,5 +8,8 @@
             "language": "EN"
         }
     },
-    "footer": "This is your footer"
+    "footer": {
+        "aProjectOf": "A project of the",
+        "HSB": "Bremen University of Applied Sciences"
+    }
 }
