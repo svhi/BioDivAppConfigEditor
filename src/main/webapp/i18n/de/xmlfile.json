@@ -8,6 +8,10 @@
     "PleaseCheckForm": "Bitte kontrollieren Sie das Formular auf Fehler!",
     "Validate": "Validieren",
     "ValidationOK": "Die Datei ist valide.",
-    "ValidationErrors": "Es sind Validierungsfehler vorhanden."
+    "ValidationErrors": "Es sind Validierungsfehler vorhanden.",
+    "Add": "{{thing}} Hinzufügen",
+    "Create": "{{thing}} Anlegen",
+    "Switch": "Tauschen",
+    "Close": "Schließen"
   }
 }

@@ -14,7 +14,8 @@
                 <div class="container-fluid xe-panel-container">
                     <xe-xml-sub-tags sub-tags="xmlTag.subTags"></xe-xml-sub-tags>
                     <div class="spacer-btn">
-                        <button class="btn btn-default btn-fullwidth" ng-if="!doSubTagsContain('entryGroup')" ng-click="addTag(xmlTag.subTags, XmlTag('entryGroup','',[], [XmlTag('labels','',[],[])]));"><span class="glyphicon glyphicon-plus"></span> Create EntryGroup</button>
+                        <button class="btn btn-default btn-xs-full-width " ng-if="!doSubTagsContain('entryGroup')" ng-click="addTag(xmlTag.subTags, XmlTag('entryGroup','',[], [XmlTag('labels','',[],[])]));">
+                            <span class="glyphicon glyphicon-plus"></span> <span translate="xmlfile.Create" translate-value-thing="EntryGroup">Create EntryGroup</span></button>
                     </div>
                 </div>
             </div>

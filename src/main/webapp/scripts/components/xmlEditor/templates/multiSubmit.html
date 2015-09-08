@@ -40,7 +40,8 @@
                 </div>
                 <div class="container-fluid xe-panel-container">
                     <xe-xml-sub-tags sub-tags="xmlTag.subTags" q-name-exclude-filter="log summerizeDataBy"></xe-xml-sub-tags>
-                    <button class="btn btn-default" ng-if="!doSubTagsContain('entryGroup')" ng-click="addTag(xmlTag.subTags, XmlTag('entryGroup','',[], [XmlTag('labels','',[],[])]));"><span class="glyphicon glyphicon-plus"></span> Create EntryGroup</button>
+                    <button class="btn btn-default btn-xs-full-width" ng-if="!doSubTagsContain('entryGroup')" ng-click="addTag(xmlTag.subTags, XmlTag('entryGroup','',[], [XmlTag('labels','',[],[])]));">
+                        <span class="glyphicon glyphicon-plus"></span> <span translate="xmlfile.Create" translate-value-thing="EntryGroup">Create EntryGroup</span></button>
                 </div>
 
             </div>
