@@ -8,7 +8,7 @@ angular.module('configeditorApp')
         $http.get('/assets/static/atlaslist.json').
             success(function(data) {
                 $scope.atlasList = data;
-                console.log(data);
+                //console.log(data);
             });
 
         $scope.selectedAtlas = null;
