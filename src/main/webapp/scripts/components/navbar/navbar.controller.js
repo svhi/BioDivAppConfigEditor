@@ -5,7 +5,7 @@
 angular.module('configeditorApp')
     .controller('NavbarController', function ($scope, $state, $http) {
 
-        $http.get('/api/atlas').
+        $http.get('/assets/static/atlaslist.json').
             success(function(data) {
                 $scope.atlasList = data;
                 console.log(data);

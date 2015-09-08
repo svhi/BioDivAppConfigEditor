@@ -1,29 +1,20 @@
 package edu.hsbremen.kss.biodiv.configurator.XmlFile;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import edu.hsbremen.kss.biodiv.configurator.atlas.Atlas;
+
 import edu.hsbremen.kss.biodiv.configurator.services.xml.XmlFileModel;
 import edu.hsbremen.kss.biodiv.configurator.services.xml.XmlParser;
 import edu.hsbremen.kss.biodiv.configurator.services.xml.XmlWriter;
-import org.apache.catalina.util.XMLWriter;
-import org.apache.tomcat.util.http.fileupload.FileItem;
-import org.springframework.core.io.InputStreamResource;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.xml.sax.SAXException;
 
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/xmlfile")
