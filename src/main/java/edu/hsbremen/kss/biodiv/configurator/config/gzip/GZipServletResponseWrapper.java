@@ -7,7 +7,9 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.zip.GZIPOutputStream;
-
+/**
+ * GZipServletResponseWrapper by JHipster
+ */
 class GZipServletResponseWrapper extends HttpServletResponseWrapper {
 
     private GZipServletOutputStream gzipOutputStream = null;

@@ -1,11 +1,12 @@
-package edu.hsbremen.kss.biodiv.configurator.services.xml;
+package edu.hsbremen.kss.biodiv.configurator.services.xml.model;
 
 /**
- * Created by Svenja on 22.06.2015.
+ * This is a model class representing an xml attribute.
  */
 public class XmlAttributeModel {
     private String qName;
     private String value;
+
 
     public String getqName() {
         return qName;

@@ -1,18 +1,18 @@
 package edu.hsbremen.kss.biodiv.configurator.services.xml;
 
-import org.xml.sax.Attributes;
+import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.util.ArrayList;
-import java.util.Stack;
 
 /**
- * Created by Svenja on 22.06.2015.
+ * Takes care of saving all validation messages to an array based the xml file that is being parsed.
  */
 public class XmlValidationParserHandler extends DefaultHandler {
 
+    private final Logger LOG = Logger.getLogger(XmlValidationParserHandler.class.getName());
 
     public ArrayList<String> validationMessages;
 
@@ -24,14 +24,14 @@ public class XmlValidationParserHandler extends DefaultHandler {
     public void warning(SAXParseException spe) throws SAXException {
         String message = "Warning: \n\t" + getParseExceptionInfo(spe);
         this.validationMessages.add(message);
-        System.out.println(message);
+        //System.out.println(message);
     }
 
     @Override
     public void error(SAXParseException spe) throws SAXException {
         String message = "Error: \n\t" + getParseExceptionInfo(spe);
         this.validationMessages.add(message);
-        System.out.println(message);
+        //System.out.println(message);
         //throw new SAXException(message);
     }
 
@@ -43,7 +43,7 @@ public class XmlValidationParserHandler extends DefaultHandler {
 
     private String getParseExceptionInfo(SAXParseException spe) {
         String info = "Line="
-                + spe.getLineNumber() + ": " + spe.getLocalizedMessage();
+                + spe.getLineNumber() + ": " + spe.getMessage();
 
         return info;
     }

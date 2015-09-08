@@ -14,6 +14,9 @@ import javax.annotation.PreDestroy;
 @Configuration
 @EnableCaching
 @Profile("!" + Constants.SPRING_PROFILE_FAST)
+/**
+ * Configuration by JHipster
+ */
 public class CacheConfiguration {
 
     private final Logger log = LoggerFactory.getLogger(CacheConfiguration.class);

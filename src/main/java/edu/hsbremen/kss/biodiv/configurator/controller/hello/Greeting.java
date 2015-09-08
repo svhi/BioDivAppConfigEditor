@@ -1,4 +1,4 @@
-package edu.hsbremen.kss.biodiv.configurator.hello;
+package edu.hsbremen.kss.biodiv.configurator.controller.hello;
 
 /**
  * Created by Svenja on 22.04.2015.

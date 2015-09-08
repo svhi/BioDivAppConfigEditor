@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * This filter is used in production, to put HTTP cache headers with a long (1 month) expiration time.
- * </p>
+ * by JHipster
  */
 public class CachingHttpHeadersFilter implements Filter {
 

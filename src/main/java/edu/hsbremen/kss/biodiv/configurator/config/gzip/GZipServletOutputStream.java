@@ -4,7 +4,9 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.WriteListener;
 import java.io.IOException;
 import java.io.OutputStream;
-
+/**
+ * GZipServletOutputStream by JHipster
+ */
 class GZipServletOutputStream extends ServletOutputStream {
     private OutputStream stream;
 

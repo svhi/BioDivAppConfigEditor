@@ -1,7 +1,7 @@
 package edu.hsbremen.kss.biodiv.configurator.services.xml;
 
+import edu.hsbremen.kss.biodiv.configurator.services.xml.model.XmlFileModel;
 import junit.framework.TestCase;
-import org.junit.Assert;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 

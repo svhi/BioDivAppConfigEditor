@@ -9,6 +9,7 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 
 /**
  * This is a helper Java class that provides an alternative to creating a web.xml.
+ * by JHipster
  */
 public class ApplicationWebXml extends SpringBootServletInitializer {
 

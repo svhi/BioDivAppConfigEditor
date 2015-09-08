@@ -1,4 +1,4 @@
-package edu.hsbremen.kss.biodiv.configurator.hello;
+package edu.hsbremen.kss.biodiv.configurator.controller.hello;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;

@@ -10,6 +10,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.zip.GZIPOutputStream;
 
+/**
+ * GZipServletFilter by JHipster
+ */
 public class GZipServletFilter implements Filter {
 
     private Logger log = LoggerFactory.getLogger(GZipServletFilter.class);

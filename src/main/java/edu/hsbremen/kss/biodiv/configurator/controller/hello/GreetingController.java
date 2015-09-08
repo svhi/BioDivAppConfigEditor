@@ -1,4 +1,4 @@
-package edu.hsbremen.kss.biodiv.configurator.hello;
+package edu.hsbremen.kss.biodiv.configurator.controller.hello;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

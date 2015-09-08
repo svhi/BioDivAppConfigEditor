@@ -1,9 +1,10 @@
-package edu.hsbremen.kss.biodiv.configurator.XmlFile;
+package edu.hsbremen.kss.biodiv.configurator.controller.xmlFile;
 
 
-import edu.hsbremen.kss.biodiv.configurator.services.xml.XmlFileModel;
+import edu.hsbremen.kss.biodiv.configurator.services.xml.model.XmlFileModel;
 import edu.hsbremen.kss.biodiv.configurator.services.xml.XmlParser;
 import edu.hsbremen.kss.biodiv.configurator.services.xml.XmlWriter;
+import org.apache.log4j.Logger;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,11 +21,13 @@ import java.nio.charset.StandardCharsets;
 @RequestMapping("/api/xmlfile")
 public class XmlFileController {
 
+    private final Logger LOG = Logger.getLogger(XmlFileController.class.getName());
+
     @RequestMapping("/id/{xmlFileID}")
     public @ResponseBody
     XmlFileModel get(@PathVariable("xmlFileID") String xmlFileID) {
 
-        System.out.println("==== XmlFileController");
+        LOG.info("==== XmlFileController GET");
 
         try {
             XmlParser parser = new XmlParser();
@@ -35,11 +38,11 @@ public class XmlFileController {
             return xmlFileModel;
 
         } catch (ParserConfigurationException e) {
-            e.printStackTrace();
+            LOG.error(e);
         } catch (SAXException e) {
-            e.printStackTrace();
+            LOG.error(e);
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error(e);
         }
 
         return null;
@@ -48,7 +51,7 @@ public class XmlFileController {
     @RequestMapping(value="/upload", method=RequestMethod.POST)
     public @ResponseBody
     ResponseEntity<XmlFileModel> uploadXmlFile(@RequestParam("file") MultipartFile file) {
-        System.out.println("==== XmlFileController UPLOAD");
+        LOG.info("==== XmlFileController UPLOAD");
         if (!file.isEmpty() && (file.getContentType().equals("application/xml") || file.getContentType().equals("text/xml"))) {
 
             try {
@@ -56,25 +59,24 @@ public class XmlFileController {
                 XmlFileModel xmlFileModel = parser.parse(file.getInputStream());
                 xmlFileModel.setValidationMessages(parser.validate(file.getInputStream()));
 
-                System.out.println("     file: "+file.getOriginalFilename());
+                LOG.trace("     file: "+file.getOriginalFilename());
                 xmlFileModel.setFileName(file.getOriginalFilename());
                 return ResponseEntity
                         .ok()
                         .body(xmlFileModel);
 
             } catch (ParserConfigurationException e) {
-                e.printStackTrace();
+                LOG.error(e);
             } catch (SAXException e) {
-                e.printStackTrace();
+                LOG.error(e);
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.error(e);
             }
 
             return null;
 
         } else {
-
-            System.out.println("\t File rejectet! contentType: " + file.getContentType());
+            LOG.warn("\t File rejectet! contentType: " + file.getContentType());
             return ResponseEntity
                     .badRequest()
                     .body(null); //"You failed to upload " + name + " because the file was empty.";
@@ -83,30 +85,28 @@ public class XmlFileController {
     @RequestMapping(value="/validate", method=RequestMethod.POST)
     public @ResponseBody
     XmlFileModel validateXmlFile(@RequestBody XmlFileModel xmlFileModel) {
-        System.out.println("==== XmlFileController VALIDATE");
+        LOG.info("==== XmlFileController VALIDATE");
         XmlWriter xmlWriter = new XmlWriter();
         xmlWriter.writeToXML(xmlFileModel);
-
-        //ClassPathResource pdfFile = new ClassPathResource("pdf-sample.pdf");
 
         String xmlString = xmlWriter.writeToXML(xmlFileModel);
 
         byte[] xmlStringByteArray = xmlString.getBytes(StandardCharsets.UTF_8);
 
-    InputStream stream = new ByteArrayInputStream(xmlStringByteArray);
+        InputStream stream = new ByteArrayInputStream(xmlStringByteArray);
         try {
             XmlParser parser = new XmlParser();
             xmlFileModel.setValidationMessages(parser.validate(stream));
 
-            System.out.println("     file: "+xmlFileModel.getFileName());
+            LOG.trace("     file: "+xmlFileModel.getFileName());
             return xmlFileModel;
 
         } catch (ParserConfigurationException e) {
-            e.printStackTrace();
+            LOG.error(e);
         } catch (SAXException e) {
-            e.printStackTrace();
+            LOG.error(e);
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error(e);
         }
         return null;
     }
@@ -115,7 +115,7 @@ public class XmlFileController {
     @RequestMapping(value="/download", method=RequestMethod.POST)
     public @ResponseBody
     ResponseEntity<byte[]> downloadXmlFile(@RequestBody XmlFileModel xmlFileModel) {
-        System.out.println("==== XmlFileController DOWNLOAD");
+        LOG.info("==== XmlFileController DOWNLOAD");
         XmlWriter xmlWriter = new XmlWriter();
         xmlWriter.writeToXML(xmlFileModel);
 
@@ -132,6 +132,4 @@ public class XmlFileController {
                 .header("Content-Disposition", "attachment; filename = " + xmlFileModel.getFileName())
                 .body(xmlStringByteArray);
     }
-
-
 }

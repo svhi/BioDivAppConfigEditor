@@ -21,6 +21,7 @@ import java.util.Map;
 
 /**
  * Configuration of web application with Servlet 3.0 APIs.
+ * by JHipster
  */
 @Configuration
 @AutoConfigureAfter(CacheConfiguration.class)
