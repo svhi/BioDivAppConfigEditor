@@ -1,9 +1,14 @@
 "use strict";
-
-angular.module('configeditorApp')
 /**********************************************************************************************************************
  * xeXmlEditor.directive.js
  *********************************************************************************************************************/
+
+angular.module('configeditorApp')
+
+    /**********************************************************************************************************************
+     * xeXmlEditor
+     * Main directive for displaying the Editor.
+     *********************************************************************************************************************/
     .directive('xeXmlEditor', ['xeXmlFileService', 'xeXmlFormService', function(xeXmlFileService, xeXmlFormService) {
         return {
             restrict: 'E',
@@ -29,9 +34,10 @@ angular.module('configeditorApp')
     }])
 
 
-/******************************************************************************************************************
- * This service provides all helper functions for xeXmlTagEditor.
- ******************************************************************************************************************/
+    /******************************************************************************************************************
+     * xeXmlTagEditorUtils
+     * This service provides all helper functions for xeXmlTagEditor.
+     ******************************************************************************************************************/
     .factory('xeXmlTagEditorUtils', ["$compile", "$http", "$templateCache", 'xeXmlFormService', function($compile, $http, $templateCache, xeXmlFormService) {
         var util = {
 
@@ -119,9 +125,10 @@ angular.module('configeditorApp')
         };
         return util;
     }])
-/******************************************************************************************************************
- * This directive handels the template loading and provides function for adding and removing tags.
- ******************************************************************************************************************/
+    /******************************************************************************************************************
+     * xeXmlTagEditor
+     * This directive handels the template loading and provides functions for adding and removing tags.
+     ******************************************************************************************************************/
     .directive('xeXmlTagEditor',["xeXmlTagEditorUtils", "xeXmlFileService", function(xeXmlTagEditorUtils, xeXmlFileService) {
         return {
             restrict: 'E',
@@ -192,9 +199,10 @@ angular.module('configeditorApp')
             }
         };
     }])
-/*******************************************************************************************************************
- * The subtags directive is used to render the tag directive recursivly for all given subtags.
- ******************************************************************************************************************/
+    /*******************************************************************************************************************
+     * xeXmlSubTags
+     * The subtags directive is used to render the tag directive recursivly for all given subtags.
+     ******************************************************************************************************************/
     .directive('xeXmlSubTags', ["$compile","RecursionHelper", function($compile, RecursionHelper) {
         return {
             restrict: 'E',
@@ -210,9 +218,10 @@ angular.module('configeditorApp')
                 '</div>'
         };
     }])
-/*******************************************************************************************************************
- * Filters an array of subTags based on the tags qName.
- ******************************************************************************************************************/
+    /*******************************************************************************************************************
+     * filterTagQName
+     * Filters an array of subTags based on the tags qName.
+     ******************************************************************************************************************/
     .filter('filterTagQName', function() {
         return function(tags, includeQNames, excludeQNames) {
             if (!angular.isArray(tags)){return tags;}

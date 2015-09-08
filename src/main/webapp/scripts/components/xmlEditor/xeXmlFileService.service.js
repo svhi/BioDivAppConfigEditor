@@ -1,7 +1,9 @@
 "use strict";
-
+/******************************************************************************************************************
+ * xeXmlFileService
+ * Holds the xmlFileModel and provides functions for uploading, downloading and validating.
+ ******************************************************************************************************************/
 angular.module('configeditorApp')
-
     .factory('xeXmlFileService', ['$http', 'Upload', function($http, Upload) {
         var srv ={};
 
@@ -46,8 +48,7 @@ angular.module('configeditorApp')
             file.upload.success(function (data) {
                 srv.setXmlFileModel(data);
             });
-        }
-
+        };
 
         srv.loadSample = function() {
             $http.get(srv._loadSampelURL)
@@ -55,6 +56,7 @@ angular.module('configeditorApp')
                     srv.setXmlFileModel(data);
                 });
         };
+
         srv.downloadXml= function() {
             $http({
                 url: srv._downloadURL,
@@ -66,7 +68,6 @@ angular.module('configeditorApp')
                     'Accept': 'application/xml'
                 }
             })
-
             .success(function (data) {
                 var blob = new Blob([data], {type: "application/xml"});
                 var objectUrl = URL.createObjectURL(blob);
@@ -79,8 +80,8 @@ angular.module('configeditorApp')
 
                 URL.revokeObjectURL(objectUrl)
             });
-
         };
+
         srv.validateXml= function() {
             return $http.post(srv._validateURL, srv._xmlFileModel)
                 .success(function (data) {

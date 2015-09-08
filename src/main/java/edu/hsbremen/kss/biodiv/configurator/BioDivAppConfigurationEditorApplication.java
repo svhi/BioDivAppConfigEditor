@@ -18,6 +18,9 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.Collection;
 
+/**
+ * This LCass is responsible for starting the spring mvc application.
+ */
 @SpringBootApplication
 @ComponentScan
 @EnableAutoConfiguration

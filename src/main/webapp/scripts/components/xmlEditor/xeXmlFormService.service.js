@@ -1,7 +1,9 @@
 "use strict";
-
+/******************************************************************************************************************
+ * xeXmlFormService
+ * Holds the xmlFileForm and provides access to it.
+ ******************************************************************************************************************/
 angular.module('configeditorApp')
-
     .factory('xeXmlFormService',  function() {
         var srv ={};
 
@@ -11,7 +13,6 @@ angular.module('configeditorApp')
 
         // Service implementation
         //-----------------------------------------------------------------
-        //
         srv.getForm = function() {
             //console.log(srv._form);
             return srv._form;

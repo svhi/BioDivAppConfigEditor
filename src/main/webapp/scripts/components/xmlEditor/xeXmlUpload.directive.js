@@ -1,24 +1,18 @@
 "use strict";
 /**********************************************************************************************************************
- * xeXmlUpload.directive.js
+ * xeXmlUpload
+ * Renders various buttons for selecting files, uploading file and loading an sample file.
+ * upload -> sends file to server and retrieves xmlFileModel
  *********************************************************************************************************************/
 angular.module('configeditorApp')
     .directive('xeXmlUpload', ['xeXmlFileService', function(xeXmlFileService) {
-
         return {
             restrict: 'E',
             replace: false,
-            scope: {
-
-            },
+            scope: {},
             templateUrl: 'scripts/components/xmlEditor/xeXmlUpload.html',
-            controller: ['$scope', function ($scope) {
-
-
-            }],
             link: function (scope, element,  attrs) {
                 scope.uploadFile = null;
-
                 scope.xmlFileIsSet = false;
                 scope.xmlFileName = null;
 
@@ -30,6 +24,7 @@ angular.module('configeditorApp')
                 scope.upload = function() {
                     xeXmlFileService.uploadXml(scope.uploadFile);
                 };
+
                 scope.loadSample = function() {
                     xeXmlFileService.loadSample();
                 };
