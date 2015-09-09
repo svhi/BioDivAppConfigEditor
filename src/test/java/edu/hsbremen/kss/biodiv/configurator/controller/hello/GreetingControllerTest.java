@@ -39,6 +39,6 @@ public class GreetingControllerTest {
     public void getHello() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/api/greeting").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("{\"id\":1,\"content\":\"Hello, World!\"}")));
+                .andExpect(content().string(equalTo("{\"id\":1,\"content\":\"Hello World!\"}")));
     }
 }
