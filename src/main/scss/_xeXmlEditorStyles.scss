@@ -192,7 +192,7 @@
       display: inline-block;
       width: 100%;
       height: 50px;
-      background: url("/scripts/components/xmlEditor/templates/images/BioDivApp_Dummy_Head.jpg") no-repeat left top;
+      background: url("../images/BioDivApp_Dummy_Head.jpg") no-repeat left top;
       background-size: contain;
       background-color: rgb(34, 34, 34);
     }
@@ -203,7 +203,7 @@
       display: inline-block;
       width: 100%;
       height: 50px;
-      background: url("/scripts/components/xmlEditor/templates/images/BioDivApp_Dummy_Foot.jpg") no-repeat left top;
+      background: url("../images//BioDivApp_Dummy_Foot.jpg") no-repeat left top;
       background-size: contain;
       background-color: rgb(0, 0, 0);
     }
@@ -319,26 +319,26 @@
     margin-right: 3px;
 
     &.xe-dummy-spinner{
-      background: url("/scripts/components/xmlEditor/templates/images/BioDivApp_Dummy_spinner.jpg") no-repeat left top;
+      background: url("../images/BioDivApp_Dummy_spinner.jpg") no-repeat left top;
       background-size: contain;
     }
     &.xe-dummy-textfield {
-      background: url("/scripts/components/xmlEditor/templates/images/BioDivApp_Dummy_textfield.jpg") no-repeat left top;
+      background: url("../images/BioDivApp_Dummy_textfield.jpg") no-repeat left top;
       background-size: contain;
     }
     &.xe-dummy-numerictextfield {
       height: 100px;
-      background: url("/scripts/components/xmlEditor/templates/images/BioDivApp_Dummy_numerictextfield.jpg") no-repeat left top;
+      background: url("../images/BioDivApp_Dummy_numerictextfield.jpg") no-repeat left top;
       background-size: contain;
     }
     &.xe-dummy-numberpicker {
       height: 100px;
-      background: url("/scripts/components/xmlEditor/templates/images/BioDivApp_Dummy_numberpicker.jpg") no-repeat left top;
+      background: url("../images/BioDivApp_Dummy_numberpicker.jpg") no-repeat left top;
       background-size: contain;
     }
     &.xe-dummy-buttonmatrix {
       height: 110px;
-      background: url("/scripts/components/xmlEditor/templates/images/BioDivApp_Dummy_buttonmatrix.jpg") no-repeat left top;
+      background: url("../images/BioDivApp_Dummy_buttonmatrix.jpg") no-repeat left top;
       background-size: contain;
     }
   }
