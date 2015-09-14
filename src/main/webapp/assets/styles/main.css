@@ -9229,7 +9229,7 @@ ul.atlas-list li div a {
   display: inline-block;
   width: 100%;
   height: 50px;
-  background: url("../images/BioDivApp_Dummy_Head.jpg") no-repeat left top;
+  background: url("../images/templates/BioDivApp_Dummy_Head.jpg") no-repeat left top;
   background-size: contain;
   background-color: #222222;
 }
@@ -9242,7 +9242,7 @@ ul.atlas-list li div a {
   display: inline-block;
   width: 100%;
   height: 50px;
-  background: url("../images//BioDivApp_Dummy_Foot.jpg") no-repeat left top;
+  background: url("../images/templates/BioDivApp_Dummy_Foot.jpg") no-repeat left top;
   background-size: contain;
   background-color: black;
 }
@@ -9356,30 +9356,30 @@ ul.atlas-list li div a {
 }
 /* line 321, ../../../scss/_xeXmlEditorStyles.scss */
 .xe-dummy.xe-dummy-spinner {
-  background: url("../images/BioDivApp_Dummy_spinner.jpg") no-repeat left top;
+  background: url("../images/templates/BioDivApp_Dummy_spinner.jpg") no-repeat left top;
   background-size: contain;
 }
 /* line 325, ../../../scss/_xeXmlEditorStyles.scss */
 .xe-dummy.xe-dummy-textfield {
-  background: url("../images/BioDivApp_Dummy_textfield.jpg") no-repeat left top;
+  background: url("../images/templates/BioDivApp_Dummy_textfield.jpg") no-repeat left top;
   background-size: contain;
 }
 /* line 329, ../../../scss/_xeXmlEditorStyles.scss */
 .xe-dummy.xe-dummy-numerictextfield {
   height: 100px;
-  background: url("../images/BioDivApp_Dummy_numerictextfield.jpg") no-repeat left top;
+  background: url("../images/templates/BioDivApp_Dummy_numerictextfield.jpg") no-repeat left top;
   background-size: contain;
 }
 /* line 334, ../../../scss/_xeXmlEditorStyles.scss */
 .xe-dummy.xe-dummy-numberpicker {
   height: 100px;
-  background: url("../images/BioDivApp_Dummy_numberpicker.jpg") no-repeat left top;
+  background: url("../images/templates/BioDivApp_Dummy_numberpicker.jpg") no-repeat left top;
   background-size: contain;
 }
 /* line 339, ../../../scss/_xeXmlEditorStyles.scss */
 .xe-dummy.xe-dummy-buttonmatrix {
   height: 110px;
-  background: url("../images/BioDivApp_Dummy_buttonmatrix.jpg") no-repeat left top;
+  background: url("../images/templates/BioDivApp_Dummy_buttonmatrix.jpg") no-repeat left top;
   background-size: contain;
 }
 
