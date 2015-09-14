@@ -7,10 +7,10 @@ angular.module('configeditorApp')
     .factory('xeXmlFileService', ['$http', 'Upload', function($http, Upload) {
         var srv ={};
 
-        srv._uploadURL = '/api/xmlfile/upload';
-        srv._loadSampelURL = '/api/xmlfile/id/1';
-        srv._downloadURL = "/api/xmlfile/download";
-        srv._validateURL = "/api/xmlfile/validate";
+        srv._uploadURL = 'api/xmlfile/upload';
+        srv._loadSampelURL = 'api/xmlfile/id/1';
+        srv._downloadURL = "api/xmlfile/download";
+        srv._validateURL = "api/xmlfile/validate";
 
         // Service data
         //-----------------------------------------------------------------
