@@ -20,6 +20,7 @@ How to build this Project
    
     - To run a war file in production mode the corresponding spring profile has to be aktivated 
    Exampel: "java -jar jhipster-0.0.1-SNAPSHOT.war --spring.profiles.active=prod"
+   or:  Add -Dspring.profiles.active=prod to your JAVA_OPTS when running your server
 
 If anything goes wrong, please go through each of the steps above again. If there are still problems try to find 
 the "node_modules" folder and delete it. Afterwards repeat the steps above once again.
