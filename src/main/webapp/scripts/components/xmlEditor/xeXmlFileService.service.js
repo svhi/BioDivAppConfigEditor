@@ -72,11 +72,19 @@ angular.module('configeditorApp')
                 var blob = new Blob([data], {type: "application/xml"});
                 var objectUrl = URL.createObjectURL(blob);
 
-                var hiddenElement = document.createElement('a');
-                hiddenElement.href = objectUrl;
-                hiddenElement.target = '_blank';
-                hiddenElement.download = srv._xmlFileModel.fileName;
-                hiddenElement.click();
+
+                    if (navigator.appVersion.toString().indexOf('Windows') > 0)
+                        window.navigator.msSaveBlob(blob, srv._xmlFileModel.fileName);
+                    else
+                    {
+                        var hiddenElement = document.createElement('a');
+                        hiddenElement.href = objectUrl;
+                        hiddenElement.target = '_blank';
+                        hiddenElement.download = srv._xmlFileModel.fileName;
+                        hiddenElement.click();
+                    }
+
+
 
                 URL.revokeObjectURL(objectUrl)
             });
