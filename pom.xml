@@ -185,6 +185,7 @@
                     <arguments>
                         <argument>--spring.profiles.active=dev</argument>
                     </arguments>
+                    <fork>false</fork>
                 </configuration>
             </plugin>
 			<plugin>
