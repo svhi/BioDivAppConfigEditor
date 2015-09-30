@@ -8,8 +8,8 @@ This project is part of a master thesis at the University of Applied Sciences Br
    1. Install compass (generates CSS from SASS-files (.scss)): http://compass-style.org/install/
       * Only needed if you intend to make changes in the layout !
    2. Install node.js: https://nodejs.org/en/download/
-   3. Execute the command "nmp install -g bower" to install bower  
-   4. Execute the command "nmp install -g grunt-cli" to install grunt
+   3. Execute the command "npm install -g bower" to install bower  
+   4. Execute the command "npm install -g grunt-cli" to install grunt
 3. Execute "mvn spring-boot:run" to start the project in an embedded tomcat via maven
    * or execute "mvn spring-boot:run" -Pprod to start the project in production mode 
    * or execute "mvn package" to create a war file (found in target folder) 
